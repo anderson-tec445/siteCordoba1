@@ -31,6 +31,29 @@
 
 <script type="text/javascript">
     $('#btn-enviar-email').click(function(event){
-        alert('Cadastrado com Sucesso!')
+        event.preventDefault();
+        
+        $.ajax({
+            url:"cadastrar.php",
+            method:"post",
+            data: $('form').serialize(),
+            dataType: "text",
+            success: function(msg){
+                if(msg.trim() === 'Cadastrado com Sucesso!'){
+                    
+                    $('#div-mensagem').addClass('text-success')
+                    $('#div-mensagem').text(msg);
+                    $('#btn-fechar-cadastrar').click();
+                    $('#email_login').val(document.getElementById('nome').value);
+                    $('#senha_login').val(document.getElementById('email').value);
+                    }
+                 else{
+                    $('#div-mensagem').addClass('text-danger')
+                    $('#div-mensagem').text(msg);
+                   
+
+                 }
+            }
+        })
     })
 </script>
