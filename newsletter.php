@@ -9,7 +9,7 @@
             <p><strong>Inscreva-se agora para ficar por dentro de todos os descontos e novidade da
                     Cordoba</strong></p>
         </div>
-        <form method="post">
+        <form method="post" action="sistema/cadastrar.php">
            <div class="form">
             
                 <div>
@@ -21,6 +21,7 @@
                     <label for="email">E-mail</label>
                     <input type="text" name="email" id="email" placeholder="Seu Email">
                 </div>
+                <small><div id="div-mensagem"></div></small>
                 <button name="btn-enviar-email" id="btn-enviar-email" type="button" class="site-btn">Enviar</button>
            </div>
         </form>
@@ -28,13 +29,12 @@
 </section>
 
 
-
 <script type="text/javascript">
     $('#btn-enviar-email').click(function(event){
         event.preventDefault();
         
         $.ajax({
-            url:"cadastrar.php",
+            url:"sistema/cadastrar.php",
             method:"post",
             data: $('form').serialize(),
             dataType: "text",
@@ -43,9 +43,9 @@
                     
                     $('#div-mensagem').addClass('text-success')
                     $('#div-mensagem').text(msg);
-                    $('#btn-fechar-cadastrar').click();
-                    $('#email_login').val(document.getElementById('nome').value);
-                    $('#senha_login').val(document.getElementById('email').value);
+                    // $('#btn-fechar-cadastrar').click();
+                    $('#nome').val(document.getElementById('nome').value);
+                    $('#email').val(document.getElementById('email').value);
                     }
                  else{
                     $('#div-mensagem').addClass('text-danger')

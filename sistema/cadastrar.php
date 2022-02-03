@@ -8,30 +8,30 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 $senha_crip = md5($senha);
 
-if($nome == ""){
-	echo 'Preencha o Campo nome!';
-	exit();
-}
+// if($nome == ""){
+// 	echo 'Preencha o Campo nome!';
+// 	exit();
+// }
 
-if($cpf == ""){
-	echo 'Preencha o Campo cpf!';
-	exit();
-}
+// if($cpf == ""){
+// 	echo 'Preencha o Campo cpf!';
+// 	exit();
+// }
 
-if($email == ""){
-	echo 'Preencha o Campo email!';
-	exit();
-}
+// if($email == ""){
+// 	echo 'Preencha o Campo email!';
+// 	exit();
+// }
 
-if($senha == ""){
-	echo 'Preencha o Campo senha!';
-	exit();
-}
+// if($senha == ""){
+// 	echo 'Preencha o Campo senha!';
+// 	exit();
+// }
 
-if($senha != $_POST['confirmar-senha']){
-	echo 'As senhas não coincidem!';
-	exit();
-}
+// if($senha != $_POST['confirmar-senha']){
+// 	echo 'As senhas não coincidem!';
+// 	exit();
+// }
 
 
 
