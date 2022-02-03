@@ -3,7 +3,7 @@ require_once("cabecalho.php");
 require_once("conexao.php");
 @session_start();
 ?>
-
+<!-- comentario -->
 <!-- Seção do banner -->
 <section id="inicio">
     <div class="swiper bannerprincipal mySwiper">
