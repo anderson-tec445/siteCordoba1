@@ -1,10 +1,7 @@
 <?php
 require_once("cabecalho.php");
 require_once("conexao.php");
-?>
-
-<?php
-require_once("cabecalho-busca.php");
+// require_once("cabecalho-busca.php");
 $tem_cor;
 ?>
 
@@ -54,37 +51,77 @@ if($promocao == 'Sim'){
 ?>
 
 <!-- Product Details Section Begin -->
-<section class="product-details spad">
+<section id="produto" class="product-details spad">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="product__details__pic">
-                    <div class="product__details__pic__item">
+        <div class="produto-content">
+            <div class="produto-galeria">
+                <div
+                    style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                    class="swiper mySwiper2"
+                    >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide produto">
                         <img class="product__details__pic__item--large"
-                        src="img/produtos/<?php echo $imagem ?>" alt="">
-                    </div>
-
-                    <div class="product__details__pic__slider owl-carousel">
-
+                            src="img/produtos/<?php echo $imagem ?>" alt="">
+                        </div>
                         <?php 
                          $query = $pdo->query("SELECT * FROM imagens where id_produto = '$id_produto' ");
                             $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                             for ($i=0; $i < count($res); $i++) { 
                               foreach ($res[$i] as $key => $value) {
-                              }
-
-                              $imagem_prod = $res[$i]['imagem'];
+                                 
+                                  $imagem_prod = $res[$i]['imagem'];
+                                }
+                                
                          ?>
+                            <div class='swiper-slide produto'>
+                                <img data-imgbigurl='img/produtos/detalhes/<?php echo $imagem_prod ?>'
+                                src='img/produtos/detalhes/<?php echo $imagem_prod ?>' alt=''>
+                                </div>
+                    <?php } ?>
+                        
+                        <!-- <div class="swiper-slide produto">
+                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                        </div>
+                        <div class="swiper-slide produto">
+                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                        </div> -->
+                        
+                    </div>
+                    <div class="swiper-button-next produto"></div>
+                    <div class="swiper-button-prev produto"></div>
+                </div>
+                <div thumbsSlider="" class="swiper myProductSlide">
+                    <div class="swiper-wrapper">
+                        <?php 
+                         $query = $pdo->query("SELECT * FROM imagens where id_produto = '$id_produto' ");
+                            $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
-                        <img data-imgbigurl="img/produtos/detalhes/<?php echo $imagem_prod ?>"
-                        src="img/produtos/detalhes/<?php echo $imagem_prod ?>" alt="">
-
+                            for ($i=0; $i < count($res); $i++) { 
+                              foreach ($res[$i] as $key => $value) {
+                                 
+                                  $imagem_prod = $res[$i]['imagem'];
+                                }
+                                
+                         ?>
+                            <div class='swiper-slide'>
+                                <img data-imgbigurl='img/produtos/detalhes/<?php echo $imagem_prod ?>'
+                                src='img/produtos/detalhes/<?php echo $imagem_prod ?>' alt=''>
+                                </div>
                     <?php } ?>
                        
                     </div>
                 </div>
             </div>
+            <div class="produto-info-box">
+                <h3><?php echo $nome ?></h3>
+                <span>código</span>
+                <div class="preco">
+                    <h2>R$ <?php echo $valor ?></h2>
+                    <p>ou 10x de R$ R$4,90 sem juros</p>
+                </div>
+                <!-- <div class="box-cor">
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3><?php echo $nome ?></h3>
@@ -97,18 +134,14 @@ if($promocao == 'Sim'){
                         <span>(18 reviews)</span>
                     </div>
                     <div class="product__details__price">R$ <?php echo $valor ?></div>
-                    <p><?php echo $descricao ?></p>
+                    <p><?php echo $descricao ?></p> -->
                     <form method="post" id="form-add">
                     <div class="product__details__quantity">
                         <input type="hidden" value="<?php echo $id_produto ?>" id="idproduto" name="idproduto">
                         <input type="hidden" value="Não" id="combo" name="combo">
                         <input type="hidden" value="carac" id="carac" name="carac">
-                        <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" name="quantidade" value="1">
-                            </div>
-                        </div>
                     </div>
+                    <!--
                     <button class="primary-btn" id="btn-add-car">ADD AO CARRINHO</button>
                     <small><div id="div-mensagem-prod"></div></small>
                     
@@ -162,16 +195,9 @@ if($promocao == 'Sim'){
                             </div>
 
                         <?php } ?>
-
+                               </div> -->
                          
-
-                        </div>
-
-                        </form>
-                        
-                     
-
-                       <?php if(@$tem_cor == 'Sim'){ ?>
+                               <?php if(@$tem_cor == 'Sim'){ ?>
                              <div class="mt-4">
                                 <?php 
 
@@ -206,162 +232,371 @@ if($promocao == 'Sim'){
                                  ?>
                            </div>
                           <?php } ?>
-                          
+
+
+
+
+
+                               <div class="tamanho">
+                        <p>Selecione o Tamanho</p>
+                        <div class="tamanhos">
+                            <input type="checkbox"class="input-tamanho-produto" name="tamanho-p" id="tamanho-p" value="p">
+                            <label for="tamanho-p"></label>
+                            <input type="checkbox"class="input-tamanho-produto" name="tamanho-m" id="tamanho-m" value="m">
+                            <label for="tamanho-m"></label>
+                            <input type="checkbox"class="input-tamanho-produto" name="tamanho-g" id="tamanho-g" value="g">
+                            <label for="tamanho-g"></label>
+                            <input type="checkbox"class="input-tamanho-produto" name="tamanho-gg" id="tamanho-gg" value="gg">
+                            <label for="tamanho-gg"></label>
+                        </div>
+
+                        <!-- div a mais? -->
+                        </div>
+                        <!-- <p><?php echo $descricao ?></p> -->
+                    <div class="product__details__quantity">
+                        <div class="quantity">
+                            <span>Quantidade</span>
+                            <div class="pro-qty">
+                                <input type="text" value="1" id="produto-quantidade">
+                            </div>
+                        </div>
+                    </div>
+                <div class="texto-frete">
+                    <p>
+                        <?php echo $texto_destaque ?>
+                    </p>
+                </div>
+                <div class="botao">
+                    <button id="btn-add-car">
+                    <img src="img/icons/cesto-produto.png" alt="icone cesto de produto">
+                    SELECIONE O TAMANHO
+                    </button>
+                    <small><div id="div-mensagem-prod"></div></small>
+                </div>
+
+                
+                <div class="produto-social">
+                    <p>Compartilhe</p>
+                    <div class="social-box">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <!-- <a href="#"><img src="img/icons/instagram-red.png" alt="Logo Instagram"></a> -->
+                        <a href="#"><img src="img/icons/logo-facebook.png" alt="Logo Facebook"></a>
+                    </div>
+                </div>
+                <div class="produto-calcular-frete">
+                    <p>Consultar Frete e Entrega</p>
+                    <input type="text" name="cep-calcular-frete" placeholder="13400-000">
+                    <span>Não sei meu frete</span>
+                    <button>CALCULAR FRETE</button>
+                </div>
+                
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section> 
+<section id="produto-descricao">
+    <div class="container">
+        <div class="produto-descricao">
+                <h3>Descrição do Produto</h3>
+                <p><?php echo $desc_longa ?></p>
+        </div>
+        <div class="produto-especificacao">
+            <h3>Especificações Técnicas</h3>
+            <table class="produto-tabela">
+                <tbody>
+                    <tr>
+                        <th>Categoria</th>
+                        <td><?php echo $sub_cat ?></td>
+                    </tr>
+                    <tr>
+                        <th>Cor</th>
+                        <td><?php echo "#####" ?></td>
+                    </tr>
+                    <tr>
+                        <th>Gênero</th>
+                        <td><?php echo "#####" ?></td>
+                    </tr>
+                    <tr>
+                        <th>Detalhes do produto</th>
+                        <td><?php echo $descricao ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="produto-relacionado">
+    <div class="container">
+        <h2>Quem viu este produto comprou estes também...</h2>
+         
+        <div class="product-container">
+                <div class="swiper myProducts">
+                    <div class="swiper-wrapper">
+                        <?php 
+                            $query = $pdo->query("SELECT * FROM produtos order by vendas desc limit 8 ");
+                            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                            for ($i=0; $i < count($res); $i++) { 
+                            foreach ($res[$i] as $key => $value) {
+                            }
+
+                            $nome = $res[$i]['nome'];
+                            $valor = $res[$i]['valor'];
+                            $nome_url = $res[$i]['nome_url'];
+                            $imagem = $res[$i]['imagem'];
+                            $promocao = $res[$i]['promocao'];
+                            $id = $res[$i]['id'];
+
+                            $valor = number_format($valor, 2, ',', '.');
+
+                            if($promocao == 'Sim'){
+                                $queryp = $pdo->query("SELECT * FROM promocoes where id_produto = '$id' ");
+                                $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
+                                $valor_promo = $resp[0]['valor'];
+                                $desconto = $resp[0]['desconto'];
+                                $valor_promo = number_format($valor_promo, 2, ',', '.');
+
+                        ?>
+    
+                            <div class="swiper-slide card">
+                                <div class="imgbox">
+                                    <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                    <ul class="action">
+                                        <!-- <li>
+                                            <i class="fas fa-heart"></i>
+                                            <span>Add aos Favoritos</span>
+                                        </li> -->
+                                        <li>
+                                            <i class="fas fa-shopping-cart"></i>
+                                            <span>Add ao Carrinho</span>
+                                        </li>
+                                        <li>
+                                        <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
+                                            <span>Ver Detalhes</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="content">
+                                    <div class="productName">
+                                        <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></h3>
+                                        <p>Masculino</p>
+                                    </div>
+                                    <div class="price-rating">
+                                        <h2>R$ <?php echo $valor ?></h2>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas grey fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php }else{ ?>
+
+
+                        <div class="swiper-slide card">
+                            <div class="imgbox">
+                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                <ul class="action">
+                                    <!-- <li>
+                                        <i class="fas fa-heart"></i>
+                                        <span>Add aos Favoritos</span>
+                                    </li> -->
+                                    <li>
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span>Add ao Carrinho</span>
+                                    </li>
+                                    <li>
+                                    <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
+                                        <span>Ver Detalhes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content">
+                                <div class="productName">
+                                    <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
+                                    <p>Masculino</p>
+                                </div>
+                                <div class="price-rating">
+                                    <h2>R$ <?php echo $valor ?></h2>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas grey fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php } } ?>
+                    </div>
+                    <!-- <div class="swiper-pagination"></div> -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            <a class="link-ver-todos" href="produtos.php">Ver Todos</a>
+    </div>
+</section>
+
+<section id="promocao">
+    <div class="container">
+        <div class="content">
+            <div class="headline">
+                <h4>Kits / Promoções</h4>
+                <div class="links">
+                    <?php 
+                        $query = $pdo->query("SELECT * FROM categorias order by nome asc ");
+                        $res = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                        for ($i=0; $i < count($res); $i++) { 
+                        foreach ($res[$i] as $key => $value) {
+                        }
+
+                        $nome = $res[$i]['nome'];
+
+                        $nome_url = $res[$i]['nome_url'];
+                        
+                        ?>
+                        <a href="sub-categoria-de-<?php echo $nome_url ?>"><?php echo $nome ?></a>
+
+                    <?php } ?>
+                </div>
+            </div>
+
+            <div class="product-container">
+                <div class="swiper myProducts">
+                    <div class="swiper-wrapper">
+
+                    <?php 
+                            $query = $pdo->query("SELECT * FROM produtos order by vendas desc limit 8 ");
+                            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                            for ($i=0; $i < count($res); $i++) { 
+                            foreach ($res[$i] as $key => $value) {
+                            }
+
+                            $nome = $res[$i]['nome'];
+                            $valor = $res[$i]['valor'];
+                            $nome_url = $res[$i]['nome_url'];
+                            $imagem = $res[$i]['imagem'];
+                            $promocao = $res[$i]['promocao'];
+                            $id = $res[$i]['id'];
+
+                            $valor = number_format($valor, 2, ',', '.');
+
+                            if($promocao == 'Sim'){
+                                $queryp = $pdo->query("SELECT * FROM promocoes where id_produto = '$id' ");
+                                $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
+                                $valor_promo = $resp[0]['valor'];
+                                $desconto = $resp[0]['desconto'];
+                                $valor_promo = number_format($valor_promo, 2, ',', '.');
+
+                        ?>
+    
+                            <div class="swiper-slide card">
+                                <div class="imgbox">
+                                    <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                    <ul class="action">
+                                        <!-- <li>
+                                            <i class="fas fa-heart"></i>
+                                            <span>Add aos Favoritos</span>
+                                        </li> -->
+                                        <li>
+                                            <i class="fas fa-shopping-cart"></i>
+                                            <span>Add ao Carrinho</span>
+                                        </li>
+                                        <li>
+                                        <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
+                                            <span>Ver Detalhes</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="content">
+                                    <div class="productName">
+                                        <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
+                                        <p>Masculino</p>
+                                    </div>
+                                    <div class="price-rating">
+                                        <h2>R$ <?php echo $valor ?></h2>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas grey fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php }else{ ?>
+
+
+                        <div class="swiper-slide card">
+                            <div class="imgbox">
+                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                <ul class="action">
+                                    <!-- <li>
+                                        <i class="fas fa-heart"></i>
+                                        <span>Add aos Favoritos</span>
+                                    </li> -->
+                                    <li>
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span>Add ao Carrinho</span>
+                                    </li>
+                                    <li>
+                                    <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
+                                        <span>Ver Detalhes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content">
+                                <div class="productName">
+                                    <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
+                                    <p>Masculino</p>
+                                </div>
+                                <div class="price-rating">
+                                    <h2>R$ <?php echo $valor ?></h2>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas grey fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php } } ?>
+                    </div>
+                    <!-- <div class="swiper-pagination"></div> -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            <a class="link-ver-todos" href="produtos.php">Ver Todos</a>
+        </div>
+        <div class="banner">
+            <img src="img/banner/banner-front-pequeno 1.png" alt="Banner">
+        </div>
+    </div>
+</section>              
                     
 
-                      
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="product__details__tab">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                            aria-selected="true">Descrição</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                            aria-selected="false">Informações</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                            aria-selected="false">Reviews <span>(1)</span></a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6>Informações do Produto</h6>
-                                <p><?php echo $desc_longa ?></p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-2" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6 class="mb-4">Informações do Produto</h6>
-                                <span class="mr-3"><b>Peso</b> <?php echo $peso ?> kg</span>
-                                <span class="mr-3"><b>Altura</b> <?php echo $altura ?> cm</span>
-                                <span class="mr-3"><b>Largura</b> <?php echo $largura ?> cm</span>
-                                <span class="mr-3"><b>Comprimento</b> <?php echo $comprimento ?> cm</span>
-                                <span class="mr-3"><b>Modelo</b> <?php echo $modelo ?></span>
-                                <span class="mr-3"><b>Estoque</b> <?php echo $estoque ?></span>
-                               
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-3" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
-                                <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                    Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                    Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                    sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                    eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                    sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                    diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                    ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                    Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                Proin eget tortor risus.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Product Details Section End -->
-
-<!-- Related Product Section Begin -->
-<section class="related-product">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title related__product__title">
-                    <h2>Produtos Relacionados</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-        
-            <div class="categories__slider owl-carousel">
-
-            <?php 
- $query = $pdo->query("SELECT * FROM produtos where sub_categoria = '$sub_cat' order by id desc  ");
- $res = $query->fetchAll(PDO::FETCH_ASSOC);
-
- for ($i=0; $i < count($res); $i++) { 
-  foreach ($res[$i] as $key => $value) {
-  }
-
-  $nome = $res[$i]['nome'];
-  $valor = $res[$i]['valor'];
-  $nome_url = $res[$i]['nome_url'];
-  $imagem = $res[$i]['imagem'];
-  $promocao = $res[$i]['promocao'];
-  $id = $res[$i]['id'];
-
-  $valor = number_format($valor, 2, ',', '.');
-
-  if($promocao == 'Sim'){
-    $queryp = $pdo->query("SELECT * FROM promocoes where id_produto = '$id' ");
-    $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
-    $valor_promo = $resp[0]['valor'];
-    $desconto = $resp[0]['desconto'];
-    $valor_promo = number_format($valor_promo, 2, ',', '.');
-
-    ?>
-
-   <div class="col-lg-3 col-md-4 col-sm-6 mix sapatos fresh-meat">
-                    <div class="product__discount__item">
-                        <div class="product__discount__item__pic set-bg"
-                        data-setbg="img/produtos/<?php echo $imagem ?>">
-                        <div class="product__discount__percent">-<?php echo $desconto ?>%</div>
-                        <ul class="product__item__pic__hover">
-                           <li><a href="produto-<?php echo $nome_url ?>"><i class="fa fa-eye"></i></a></li>
-                           <li><a href="#"><i class="fa fa-shopping-cart"></i></a>
-                           </ul>
-                       </div>
-                       <div class="product__discount__item__text">
-
-                        <h5><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h5>
-                        <div class="product__item__price">R$ <?php echo $valor_promo ?> <span>R$ <?php echo $valor ?></span></div>
-                    </div>
-                </div>
-            </div>
-
-   <?php }else{ ?>
-
-
-<div class="col-lg-3 col-md-4 col-sm-6 mix sapatos fresh-meat">
-    <div class="featured__item">
-        <div class="featured__item__pic set-bg" data-setbg="img/produtos/<?php echo $imagem ?>">
-            <ul class="featured__item__pic__hover">
-                <li><a href="produto-<?php echo $nome_url ?>"><i class="fa fa-eye"></i></a></li>
-                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-        </div>
-        <div class="featured__item__text">
-            <a href="produto-<?php echo $nome_url ?>"><h6><?php echo $nome ?></h6>
-                <h5>R$ <?php echo $valor ?></h5></a>
-            </div>
-        </div>
-    </div>
-
-<?php } } ?>
-
-    </div>
-
-        </div>
-    </div>
-</section>
-<!-- Related Product Section End -->
-
-
-
-
 <?php
-require_once("modal-carrinho.php");
+require_once("newsletter.php");
 require_once("rodape.php");
+require_once("modal-carrinho.php");
 ?>
 
 

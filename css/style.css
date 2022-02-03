@@ -1273,6 +1273,10 @@ section.institucional{
     margin: 15px 0;
 }
 
+.tamanho {
+    margin: 20px 0;
+}
+
 .inc.qtybtn,
 .dec.qtybtn{
     cursor: pointer;
@@ -1424,8 +1428,9 @@ section.institucional{
     height: 40px;
 }
 
-.produto-social .social-box a:nth-child(1) img{
-    filter: invert(1);
+.produto-social .social-box a:nth-child(1) i{
+    color: var(--dark-red);
+    font-size: 46px;
     margin-right: 15px;
 }
 .produto-calcular-frete{

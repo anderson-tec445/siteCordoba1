@@ -1,14 +1,9 @@
 <?php
-require_once("cabecalho.php");
+    require_once("cabecalho.php");
 ?>
-
-<?php
-require_once("cabecalho-busca.php");
-?>
-
 
 <!-- Product Section Begin -->
-<section class="product spad">
+<!-- <section class="product spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-5">
@@ -57,14 +52,12 @@ require_once("cabecalho-busca.php");
                     </div>
                 </div>
             </div>
-
-            <div class="sidebar__item">
-                <div class="latest-product__text">
-                    <h4>Lançamentos</h4>
-
-
-                    <div class="latest-product__slider owl-carousel">
-                        <div class="latest-prdouct__slider__item">
+        </div>
+    </div>
+</section> -->
+            <section id="lista-produtos">
+                <div class="container">
+                    <div class="product-container lista">
 
                             <?php 
                             $query = $pdo->query("SELECT * FROM produtos order by id desc limit 6 ");
@@ -93,40 +86,58 @@ require_once("cabecalho-busca.php");
                             ?>
 
 
-                            <a href="produto-<?php echo $nome_url ?>" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                        <div class="card">
+                            <div class="imgbox">
+                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                <ul class="action">
+                                    <!-- <li>
+                                        <i class="fas fa-heart"></i>
+                                        <span>Add aos Favoritos</span>
+                                    </li> -->
+                                    <li>
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span>Add ao Carrinho</span>
+                                    </li>
+                                    <li>
+                                    <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
+                                        <span>Ver Detalhes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content">
+                                <div class="productName">
+                                    <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
+                                    <p>Masculino</p>
                                 </div>
-                                <div class="latest-product__item__text">
-                                    <h6><?php echo $nome ?></h6>
-                                    <span>R$ <?php echo $valor ?></span>
+                                <div class="price-rating">
+                                    <h2>R$ <?php echo $valor ?></h2>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas grey fa-star"></i>
+                                    </div>
                                 </div>
-                            </a>
-
-                        <?php } ?>
-
-
-                    </div>
-
-
-                    <div class="latest-prdouct__slider__item">
-
-                        <?php 
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <?php 
                         $query = $pdo->query("SELECT * FROM produtos order by id desc limit 6,6 ");
                         $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                         for ($i=0; $i < count($res); $i++) { 
-                          foreach ($res[$i] as $key => $value) {
-                          }
+                            foreach ($res[$i] as $key => $value) {
+                            }
 
-                          $nome = $res[$i]['nome'];
-                          $valor = $res[$i]['valor'];
-                          $nome_url = $res[$i]['nome_url'];
-                          $imagem = $res[$i]['imagem'];
-                          $promocao = $res[$i]['promocao'];
-                          $id = $res[$i]['id'];
+                            $nome = $res[$i]['nome'];
+                            $valor = $res[$i]['valor'];
+                            $nome_url = $res[$i]['nome_url'];
+                            $imagem = $res[$i]['imagem'];
+                            $promocao = $res[$i]['promocao'];
+                            $id = $res[$i]['id'];
 
-                          if($promocao == 'Sim'){
+                            if($promocao == 'Sim'){
                             $queryp = $pdo->query("SELECT * FROM promocoes where id_produto = '$id' ");
                             $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
                             $valor = $resp[0]['valor'];
@@ -134,29 +145,43 @@ require_once("cabecalho-busca.php");
                         }else{
                             $valor = number_format($valor, 2, ',', '.');
                         }
-
-
-                        ?>
-
-
-                        <a href="produto-<?php echo $nome_url ?>" class="latest-product__item">
-                            <div class="latest-product__item__pic">
+                    ?>
+                        <div class="card">
+                            <div class="imgbox">
                                 <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                <ul class="action">
+                                    <!-- <li>
+                                        <i class="fas fa-heart"></i>
+                                        <span>Add aos Favoritos</span>
+                                    </li> -->
+                                    <li>
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span>Add ao Carrinho</span>
+                                    </li>
+                                    <li>
+                                    <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
+                                        <span>Ver Detalhes</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="latest-product__item__text">
-                                <h6><?php echo $nome ?></h6>
-                                <span>R$ <?php echo $valor ?></span>
+                            <div class="content">
+                                <div class="productName">
+                                    <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
+                                    <p>Masculino</p>
+                                </div>
+                                <div class="price-rating">
+                                    <h2>R$ <?php echo $valor ?></h2>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas grey fa-star"></i>
+                                    </div>
+                                </div>
                             </div>
-                        </a>
-
+                        </div>
                     <?php } ?>
-
-
-                </div>
-
-
-
-                <div class="latest-prdouct__slider__item">
 
                     <?php 
                     $query = $pdo->query("SELECT * FROM produtos order by id desc limit 12,6 ");
@@ -184,354 +209,197 @@ require_once("cabecalho-busca.php");
                     ?>
 
 
-                    <a href="produto-<?php echo $nome_url ?>" class="latest-product__item">
-                        <div class="latest-product__item__pic">
+                    <div class="card">
+                        <div class="imgbox">
                             <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                            <ul class="action">
+                                <!-- <li>
+                                    <i class="fas fa-heart"></i>
+                                    <span>Add aos Favoritos</span>
+                                </li> -->
+                                <li>
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Add ao Carrinho</span>
+                                </li>
+                                <li>
+                                <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
+                                    <span>Ver Detalhes</span>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="latest-product__item__text">
-                            <h6><?php echo $nome ?></h6>
-                            <span>R$ <?php echo $valor ?></span>
-                        </div>
-                    </a>
-
-                <?php } ?>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-</div>
-
-
- <div class="sidebar__item">
-      <div class="latest-product__text">
-          <h4>Combos</h4>
-
-
-           <div class="latest-product__slider owl-carousel">
-
-
-            <div class="latest-prdouct__slider__item">
-
-                <?php 
-                $query = $pdo->query("SELECT * FROM combos order by id desc limit 6 ");
-                $res = $query->fetchAll(PDO::FETCH_ASSOC);
-
-                for ($i=0; $i < count($res); $i++) { 
-                  foreach ($res[$i] as $key => $value) {
-                  }
-
-                  $nome = $res[$i]['nome'];
-                  $valor = $res[$i]['valor'];
-                  $nome_url = $res[$i]['nome_url'];
-                  $imagem = $res[$i]['imagem'];
-
-                  $valor = number_format($valor, 2, ',', '.');
-                  ?>
-
-
-                  <a href="produto-<?php echo $nome_url ?>" class="latest-product__item">
-                    <div class="latest-product__item__pic">
-                        <img src="img/combos/<?php echo $imagem ?>" alt="">
-                    </div>
-                    <div class="latest-product__item__text">
-                        <h6><?php echo $nome ?></h6>
-                        <span>R$ <?php echo $valor ?></span>
-                    </div>
-                </a>
-
-            <?php } ?>
-
-
-        </div>
-
-
-        <div class="latest-prdouct__slider__item">
-
-            <?php 
-            $query = $pdo->query("SELECT * FROM combos order by id desc limit 6,6 ");
-            $res = $query->fetchAll(PDO::FETCH_ASSOC);
-
-            for ($i=0; $i < count($res); $i++) { 
-              foreach ($res[$i] as $key => $value) {
-              }
-
-              $nome = $res[$i]['nome'];
-              $valor = $res[$i]['valor'];
-              $nome_url = $res[$i]['nome_url'];
-              $imagem = $res[$i]['imagem'];
-
-              $valor = number_format($valor, 2, ',', '.');
-              ?>
-
-
-              <a href="produto-<?php echo $nome_url ?>" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                    <img src="img/combos/<?php echo $imagem ?>" alt="">
-                </div>
-                <div class="latest-product__item__text">
-                    <h6><?php echo $nome ?></h6>
-                    <span>R$ <?php echo $valor ?></span>
-                </div>
-            </a>
-
-        <?php } ?>
-
-
-    </div>
-
-
-
-    <div class="latest-prdouct__slider__item">
-
-        <?php 
-        $query = $pdo->query("SELECT * FROM combos order by id desc limit 12,6 ");
-        $res = $query->fetchAll(PDO::FETCH_ASSOC);
-
-        for ($i=0; $i < count($res); $i++) { 
-          foreach ($res[$i] as $key => $value) {
-          }
-
-          $nome = $res[$i]['nome'];
-          $valor = $res[$i]['valor'];
-          $nome_url = $res[$i]['nome_url'];
-          $imagem = $res[$i]['imagem'];
-
-          $valor = number_format($valor, 2, ',', '.');
-          ?>
-
-
-          <a href="produto-<?php echo $nome_url ?>" class="latest-product__item">
-            <div class="latest-product__item__pic">
-                <img src="img/combos/<?php echo $imagem ?>" alt="">
-            </div>
-            <div class="latest-product__item__text">
-                <h6><?php echo $nome ?></h6>
-                <span>R$ <?php echo $valor ?></span>
-            </div>
-        </a>
-
-    <?php } ?>
-
-
-</div>
-
-
-</div>
-
-
-    </div>
-</div>
-
-
-</div>
-</div>
-
-
-<div class="col-lg-9 col-md-7">
-    <div class="product__discount">
-        <div class="section-title product__discount__title">
-            <h2>Promoções</h2><span class="ml-2"><a class="text-muted" href="promocoes.php" title="Ver todas as Promoções"><small><i class="fa fa-eye mr-1"></i>Ver Todas</small></a></span>
-        </div>
-        <div class="row">
-            <div class="product__discount__slider owl-carousel">
-
-             <?php 
-             $query = $pdo->query("SELECT * FROM produtos where promocao = 'Sim'");
-             $res = $query->fetchAll(PDO::FETCH_ASSOC);
-
-             for ($i=0; $i < count($res); $i++) { 
-              foreach ($res[$i] as $key => $value) {
-              }
-
-              $nome = $res[$i]['nome'];
-              $valor_old = $res[$i]['valor'];
-              $nome_url = $res[$i]['nome_url'];
-              $imagem = $res[$i]['imagem'];
-              $id = $res[$i]['id'];
-              $valo_old = number_format($valor_old, 2, ',', '.');
-
-              $queryp = $pdo->query("SELECT * FROM promocoes where id_produto = '$id' ");
-              $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
-              $valor = $resp[0]['valor'];
-              $desconto = $resp[0]['desconto'];
-              $valor = number_format($valor, 2, ',', '.');
-              ?>
-
-
-              <div class="col-lg-4">
-                <div class="product__discount__item">
-                    <div class="product__discount__item__pic set-bg"
-                    data-setbg="img/produtos/<?php echo $imagem ?>">
-                    <div class="product__discount__percent">-<?php echo $desconto ?>%</div>
-                    <ul class="product__item__pic__hover">
-                     <li><a href="produto-<?php echo $nome_url ?>"><i class="fa fa-eye"></i></a></li>
-                    
-                      <li><a href="" onclick="carrinhoModal('<?php echo $id ?>','Não')"><i class="fa fa-shopping-cart"></i></a>
-
-                     </ul>
-                 </div>
-                 <div class="product__discount__item__text">
-
-                    <h5><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h5>
-                    <div class="product__item__price">R$ <?php echo $valor ?> <span>R$ <?php echo $valor_old ?></span></div>
-                </div>
-            </div>
-        </div>
-
-    <?php } ?>
-
-
-
-</div>
-</div>
-</div>
-
-<div class="section-title product__discount__title">
-    <h2>Produtos Mais Vendidos</h2>
-    <span class="ml-2"><a class="text-muted" href="lista-produtos.php" title="Ver todos os Produtos"><small><i class="fa fa-eye mr-1"></i>Ver Todos</small></a></span>
-</div>
-
-<div class="row">
-
-   <?php 
-   $query = $pdo->query("SELECT * FROM produtos order by vendas desc limit 6");
-   $res = $query->fetchAll(PDO::FETCH_ASSOC);
-
-   for ($i=0; $i < count($res); $i++) { 
-      foreach ($res[$i] as $key => $value) {
-      }
-
-      $nome = $res[$i]['nome'];
-      $valor = $res[$i]['valor'];
-      $nome_url = $res[$i]['nome_url'];
-      $imagem = $res[$i]['imagem'];
-      $promocao = $res[$i]['promocao'];
-      $id = $res[$i]['id'];
-
-      $valor = number_format($valor, 2, ',', '.');
-
-      if($promocao == 'Sim'){
-        $queryp = $pdo->query("SELECT * FROM promocoes where id_produto = '$id' ");
-        $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
-        $valor_promo = $resp[0]['valor'];
-        $desconto = $resp[0]['desconto'];
-        $valor_promo = number_format($valor_promo, 2, ',', '.');
-
-        ?>
-
- <div class="col-lg-4">
-                <div class="product__discount__item">
-                    <div class="product__discount__item__pic set-bg"
-                    data-setbg="img/produtos/<?php echo $imagem ?>">
-                    <div class="product__discount__percent">-<?php echo $desconto ?>%</div>
-                    <ul class="product__item__pic__hover">
-                     <li><a href="produto-<?php echo $nome_url ?>"><i class="fa fa-eye"></i></a></li>
-                     
-
-                       <li><a href="" onclick="carrinhoModal('<?php echo $id ?>','Não')"><i class="fa fa-shopping-cart"></i></a>
-
-                     </ul>
-                 </div>
-                 <div class="product__discount__item__text">
-
-                    <h5><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h5>
-                    <div class="product__item__price">R$ <?php echo $valor_promo ?> <span>R$ <?php echo $valor ?></span></div>
-                </div>
-            </div>
-        </div>
-
-    <?php }else{ ?>
-
-
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/produtos/<?php echo $imagem ?>">
-                    <ul class="product__item__pic__hover">
-                        <li><a href="produto-<?php echo $nome_url ?>"><i class="fa fa-eye"></i></a></li>
-                        
-                        <li><a href="" onclick="carrinhoModal('<?php echo $id ?>','Não')"><i class="fa fa-shopping-cart"></i></a>
-
-                    </ul>
-                </div>
-                <div class="product__item__text">
-                    <a href="produto-<?php echo $nome_url ?>"><h6><?php echo $nome ?></h6>
-                        <h5><?php echo $valor ?></h5></a>
-                    </div>
-                </div>
-            </div>
-
-<?php } } ?>
-
-
-        </div>
-
-
-
-
-
-        <div class="section-title product__discount__title mt-4">
-            <h2>Combos Mais Vendidos</h2>
-            <span class="ml-2"><a class="text-muted" href="combos.php" title="Ver todos os Combos"><small><i class="fa fa-eye mr-1"></i>Ver Todos</small></a></span>
-        </div>
-
-        <div class="row">
-
-             <?php 
-                $query = $pdo->query("SELECT * FROM combos order by vendas desc limit 6 ");
-                $res = $query->fetchAll(PDO::FETCH_ASSOC);
-
-                for ($i=0; $i < count($res); $i++) { 
-                  foreach ($res[$i] as $key => $value) {
-                  }
-
-                  $nome = $res[$i]['nome'];
-                  $valor = $res[$i]['valor'];
-                  $nome_url = $res[$i]['nome_url'];
-                  $imagem = $res[$i]['imagem'];
-                  $id = $res[$i]['id'];
-
-                  $valor = number_format($valor, 2, ',', '.');
-                  ?>
-
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/combos/<?php echo $imagem ?>">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="combo-<?php echo $nome_url ?>"><i class="fa fa-eye"></i></a></li>
-                              <li><a href="" onclick="carrinhoModal('<?php echo $id ?>','Sim')"><i class="fa fa-shopping-cart"></i></a>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <a href="combo-<?php echo $nome_url ?>"><h6><?php echo $nome ?></h6>
-                            <h5><?php echo $valor ?></h5></a>
-                        </div>
-                    </div>
-                </div>
-
-
-<?php } ?>
-
-
-       </div>
-
-
-
+                        <div class="content">
+                            <div class="productName">
+                                <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
+                                <p>Masculino</p>
+                            </div>
+                            <div class="price-rating">
+                                <h2>R$ <?php echo $valor ?></h2>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas grey fa-star"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </section>
-                <!-- Product Section End -->
+
+                <?php } ?>
+        </div>
+</section>
+
+<section id="promocao">
+    <div class="container">
+        <div class="content">
+            <div class="headline">
+                <h4>Kits / Promoções</h4>
+                <div class="links">
+                    <?php 
+                        $query = $pdo->query("SELECT * FROM categorias order by nome asc ");
+                        $res = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                        for ($i=0; $i < count($res); $i++) { 
+                        foreach ($res[$i] as $key => $value) {
+                        }
+
+                        $nome = $res[$i]['nome'];
+
+                        $nome_url = $res[$i]['nome_url'];
+                        
+                        ?>
+                        <a href="sub-categoria-de-<?php echo $nome_url ?>"><?php echo $nome ?></a>
+
+                    <?php } ?>
+                </div>
+            </div>
+
+            <div class="product-container">
+                <div class="swiper myProducts">
+                    <div class="swiper-wrapper">
+
+                    <?php 
+                            $query = $pdo->query("SELECT * FROM produtos order by vendas desc limit 8 ");
+                            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                            for ($i=0; $i < count($res); $i++) { 
+                            foreach ($res[$i] as $key => $value) {
+                            }
+
+                            $nome = $res[$i]['nome'];
+                            $valor = $res[$i]['valor'];
+                            $nome_url = $res[$i]['nome_url'];
+                            $imagem = $res[$i]['imagem'];
+                            $promocao = $res[$i]['promocao'];
+                            $id = $res[$i]['id'];
+
+                            $valor = number_format($valor, 2, ',', '.');
+
+                            if($promocao == 'Sim'){
+                                $queryp = $pdo->query("SELECT * FROM promocoes where id_produto = '$id' ");
+                                $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
+                                $valor_promo = $resp[0]['valor'];
+                                $desconto = $resp[0]['desconto'];
+                                $valor_promo = number_format($valor_promo, 2, ',', '.');
+
+                        ?>
+    
+                            <div class="swiper-slide card">
+                                <div class="imgbox">
+                                    <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                    <ul class="action">
+                                        <!-- <li>
+                                            <i class="fas fa-heart"></i>
+                                            <span>Add aos Favoritos</span>
+                                        </li> -->
+                                        <li>
+                                            <i class="fas fa-shopping-cart"></i>
+                                            <span>Add ao Carrinho</span>
+                                        </li>
+                                        <li>
+                                        <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
+                                            <span>Ver Detalhes</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="content">
+                                    <div class="productName">
+                                        <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
+                                        <p>Masculino</p>
+                                    </div>
+                                    <div class="price-rating">
+                                        <h2>R$ <?php echo $valor ?></h2>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas grey fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php }else{ ?>
 
 
-                <?php
-                
-                require_once("rodape.php");
-                require_once("modal-carrinho.php");
-                
-                ?>
+                        <div class="swiper-slide card">
+                            <div class="imgbox">
+                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                <ul class="action">
+                                    <!-- <li>
+                                        <i class="fas fa-heart"></i>
+                                        <span>Add aos Favoritos</span>
+                                    </li> -->
+                                    <li>
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span>Add ao Carrinho</span>
+                                    </li>
+                                    <li>
+                                    <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
+                                        <span>Ver Detalhes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content">
+                                <div class="productName">
+                                    <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
+                                    <p>Masculino</p>
+                                </div>
+                                <div class="price-rating">
+                                    <h2>R$ <?php echo $valor ?></h2>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas grey fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php } } ?>
+                    </div>
+                    <!-- <div class="swiper-pagination"></div> -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            <a class="link-ver-todos" href="produtos.php">Ver Todos</a>
+        </div>
+        <div class="banner">
+            <img src="img/banner/banner-front-pequeno 1.png" alt="Banner">
+        </div>
+    </div>
+</section>
+
+<!-- FIM PROMOÇÃO -->
+
+
+
+<?php
+require_once("newsletter.php");
+require_once("rodape.php");
+require_once("modal-carrinho.php");
+?>
