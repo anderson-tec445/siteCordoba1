@@ -186,7 +186,7 @@ nav .icons i{
 }
 
 /* cards categoria */
-.container .categoria-box{
+.container-cordoba .categoria-box{
     position: relative;
     display: flex;
     justify-content: center;
@@ -274,11 +274,11 @@ nav .icons i{
     font-size: 14px;
 }
 
-#inicio .container .text-box{
+#inicio .container-cordoba .cordoba-text-box{
     text-align: center;
 }
 
-#inicio .container .text-box h3{
+#inicio .container-cordoba .cordoba-text-box h3{
     color: var(--dark-red);
     font-size: 36px;
     font-weight: 900;
@@ -286,14 +286,14 @@ nav .icons i{
     margin: 30px 0 10px 0;
 }
 
-#inicio .container .text-box p{
+#inicio .container-cordoba .cordoba-text-box p{
     color: var(--dark-red);
     font-size: 24px;
     font-weight: 300;
     text-align: center;
 }
 
-#inicio .container .text-box button{
+#inicio .container-cordoba .cordoba-text-box button{
     color: white;
     background-color: var(--dark-red);
     font-size: 20px;
@@ -314,26 +314,26 @@ nav .icons i{
     padding: 50px 0;
 }
 
-#destaques .container .headline{
+#destaques .container-cordoba .headline{
     text-align: center;
     padding-left: 20px;
 }
 
-#destaques .container .headline h4{
-    color: var(--dark-red);
-    font-size: 29px;
-    font-weight: 900;
-    margin-bottom: 0;
+#destaques .container-cordoba .headline h4{
+    color: var(--dark-red) !important;
+    font-size: 29px !important;
+    font-weight: 900 !important;
+    margin-bottom: 0 !important;
 }
 
-#destaques .container .headline .links a{
-    color: var(--dark-red);
-    font-size: 16px;
-    margin-right: 5px;
+#destaques .container-cordoba .headline .links a{
+    color: var(--dark-red) !important;
+    font-size: 16px !important;
+    margin-right: 5px !important;
     /* border-bottom: 1px solid transparent; */
 }
 
-#destaques .container .headline a:hover{
+#destaques .container-cordoba .headline a:hover{
     /* border-bottom: 1px solid var(--dark-red); */
 }
 
@@ -516,15 +516,15 @@ nav .icons i{
     color: var(--dark-red);
 }
 
-#promocao .container, 
-#destaques .container{
+#promocao .container-cordoba, 
+#destaques .container-cordoba{
     position: relative;
     display: flex;
     flex: 1;
     /* overflow: hidden; */
 }
 
-.container .content{
+.container-cordoba .content{
     position: relative;
     flex: 1;
 }
@@ -538,19 +538,19 @@ nav .icons i{
     padding: 45px 0 60px 0;
 }
 
-#promocao .container .content .headline{
+#promocao .container-cordoba .content .headline{
     width: 100%;
     text-align: center;
 }
 
-#promocao .container .content .headline h4{
+#promocao .container-cordoba .content .headline h4{
     position: relative;
     color: var(--dark-red);
     font-weight: 700;
     font-size: 36px;
 }
 
-#promocao .container .content .headline h4::after{
+#promocao .container-cordoba .content .headline h4::after{
     content: "";
     position: absolute;
     top: 50%;
@@ -560,7 +560,7 @@ nav .icons i{
     background-color: var(--dark-red);
 }
 
-#promocao .container .content .headline h4::before{
+#promocao .container-cordoba .content .headline h4::before{
     content: "";
     position: absolute;
     top: 50%;
@@ -654,7 +654,7 @@ nav .icons i{
     border-top: 1px solid var(--dark-red);
 }
 
-#info .container{
+#info .container-cordoba{
     display: flex;
     justify-content: space-around;
     align-items: flex-start;

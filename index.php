@@ -44,7 +44,7 @@ require_once("conexao.php");
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container-cordoba">
         <div class="categoria-box">
             <div class="categoria-card">
                 <div class="categoria-card-img">
@@ -66,7 +66,7 @@ require_once("conexao.php");
             </div>
         </div>
 
-        <div class="text-box">
+        <div class="cordoba-text-box">
             <h3>
             Conheça o verdadeiro significado de 
             <br>Estilo e Conforto!
@@ -80,7 +80,7 @@ require_once("conexao.php");
 <!-- DESTAQUE -->
 
 <section id="destaques">
-    <div class="container">
+    <div class="container-cordoba">
         <div class="banner">
             <img src="img/banner/banner-pix.png" alt="Banner de pagamento com pix">
         </div>
@@ -337,7 +337,7 @@ require_once("conexao.php");
 <!-- PROMOÇÃO -->
 
 <section id="promocao">
-    <div class="container">
+    <div class="container-cordoba">
         <div class="content">
             <div class="headline">
                 <h4>Kits / Promoções</h4>
@@ -486,5 +486,5 @@ require_once("conexao.php");
 <?php
 require_once("newsletter.php");
 require_once("rodape.php");
-require_once("modal-carrinho.php");
+// require_once("modal-carrinho.php");
 ?>

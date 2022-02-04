@@ -1,5 +1,5 @@
 <section id="info">
-            <div class="container">
+            <div class="container-cordoba">
                 <div class="institucional">
                     <h3>Institucional</h3>
                     <ul>

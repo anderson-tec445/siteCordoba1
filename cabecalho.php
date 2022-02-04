@@ -115,7 +115,7 @@ for ($i = 0; $i < count($dados); $i++) {
                 <a href="sistema/logout.php">Sair</a>
             <?php } ?>
         </div>
-        <nav class="container">
+        <nav class="container-cordoba">
             <div class="logo">
                 <a href="index.php"><img src="img/cordoba-logo.png" alt="Cordoba"></a>
             </div>

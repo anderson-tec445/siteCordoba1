@@ -149,5 +149,5 @@ $nome_pag = 'promocoes.php';
 
 <?php
 require_once("rodape.php");
-require_once("modal-carrinho.php");
+// require_once("modal-carrinho.php");
 ?>

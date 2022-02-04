@@ -258,7 +258,6 @@ $nome_carac = $res1[0]['nome'];
     });
 
     btnDown.click(function() {
-
       var oldValue = parseFloat(input.val());
       if (oldValue <= min) {
         var newVal = oldValue;
@@ -268,14 +267,7 @@ $nome_carac = $res1[0]['nome'];
       spinner.find("input").val(newVal);
       document.getElementById('txtquantidade').value = newVal;
       spinner.find("input").trigger("change");
-
-
-
     });
-
-
-
-
   });
 </script>
 

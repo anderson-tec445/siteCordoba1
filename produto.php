@@ -3,15 +3,9 @@ require_once("cabecalho.php");
 require_once("conexao.php");
 // require_once("cabecalho-busca.php");
 $tem_cor;
-?>
-
-<?php 
 //recuperar o nome do produto para filtrar os dados dele
 $produto_get = @$_GET['nome'];
 
-?>
-
-<?php 
 //trazer dados do produto
 $query = $pdo->query("SELECT * FROM produtos where nome_url = '$produto_get' ");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -44,15 +38,16 @@ if($promocao == 'Sim'){
     $queryp = $pdo->query("SELECT * FROM promocoes where id_produto = '$id_produto' ");
     $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
     $valor = $resp[0]['valor'];
-    $desconto = $resp[0]['desconto'];
-    
- }
- $valor = number_format($valor, 2, ',', '.');
+    $desconto = $resp[0]['desconto'];   
+}
+
+$valor = number_format($valor, 2, ',', '.');
+
 ?>
 
 <!-- Product Details Section Begin -->
 <section id="produto" class="product-details spad">
-    <div class="container">
+    <div class="container-cordoba">
         <div class="produto-content">
             <div class="produto-galeria">
                 <div
@@ -65,21 +60,19 @@ if($promocao == 'Sim'){
                             src="img/produtos/<?php echo $imagem ?>" alt="">
                         </div>
                         <?php 
-                         $query = $pdo->query("SELECT * FROM imagens where id_produto = '$id_produto' ");
+                            $query = $pdo->query("SELECT * FROM imagens where id_produto = '$id_produto' ");
                             $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                             for ($i=0; $i < count($res); $i++) { 
                               foreach ($res[$i] as $key => $value) {
-                                 
                                   $imagem_prod = $res[$i]['imagem'];
                                 }
-                                
-                         ?>
+                        ?>
                             <div class='swiper-slide produto'>
                                 <img data-imgbigurl='img/produtos/detalhes/<?php echo $imagem_prod ?>'
                                 src='img/produtos/detalhes/<?php echo $imagem_prod ?>' alt=''>
-                                </div>
-                    <?php } ?>
+                            </div>
+                        <?php } ?>
                         
                         <!-- <div class="swiper-slide produto">
                         <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
@@ -121,36 +114,15 @@ if($promocao == 'Sim'){
                     <h2>R$ <?php echo $valor ?></h2>
                     <p>ou 10x de R$ R$4,90 sem juros</p>
                 </div>
-                <!-- <div class="box-cor">
-            <div class="col-lg-6 col-md-6">
-                <div class="product__details__text">
-                    <h3><?php echo $nome ?></h3>
-                    <div class="product__details__rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <span>(18 reviews)</span>
-                    </div>
-                    <div class="product__details__price">R$ <?php echo $valor ?></div>
-                    <p><?php echo $descricao ?></p> -->
-                    <form method="post" id="form-add">
+                <form method="post" id="form-add">
                     <div class="product__details__quantity">
                         <input type="hidden" value="<?php echo $id_produto ?>" id="idproduto" name="idproduto">
                         <input type="hidden" value="Não" id="combo" name="combo">
                         <input type="hidden" value="carac" id="carac" name="carac">
                     </div>
                     <!--
-                    <button class="primary-btn" id="btn-add-car">ADD AO CARRINHO</button>
-                    <small><div id="div-mensagem-prod"></div></small>
-                    
-   
-                    
-                   
                         <div class="row mt-4 ml-1">
-                            <?php 
-
+                            ?php 
                                $query2 = $pdo->query("SELECT * from carac_prod where id_prod = '$id_produto' ");
                                 $res2 = $query2->fetchAll(PDO::FETCH_ASSOC);
                                 for ($i=0; $i < count($res2); $i++) { 
@@ -160,17 +132,17 @@ if($promocao == 'Sim'){
                                     $id_carac = $res2[$i]['id_carac'];
                                     $id_carac_prod = $res2[$i]['id'];
                                     $query3 = $pdo->query("SELECT * from carac where id = '$id_carac' ");
-                                $res3 = $query3->fetchAll(PDO::FETCH_ASSOC);
-                                $nome_carac = $res3[0]['nome'];
-                                if($nome_carac == 'Cor'){
-                                    @$tem_cor = 'Sim';
-                                }
-                             ?>
+                                    $res3 = $query3->fetchAll(PDO::FETCH_ASSOC);
+                                    $nome_carac = $res3[0]['nome'];
+                                    if($nome_carac == 'Cor'){
+                                        @$tem_cor = 'Sim';
+                                    }
+                            ?>
                             <div class="mr-3 mt-2">
                                 
                                  <span>
                                      <select class='form-control form-control-sm' name='<?php echo $i ?>' id='<?php echo $i ?>'>";
-                                <?php 
+                                ?php 
 
                                  echo "<option value='0' >Selecionar " . $nome_carac . "</option>"; 
                                
@@ -194,65 +166,63 @@ if($promocao == 'Sim'){
                                 </span>
                             </div>
 
-                        <?php } ?>
+                        ?php } ?
                                </div> -->
                          
-                               <?php if(@$tem_cor == 'Sim'){ ?>
-                             <div class="mt-4">
+                        <?php if(@$tem_cor == 'Sim'){ ?>
+                            <div class="mt-4">
                                 <?php 
-
                                     $query2 = $pdo->query("SELECT * from carac_prod where id_prod = '$id_produto' ");
-                                $res2 = $query2->fetchAll(PDO::FETCH_ASSOC);
-                                for ($i=0; $i < count($res2); $i++) { 
-                                    foreach ($res2[$i] as $key => $value) {
+                                    $res2 = $query2->fetchAll(PDO::FETCH_ASSOC);
+                                    for ($i=0; $i < count($res2); $i++) { 
+                                        foreach ($res2[$i] as $key => $value) {
                                     }
 
-                                    $id_carac = $res2[$i]['id_carac'];
-                                    $id_carac_prod = $res2[$i]['id'];
-                                    $query3 = $pdo->query("SELECT * from carac where id = '$id_carac' ");
-                                $res3 = $query3->fetchAll(PDO::FETCH_ASSOC);
-                                $nome_carac = $res3[0]['nome'];
-                                if($nome_carac == 'Cor'){
-                                    
-                                     $query4 = $pdo->query("SELECT * from carac_itens where id_carac_prod = '$id_carac_prod'");
-                                $res4 = $query4->fetchAll(PDO::FETCH_ASSOC);
-                                for ($i2=0; $i2 < count($res4); $i2++) { 
-                                    foreach ($res4[$i2] as $key => $value) {
+                                        $id_carac = $res2[$i]['id_carac'];
+                                        $id_carac_prod = $res2[$i]['id'];
+                                        $query3 = $pdo->query("SELECT * from carac where id = '$id_carac' ");
+                                        $res3 = $query3->fetchAll(PDO::FETCH_ASSOC);
+                                        $nome_carac = $res3[0]['nome'];
+                                        
+                                        if($nome_carac == 'Cor'){
+                                            
+                                            $query4 = $pdo->query("SELECT * from carac_itens where id_carac_prod = '$id_carac_prod'");
+                                            $res4 = $query4->fetchAll(PDO::FETCH_ASSOC);
+                                            for ($i2=0; $i2 < count($res4); $i2++) { 
+                                                foreach ($res4[$i2] as $key => $value) {
+                                                }
+
+                                                echo "<span class='mr-3'><i class='fa fa-circle mr-1' style='color:".$res4[$i2]['valor_item']."'></i>" .$res4[$i2]['nome']."</span>";
+
+                                            }
+                                        
+
+                                        }
                                     }
 
-                                    echo "<span class='mr-3'><i class='fa fa-circle mr-1' style='color:".$res4[$i2]['valor_item']."'></i>" .$res4[$i2]['nome']."</span>";
 
-                                }
-                                
-
-                            }
-                        }
-
-
-                                 ?>
-                           </div>
-                          <?php } ?>
+                                ?>
+                            </div>
+                        <?php } ?>
 
 
 
 
 
-                               <div class="tamanho">
-                        <p>Selecione o Tamanho</p>
-                        <div class="tamanhos">
-                            <input type="checkbox"class="input-tamanho-produto" name="tamanho-p" id="tamanho-p" value="p">
-                            <label for="tamanho-p"></label>
-                            <input type="checkbox"class="input-tamanho-produto" name="tamanho-m" id="tamanho-m" value="m">
-                            <label for="tamanho-m"></label>
-                            <input type="checkbox"class="input-tamanho-produto" name="tamanho-g" id="tamanho-g" value="g">
-                            <label for="tamanho-g"></label>
-                            <input type="checkbox"class="input-tamanho-produto" name="tamanho-gg" id="tamanho-gg" value="gg">
-                            <label for="tamanho-gg"></label>
+                        <div class="tamanho">
+                            <p>Selecione o Tamanho</p>
+                            <div class="tamanhos">
+                                <input type="checkbox"class="input-tamanho-produto" name="tamanho-p" id="tamanho-p" value="p">
+                                <label for="tamanho-p"></label>
+                                <input type="checkbox"class="input-tamanho-produto" name="tamanho-m" id="tamanho-m" value="m">
+                                <label for="tamanho-m"></label>
+                                <input type="checkbox"class="input-tamanho-produto" name="tamanho-g" id="tamanho-g" value="g">
+                                <label for="tamanho-g"></label>
+                                <input type="checkbox"class="input-tamanho-produto" name="tamanho-gg" id="tamanho-gg" value="gg">
+                                <label for="tamanho-gg"></label>
+                            </div>
                         </div>
 
-                        <!-- div a mais? -->
-                        </div>
-                        <!-- <p><?php echo $descricao ?></p> -->
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <span>Quantidade</span>
@@ -592,11 +562,13 @@ if($promocao == 'Sim'){
 <?php
 require_once("newsletter.php");
 require_once("rodape.php");
-require_once("modal-carrinho.php");
+// require_once("modal-carrinho.php");
 ?>
 
 
-<script type="text/javascript">
+
+<!-- Precisa verificar o bug que não para de add + e -  -->
+<!-- <script type="text/javascript">
     var proQty = $('.pro-qty');
     proQty.prepend('<span class="dec qtybtn">-</span>');
     proQty.append('<span class="inc qtybtn">+</span>');
@@ -615,6 +587,45 @@ require_once("modal-carrinho.php");
         }
         $button.parent().find('input').val(newVal);
     });
+</script> -->
+
+<script type="text/javascript">
+  jQuery('<span class="dec qtybtn">-</span>').insertBefore('.pro-qty input'); 
+  jQuery('<span class="inc qtybtn">+</span>').insertAfter('.pro-qty input'); 
+  jQuery('.pro-qty').each(function() {
+    var spinner = jQuery(this),
+    input = spinner.find('input[type="text"]'),
+    btnUp = spinner.find('.inc'),
+    btnDown = spinner.find('.dec'),
+    min = input.attr('min'),
+    max = input.attr('max');
+
+    btnUp.click(function() {
+      var oldValue = parseFloat(input.val());
+      if (oldValue >= max) {
+        var newVal = oldValue;
+      } else {
+        var newVal = oldValue + 1;
+      }
+      spinner.find("input").val(newVal);
+      document.getElementById('txtquantidade').value = newVal;
+      spinner.find("input").trigger("change");
+
+
+    });
+
+    btnDown.click(function() {
+      var oldValue = parseFloat(input.val());
+      if (oldValue <= min) {
+        var newVal = oldValue;
+      } else {
+        var newVal = oldValue - 1;
+      }
+      spinner.find("input").val(newVal);
+      document.getElementById('txtquantidade').value = newVal;
+      spinner.find("input").trigger("change");
+    });
+  });
 </script>
 
 
@@ -634,8 +645,15 @@ require_once("modal-carrinho.php");
             success: function(msg){
                 if(msg.trim() === 'Cadastrado com Sucesso!!'){
                     
-                    window.location='carrinho.php';
-                                         
+                    // window.location='Modal_carrinho.php';
+                    
+                    // alert('Produto Adicionado ao carrinho!');
+                    toggleCarrinho();
+                    atualizarCarrinho();
+                    
+                    // setTimeout(() => {
+                        // window.location.reload(true);
+                            // }, 700)
                     }
                  else{
                     console.log(msg);
@@ -643,7 +661,7 @@ require_once("modal-carrinho.php");
                     $('#div-mensagem-prod').text(msg);
 
                  }
-            }
+            },
         })
     })
 </script>

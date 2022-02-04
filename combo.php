@@ -246,7 +246,7 @@ $valor = number_format($valor, 2, ',', '.');
 
 
     <?php
-    require_once("modal-carrinho.php");
+    // require_once("modal-carrinho.php");
     require_once("rodape.php");
     ?>
 

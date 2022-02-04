@@ -4,93 +4,41 @@
         <h6>CARRINHO</h6>
     </div>
     <div class="carrinho-content">
-    <?php
+        <?php
         if (@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Cliente') {
             echo "
-                <div class='carrinho-vazio'>
-                    <h3>
-                        Você precisa fazer Login para adicionar produtos  ao carrinho!! 
-                    </h3>
-                    <button class='btn-forms'><a class='text-info' href='sistema'>Login</a></button>
-                </div>";
+                    <div class='carrinho-vazio'>
+                        <h3>
+                            Você precisa fazer Login para adicionar produtos  ao carrinho!! 
+                        </h3>
+                        <button class='btn-forms'><a class='text-info' href='sistema'>Login</a></button>
+                    </div>";
         } else {
 
             echo "<div id='listar-carrinho'></div>";
         }
-    ?>
+        ?>
 
         <!-- carrinho-card = cada produto -->
-        <h5 class="cart-inline-title">Carrinho: <span id="total_itens" class="ml-1"> </span>  Produto(s)</h5>
+        <h5 class="cart-inline-title">Carrinho: <span id="total_itens" class="ml-1"> </span> Produto(s)</h5>
         <input type="hidden" id="txtquantidade">
 
-            <div class="total-compra">
-                <h3>Total</h3>
-                <h3 id="valor_total">R$ </h3>
-            </div>
-        
+        <div class="total-compra">
+            <h3>Total</h3>
+            <h3 id="valor_total">R$ </h3>
+        </div>
+
     </div>
-    <!-- <form id="form" method="POST"> -->
-        <!-- <div class="modal-body"> -->
-            <!-- Modal -->
-            <!-- <div class="modal fade" id="modal-caract" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
+    <div class="frete-carrinho">
+        <p><?php echo $texto_destaque ?></p>
+        <input type="text" name="calcular-frete" placeholder="Insira o CEP">
+        <button>Calcular Frete</button>
+    </div>
 
-
-                            <h5 class="cart-inline-title">Características do Produto</h5>
-                            <input type="hidden" id="txtquantidade">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form id="form" method="POST">
-                            <div class="modal-body">
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <div id='listar-caract'></div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div id='div-listar-carac-itens'></div>
-                                    </div>
-
-
-
-
-
-                                    <small>
-                                        <div align="center" id="mensagem-caract"></div>
-                                    </small>
-
-
-
-                                </div>
-
-
-
-
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </form>
- -->
-
-
-
-            <div class="frete-carrinho">
-                <p><?php echo $texto_destaque ?></p>
-                <input type="text" name="calcular-frete" placeholder="Insira o CEP">
-                <button>Calcular Frete</button>
-            </div>
-
-            <div class="menu-carrinho">
-                <a href="produtos.php">Continuar Comprando</a>
-                <a href="checkout.php">Finalizar Compra</a>
-            </div>
+    <div class="menu-carrinho">
+        <a href="produtos.php">Continuar Comprando</a>
+        <a href="checkout.php">Finalizar Compra</a>
+    </div>
 </section>
 
 
@@ -150,7 +98,6 @@
 
 <script>
     function atualizarCarrinho() {
-
         $.ajax({
             url: "carrinho/listar-carrinho.php",
             method: "post",
@@ -165,11 +112,8 @@
 
 <script>
     function deletarCarrinho(id) {
-
         event.preventDefault();
-
         $.ajax({
-
             url: "carrinho/excluir-carrinho.php",
             method: "post",
             data: {
@@ -182,19 +126,12 @@
 
                 if (mensagem == 'Excluido com Sucesso!!') {
                     atualizarCarrinho();
-                    //$("#modal-carrinho").modal("show");
-
                 } else {
 
-
                 }
-
                 $('#mensagem').text(mensagem)
-
             },
-
         })
-
     }
 </script>
 
@@ -202,12 +139,9 @@
 
 <script type="text/javascript">
     function editarCarrinho(id) {
-
         var quantidade = document.getElementById('txtquantidade').value;
         event.preventDefault();
-
         $.ajax({
-
             url: "carrinho/editar-carrinho.php",
             method: "post",
             data: {
@@ -225,16 +159,10 @@
 
                 } else {
 
-
                 }
-
                 $('#mensagem').text(mensagem)
-
             },
-
         })
-
-
     }
 </script>
 
@@ -258,17 +186,10 @@
             },
             dataType: "text",
             success: function(mensagem) {
-
                 $('#mensagem-caract').removeClass()
-                $("#modal-caract").modal("show");
+                // $("#modal-caract").modal("show");
                 $('#listar-caract').html(mensagem)
-
-
-
             },
-
         })
-
-
     }
 </script>

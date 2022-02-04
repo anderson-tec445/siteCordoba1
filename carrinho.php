@@ -2,10 +2,6 @@
 require_once("cabecalho.php");
 ?>
 
-<?php
-require_once("cabecalho-busca.php");
-?>
-
 
 <!-- Shoping Cart Section Begin -->
 <section class="shoping-cart spad bg-light">

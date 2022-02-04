@@ -138,5 +138,5 @@ $nome_pag = 'combos.php';
 <?php
 
 require_once("rodape.php");
-require_once("modal-carrinho.php");
+// require_once("modal-carrinho.php");
 ?>
