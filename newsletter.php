@@ -21,7 +21,7 @@
                     <label for="email">E-mail</label>
                     <input type="text" name="email" id="email" placeholder="Seu Email">
                 </div>
-                <small><div id="div-mensagem"></div></small>
+                <!--<small><div id="div-mensagem"></div></small> -->
                 <button name="btn-enviar-email" id="btn-enviar-email" type="button" class="site-btn">Enviar</button>
            </div>
         </form>

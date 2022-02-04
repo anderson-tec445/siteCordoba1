@@ -5,83 +5,292 @@
     </div>
     <div class="carrinho-content">
 
-            <!-- Essa parte precisa ser colocado em um if, se o carrinho estiver 
+    <!-- Euuu QQQQ -->
+
+        <!-- Essa parte precisa ser colocado em um if, se o carrinho estiver 
             vazio ele vai aparecer, se tiver produto no carrinho ele não deve 
             aparecer  -->
         <div class="carrinho-vazio">
-            <h3>Não existem produtos no carrinho</h3>
+            
             <button class="btn-forms">Ir para compras</button>
         </div>
 
         <!-- carrinho-card = cada produto -->
-        <div class="carrinho-card">
-            <div class="info-produto">
-                <div class="nome-produto">
-                    <p>
-                        Cueca Super Conforto de Polyester e Lã de Ovelha.
-                    </p>
-                </div>
+        <h5 class="cart-inline-title">Carrinho:<span id="total_itens" class="ml-1"> </span> Produto(s)</h5>
+        <input type="hidden" id="txtquantidade">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form id="form" method="POST">
+        <div class="modal-body">
 
-                <div class="detalhe-produto">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>tamanho</th>
-                                <th>Valor</th>
-                                <th>Quantidade</th>
-                                <th>Total</th>
-                                <th></th>
-                            </tr>
-                            
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p>P</p>
-                                </td>
-                                <td>
-                                    <div class="preco">
-                                        <p>R$49,90</p>
+            <?php
+            if (@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Cliente') {
+                echo "Você precisa fazer Login para adicionar produtos ao carrinho!! Clique <a class='text-info' href='sistema'>aqui</a> para efetuar Login!";
+            } else {
+                echo "<div id='listar-carrinho'></div>";
+            }
+            ?>
+
+            <?php
+            if (@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Cliente') {
+                echo "Você precisa fazer Login para adicionar produtos ao carrinho!! Clique <a class='text-info' href='sistema'>aqui</a> para efetuar Login!";
+            } else {
+                echo "<div id='listar-carrinho'></div>";
+            }
+            ?>
+
+
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal-caract" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+
+                            <h5 class="cart-inline-title">Características do Produto</h5>
+                            <input type="hidden" id="txtquantidade">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form id="form" method="POST">
+                            <div class="modal-body">
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div id='listar-caract'></div>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1" id="produto-quantidade">
-                                        </div>
+
+                                    <div class="col-md-6">
+                                        <div id='div-listar-carac-itens'></div>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="preco">
-                                        <p>R$49,90</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a href="#"><i class="fas fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>                   
+
+
+
+
+
+                                    <small>
+                                        <div align="center" id="mensagem-caract"></div>
+                                    </small>
+
+
+
+                                </div>
+
+
+
+
+
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="img-produto">
-                <img src="img/produtos/item-1.png" alt="">
-            </div>
-        </div><!-- fim do card produto -->
 
-        <div class="total-compra">
-            <h3>Total</h3>
-            <h3>R$ 55,00</h3>
-        </div>
-    </div>
-    <div class="frete-carrinho">
-        <p><?php echo $texto_destaque ?></p>
-        <input type="text" name="calcular-frete" placeholder="Insira o CEP">
-        <button>Calcular Frete</button>
-    </div>
-    
-    <div class="menu-carrinho">
-        <a href="#">Continuar Comprando</a>
-        <a href="#">Finalizar Compra</a>
-    </div>
+
+
+
+            <div class="frete-carrinho">
+                <p><?php echo $texto_destaque ?></p>
+                <input type="text" name="calcular-frete" placeholder="Insira o CEP">
+                <button>Calcular Frete</button>
+            </div>
+
+            <div class="menu-carrinho">
+                <a href="#">Continuar Comprando</a>
+                <a href="#">Finalizar Compra</a>
+            </div>
 </section>
+
+
+
+
+
+
+
+<!--AJAX PARA INSERÇÃO DOS DADOS VINDO DE UMA FUNÇÃO -->
+<script>
+    function carrinhoModal(idproduto, combo) {
+
+
+        event.preventDefault();
+        console.log(combo);
+        $.ajax({
+
+            url: "carrinho/inserir-carrinho.php",
+            method: "post",
+            data: {
+                idproduto,
+                combo
+            },
+            dataType: "text",
+            success: function(mensagem) {
+
+                $('#mensagem').removeClass()
+
+                if (mensagem == 'Cadastrado com Sucesso!!') {
+                    atualizarCarrinho();
+                    $("#modalCarrinho").modal("show");
+                    //$('#mensagem').text(mensagem);
+                } else {
+                    $("#modalCarrinho").modal("show");
+                    $('#mensagem').text(mensagem);
+                }
+
+
+
+            },
+
+        })
+    }
+</script>
+
+
+
+
+
+
+<!--AJAX PARA LISTAR OS DADOS -->
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        atualizarCarrinho();
+
+
+
+    })
+</script>
+
+
+
+
+<script>
+    function atualizarCarrinho() {
+
+        $.ajax({
+            url: "carrinho/listar-carrinho.php",
+            method: "post",
+            data: $('#frm').serialize(),
+            dataType: "html",
+            success: function(result) {
+                $('#listar-carrinho').html(result)
+
+            },
+        })
+    }
+</script>
+
+
+
+<script>
+    function deletarCarrinho(id) {
+
+        event.preventDefault();
+
+        $.ajax({
+
+            url: "carrinho/excluir-carrinho.php",
+            method: "post",
+            data: {
+                id
+            },
+            dataType: "text",
+            success: function(mensagem) {
+
+                $('#mensagem').removeClass()
+
+                if (mensagem == 'Excluido com Sucesso!!') {
+                    atualizarCarrinho();
+                    //$("#modal-carrinho").modal("show");
+
+                } else {
+
+
+                }
+
+                $('#mensagem').text(mensagem)
+
+            },
+
+        })
+
+    }
+</script>
+
+
+
+<script type="text/javascript">
+    function editarCarrinho(id) {
+
+        var quantidade = document.getElementById('txtquantidade').value;
+        event.preventDefault();
+
+        $.ajax({
+
+            url: "carrinho/editar-carrinho.php",
+            method: "post",
+            data: {
+                id,
+                quantidade
+            },
+            dataType: "text",
+            success: function(mensagem) {
+
+                $('#mensagem').removeClass()
+
+                if (mensagem == 'Editado com Sucesso!!') {
+                    atualizarCarrinho();
+                    //$("#modal-carrinho").modal("show");
+
+                } else {
+
+
+                }
+
+                $('#mensagem').text(mensagem)
+
+            },
+
+        })
+
+
+    }
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function addCarac(id, id_carrinho) {
+
+        event.preventDefault();
+
+        $.ajax({
+
+            url: "carrinho/carac-produtos.php",
+            method: "post",
+            data: {
+                id,
+                id_carrinho
+            },
+            dataType: "text",
+            success: function(mensagem) {
+
+                $('#mensagem-caract').removeClass()
+                $("#modal-caract").modal("show");
+                $('#listar-caract').html(mensagem)
+
+
+
+            },
+
+        })
+
+
+    }
+</script>

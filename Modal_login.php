@@ -20,35 +20,66 @@
             <p>Se Cadastre e Fique por
             Dentro!!!</p>
             <div class="modal-form">
-                <form action="#">
+                <form method="post">
                     <div class="nome">
                         <label for="registro-nome">*Nome</label>
-                        <input type="text" name="nome" id="registro-nome" placeholder="Nome Completo" required>
+                        <input type="text" name="nome" id="nome" placeholder="Nome Completo" required>
                     </div>
                     <div class="email">
                         <label for="registro-email">*E-mail</label>
-                        <input type="email" name="email" id="registro-email" placeholder="Digite um e-mail válido" required>
+                        <input type="email" name="email" id="email" placeholder="Digite um e-mail válido" required>
                     </div>
                 </form>
             </div>
-            <button class="btn-reg">Registrar-me</button>
+            <button name="btn-reg" id="btn-reg" type="button" class="site-btn">Registrar me</button>
         </div>
 
         <div class="modal-login">
             <p>Entrar em sua conta.</p>
             <div class="modal-form">
-                <form action="#">
+                <form method="post">
                     <div class="nome">
                         <label for="registro-nome">*Nome</label>
-                        <input type="text" name="nome" id="registro-nome" placeholder="Nome Completo" required>
+                        <input type="text" name="nome" id="nome" placeholder="Nome Completo" required>
                     </div>
                     <div class="email">
                         <label for="registro-email">*E-mail</label>
-                        <input type="email" name="email" id="registro-email" placeholder="Digite um e-mail válido" required>
+                        <input type="email" name="email" id="email" placeholder="Digite um e-mail válido" required>
                     </div>
                 </form>
             </div>
-            <button class="btn-reg">Entrar</button>
+            <button name="btn-reg" id="btn-reg" type="button" class="site-btn">Registrar m</button>
         </div>
     </div>
 </section>
+
+
+
+<script type="text/javascript">
+    $('#btn-reg').click(function(event){
+        event.preventDefault();
+        
+        $.ajax({
+            url:"sistema/cadastrar.php",
+            method:"post",
+            data: $('form').serialize(),
+            dataType: "text",
+            success: function(msg){
+                if(msg.trim() === 'Cadastrado com Sucesso!'){
+                    
+                    $('#div-mensagem').addClass('text-success')
+                    $('#div-mensagem').text(msg);
+                    $('#btn-fechar-cadastrar').click();
+                    $('#nome').val(document.getElementById('nome').value);
+                    $('#email').val(document.getElementById('email').value);
+                    }
+                 else{
+                    $('#div-mensagem').addClass('text-danger')
+                    $('#div-mensagem').text(msg);
+                   
+
+                 }
+            }
+        })
+    })
+</script>
