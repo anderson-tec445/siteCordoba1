@@ -144,16 +144,9 @@
 <!--AJAX PARA LISTAR OS DADOS -->
 <script type="text/javascript">
     $(document).ready(function() {
-
         atualizarCarrinho();
-
-
-
     })
 </script>
-
-
-
 
 <script>
     function atualizarCarrinho() {
@@ -165,13 +158,10 @@
             dataType: "html",
             success: function(result) {
                 $('#listar-carrinho').html(result)
-
             },
         })
     }
 </script>
-
-
 
 <script>
     function deletarCarrinho(id) {
