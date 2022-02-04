@@ -20,16 +20,19 @@
     ?>
 
         <!-- carrinho-card = cada produto -->
-        <h5 class="cart-inline-title">Carrinho:<span id="total_itens" class="ml-1"> </span> Produto(s)</h5>
+        <h5 class="cart-inline-title">Carrinho: <span id="total_itens" class="ml-1"> </span>  Produto(s)</h5>
         <input type="hidden" id="txtquantidade">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+
+            <div class="total-compra">
+                <h3>Total</h3>
+                <h3 id="valor_total">R$ </h3>
+            </div>
+        
     </div>
-    <form id="form" method="POST">
-        <div class="modal-body">
+    <!-- <form id="form" method="POST"> -->
+        <!-- <div class="modal-body"> -->
             <!-- Modal -->
-            <div class="modal fade" id="modal-caract" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- <div class="modal fade" id="modal-caract" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -73,7 +76,8 @@
                     </div>
                 </div>
             </div>
-
+        </form>
+ -->
 
 
 

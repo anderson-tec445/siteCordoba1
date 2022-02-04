@@ -161,7 +161,7 @@ echo '
 $res4 = $query4->fetchAll(PDO::FETCH_ASSOC);
 $total_carac = @count($res4);
 if($total_carac == 0 and $combo != 'Sim'){
-echo '<a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')"><small><span class="mr-2">Selecionar Caractérisca</span></small></a>';
+// echo '<a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')"><small><span class="mr-2">Selecionar Caractérisca</span></small></a>';
 }
 for ($i2=0; $i2 < count($res4); $i2++) { 
     foreach ($res4[$i2] as $key => $value) {
@@ -213,18 +213,18 @@ $nome_carac = $res1[0]['nome'];
 }
 @$total = number_format(@$total, 2, ',', '.');
 
-echo ' 
+// echo ' 
 
-    <div class="total-compra">
-            <h3>Total</h3>
-            <h3 id="valor_total">R$ </h3>
-        </div>
-    </div>
-
-
+//     <div class="total-compra">
+//             <h3>Total</h3>
+//             <h3 id="valor_total">R$ </h3>
+//         </div>
+//     </div>
 
 
-';
+
+
+// ';
 
 
 ?>
