@@ -6,12 +6,14 @@ $pagina = 'produtos';
 @session_start();
 $id_usuario = @$_SESSION['id_usuario'];
 
-echo '
 
-<div class="cart-inline-header">
+// Código Antigo
+// echo '
 
-<div class="shoping__cart__table">
-<table>';
+// <div class="cart-inline-header">
+
+// <div class="shoping__cart__table">
+// <table>';
 
 
 $res = $pdo->query("SELECT * from carrinho where id_usuario = '$id_usuario' and id_venda = 0 order by id asc");
@@ -73,17 +75,88 @@ $valor = number_format( $valor , 2, ',', '.');
 $total_item = number_format( $total_item , 2, ',', '.');
 
 
+// Verificação para mostrar carrinho vazio ou produtos
+if($linhas == 0 ){
+  echo '
+      <div class="carrinho-vazio">
+            <h3>Não existem produtos no carrinho</h3>
+            <button class="btn-forms">Ir para compras</button>
+       </div>';
+}else{
 
-echo ' <tr>
-<td class="shoping__cart__item">
-<img src="img/'.$pasta.'/'.$imagem.'" alt="" width="60">
-<h5><small><a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')">'.$nome_produto.'
- <i class="fa fa-edit text-info"></i></a></small>
-</h5>
+  echo ' 
 
-</td> 
-<td width="150" class="shoping__cart__item">
-  <span class="mt-4 d-none d-sm-none d-md-block" id="div-listar-carac-itens-2">';
+<div class="carrinho-card">
+  <div class="info-produto">
+      <div class="nome-produto">
+        <a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')"><p>'.$nome_produto.'</p></a>
+      </div>
+
+      <div class="detalhe-produto">
+      <table>
+          <thead>
+              <tr>
+                  <th>tamanho</th>
+                  <th>Valor</th>
+                  <th>Quantidade</th>
+                  <th>Total</th>
+                  <th></th>
+              </tr>
+              
+          </thead>
+          <tbody>
+              <tr>
+                  <td>
+                      <p>P</p>
+                  </td>
+                  <td>
+                      <div class="preco">
+                          <p>R$49,90</p>
+                      </div>
+                  </td>
+                  <td>
+                      <div class="quantity">
+                          <div class="pro-qty">
+                            <input onchange="editarCarrinho('.$id_carrinho.')" type="text" data-zeros="true" value="'.$quantidade.'" min="1" max="1000" id="quantidade">
+                          </div>
+                      </div>
+                  </td>
+                  <td>
+                      <div class="preco">
+                          <p>R$ '.$total_item.'</p>
+                      </div>
+                  </td>
+                  <td>
+                      <a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')">'.$nome_produto.'
+                      <i class="fa fa-edit text-info"></i></a>
+
+                      <a onclick="deletarCarrinho('.$id_carrinho.')" id="btn-deletar" href="" class="ml-2" title="Remover Item do Carrinho"><i class="fas fa-trash-alt"></i></a>
+                  </td>
+              </tr>
+          </tbody>
+      </table>                   
+  </div>
+</div>
+<div class="img-produto">
+  <img src="img/'.$pasta.'/'.$imagem.'" alt="">
+</div>
+</div><!-- fim do card produto --> ';
+}
+
+// Codigo antigo
+
+// <tr>
+// <td class="shoping__cart__item">
+// <img src="img/'.$pasta.'/'.$imagem.'" alt="" width="60">
+// <h5><small><a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')">'.$nome_produto.'
+//  <i class="fa fa-edit text-info"></i></a></small>
+// </h5>
+
+// </td> 
+// <td width="150" class="shoping__cart__item">
+//   <span class="mt-4 d-none d-sm-none d-md-block" id="div-listar-carac-itens-2">';
+
+
 
 
  $query4 = $pdo->query("SELECT * from carac_itens_car where id_carrinho = '$id_carrinho'");
@@ -112,44 +185,42 @@ $nome_carac = $res1[0]['nome'];
 
 }
 
-echo '</span> 
-</td>
-<td class="shoping__cart__price">
-R$ '.$total_item.'
-</td> 
-<td class="shoping__cart__quantity">
-<div class="quantity">
-  <div class="pro-qty">
 
-    <input onchange="editarCarrinho('.$id_carrinho.')" type="text" data-zeros="true" value="'.$quantidade.'" min="1" max="1000" id="quantidade">
+// Código Antigo:
+// echo '</span> 
+// </td>
+// <td class="shoping__cart__price">
+// R$ '.$total_item.'
+// </td> 
+// <td class="shoping__cart__quantity">
+// <div class="quantity">
+//   <div class="pro-qty">
 
-</div>
-</div>
-</td>
+//     <input onchange="editarCarrinho('.$id_carrinho.')" type="text" data-zeros="true" value="'.$quantidade.'" min="1" max="1000" id="quantidade">
 
-<td class="shoping__cart__item__close">
-<a onclick="deletarCarrinho('.$id_carrinho.')" id="btn-deletar" href="" class="ml-2" title="Remover Item do Carrinho">
-<span class="icon_close"></span>
-</a>
-</td>
+// </div>
+// </div>
+// </td>
 
+// <td class="shoping__cart__item__close">
+// <a onclick="deletarCarrinho('.$id_carrinho.')" id="btn-deletar" href="" class="ml-2" title="Remover Item do Carrinho">
+// <span class="icon_close"></span>
+// </a>
+// </td>
 
-
-
-
-
-</tr>
-';
+// </tr>
+// ';
 
 
 }
 
 echo ' 
 
-</table>  
-</div>
-
-</div>
+    <div class="total-compra">
+            <h3>Total</h3>
+            <h3>R$ 55,00</h3>
+        </div>
+    </div>
 
 
 

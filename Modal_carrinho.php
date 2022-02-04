@@ -4,16 +4,20 @@
         <h6>CARRINHO</h6>
     </div>
     <div class="carrinho-content">
+    <?php
+        if (@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Cliente') {
+            echo "
+                <div class='carrinho-vazio'>
+                    <h3>
+                        Você precisa fazer Login para adicionar produtos  ao carrinho!! 
+                    </h3>
+                    <button class='btn-forms'><a class='text-info' href='sistema'>Login</a></button>
+                </div>";
+        } else {
 
-    <!-- Euuu QQQQ -->
-
-        <!-- Essa parte precisa ser colocado em um if, se o carrinho estiver 
-            vazio ele vai aparecer, se tiver produto no carrinho ele não deve 
-            aparecer  -->
-        <div class="carrinho-vazio">
-            
-            <button class="btn-forms">Ir para compras</button>
-        </div>
+            echo "<div id='listar-carrinho'></div>";
+        }
+    ?>
 
         <!-- carrinho-card = cada produto -->
         <h5 class="cart-inline-title">Carrinho:<span id="total_itens" class="ml-1"> </span> Produto(s)</h5>
@@ -24,26 +28,6 @@
     </div>
     <form id="form" method="POST">
         <div class="modal-body">
-
-            <?php
-            if (@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Cliente') {
-                echo "Você precisa fazer Login para adicionar produtos ao carrinho!! Clique <a class='text-info' href='sistema'>aqui</a> para efetuar Login!";
-            } else {
-                echo "<div id='listar-carrinho'></div>";
-            }
-            ?>
-
-            <?php
-            if (@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Cliente') {
-                echo "Você precisa fazer Login para adicionar produtos ao carrinho!! Clique <a class='text-info' href='sistema'>aqui</a> para efetuar Login!";
-            } else {
-                echo "<div id='listar-carrinho'></div>";
-            }
-            ?>
-
-
-
-
             <!-- Modal -->
             <div class="modal fade" id="modal-caract" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
