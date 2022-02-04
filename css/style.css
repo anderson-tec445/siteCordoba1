@@ -761,7 +761,9 @@ footer .footer-text p{
 #modal_login .modal-card,
 #modal_news .modal-card{
     position: relative;
-    padding: 0 80px;
+    padding: 20px;
+    margin: 0 2%;
+    width: 450px;
     background-color: var(--white);
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
     border-radius: 20%;
@@ -1618,13 +1620,13 @@ object-fit: cover;
     justify-content: space-around;
     align-items: center;
     padding: 20px 0;
-    transition: 5s ease-in-out;
+    transition: 0.5s ease-in-out;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
 }
 
 #cookie{
     display: none;
-    transition: 5s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
 #cookie .texto-cookie p{
