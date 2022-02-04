@@ -88,8 +88,8 @@
             </div>
 
             <div class="menu-carrinho">
-                <a href="#">Continuar Comprando</a>
-                <a href="#">Finalizar Compra</a>
+                <a href="produtos.php">Continuar Comprando</a>
+                <a href="checkout.php">Finalizar Compra</a>
             </div>
 </section>
 

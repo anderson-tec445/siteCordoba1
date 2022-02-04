@@ -94,10 +94,9 @@
                                         <i class="fas fa-heart"></i>
                                         <span>Add aos Favoritos</span>
                                     </li> -->
-                                    <li>
-                                        <i class="fas fa-shopping-cart"></i>
-                                        <span>Add ao Carrinho</span>
-                                    </li>
+                                    <li><a href="" onclick="carrinhoModal('<?php echo $id ?>, Não')"><i class="fa fa-shopping-cart"></i></a>
+                                            <span>Adicionar ao carrinho</span>
+                                        </li>
                                     <li>
                                     <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
                                         <span>Ver Detalhes</span>
@@ -154,10 +153,9 @@
                                         <i class="fas fa-heart"></i>
                                         <span>Add aos Favoritos</span>
                                     </li> -->
-                                    <li>
-                                        <i class="fas fa-shopping-cart"></i>
-                                        <span>Add ao Carrinho</span>
-                                    </li>
+                                    <li><a href="" onclick="carrinhoModal('<?php echo $id ?>, Não')"><i class="fa fa-shopping-cart"></i></a>
+                                            <span>Adicionar ao carrinho</span>
+                                        </li>
                                     <li>
                                     <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
                                         <span>Ver Detalhes</span>
@@ -217,10 +215,9 @@
                                     <i class="fas fa-heart"></i>
                                     <span>Add aos Favoritos</span>
                                 </li> -->
-                                <li>
-                                    <i class="fas fa-shopping-cart"></i>
-                                    <span>Add ao Carrinho</span>
-                                </li>
+                                <li><a href="" onclick="carrinhoModal('<?php echo $id ?>, Não')"><i class="fa fa-shopping-cart"></i></a>
+                                            <span>Adicionar ao carrinho</span>
+                                        </li>
                                 <li>
                                 <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
                                     <span>Ver Detalhes</span>
@@ -312,9 +309,8 @@
                                             <i class="fas fa-heart"></i>
                                             <span>Add aos Favoritos</span>
                                         </li> -->
-                                        <li>
-                                            <i class="fas fa-shopping-cart"></i>
-                                            <span>Add ao Carrinho</span>
+                                        <li><a href="" onclick="carrinhoModal('<?php echo $id ?>, Não')"><i class="fa fa-shopping-cart"></i></a>
+                                            <span>Adicionar ao carrinho</span>
                                         </li>
                                         <li>
                                         <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
@@ -351,10 +347,9 @@
                                         <i class="fas fa-heart"></i>
                                         <span>Add aos Favoritos</span>
                                     </li> -->
-                                    <li>
-                                        <i class="fas fa-shopping-cart"></i>
-                                        <span>Add ao Carrinho</span>
-                                    </li>
+                                    <li><a href="" onclick="carrinhoModal('<?php echo $id ?>, Não')"><i class="fa fa-shopping-cart"></i></a>
+                                            <span>Adicionar ao carrinho</span>
+                                        </li>
                                     <li>
                                     <a href="produto-<?php echo $nome_url ?>"><i class="fas fa-eye"></i></a>
                                         <span>Ver Detalhes</span>
