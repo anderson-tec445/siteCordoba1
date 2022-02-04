@@ -23,6 +23,12 @@ $linhas = @count($dados);
 if($linhas == 0){
   $linhas = 0;
   $total = 0;
+
+  echo '
+      <div class="carrinho-vazio">
+            <h3>Não existem produtos no carrinho</h3>
+            <button class="btn-forms">Ir para compras</button>
+       </div>';
 }
 
 $total;
@@ -75,21 +81,13 @@ $valor = number_format( $valor , 2, ',', '.');
 $total_item = number_format( $total_item , 2, ',', '.');
 
 
-// Verificação para mostrar carrinho vazio ou produtos
-if($linhas == 0 ){
-  echo '
-      <div class="carrinho-vazio">
-            <h3>Não existem produtos no carrinho</h3>
-            <button class="btn-forms">Ir para compras</button>
-       </div>';
-}else{
 
-  echo ' 
+echo ' 
 
 <div class="carrinho-card">
   <div class="info-produto">
       <div class="nome-produto">
-        <a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')"><p>'.$nome_produto.'</p></a>
+        <a href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')"><p>'.$nome_produto.'</p></a>
       </div>
 
       <div class="detalhe-produto">
@@ -111,7 +109,7 @@ if($linhas == 0 ){
                   </td>
                   <td>
                       <div class="preco">
-                          <p>R$49,90</p>
+                          <p>'.$valor.'</p>
                       </div>
                   </td>
                   <td>
@@ -127,8 +125,8 @@ if($linhas == 0 ){
                       </div>
                   </td>
                   <td>
-                      <a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')">'.$nome_produto.'
-                      <i class="fa fa-edit text-info"></i></a>
+                      <!--a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')">
+                      <i class="fa fa-edit text-info"></i></a-->
 
                       <a onclick="deletarCarrinho('.$id_carrinho.')" id="btn-deletar" href="" class="ml-2" title="Remover Item do Carrinho"><i class="fas fa-trash-alt"></i></a>
                   </td>
@@ -141,7 +139,7 @@ if($linhas == 0 ){
   <img src="img/'.$pasta.'/'.$imagem.'" alt="">
 </div>
 </div><!-- fim do card produto --> ';
-}
+
 
 // Codigo antigo
 
@@ -213,12 +211,13 @@ $nome_carac = $res1[0]['nome'];
 
 
 }
+@$total = number_format(@$total, 2, ',', '.');
 
 echo ' 
 
     <div class="total-compra">
             <h3>Total</h3>
-            <h3>R$ 55,00</h3>
+            <h3 id="valor_total">R$ </h3>
         </div>
     </div>
 
@@ -227,7 +226,6 @@ echo '
 
 ';
 
-@$total = number_format(@$total, 2, ',', '.');
 
 ?>
 

@@ -950,7 +950,7 @@ footer .footer-text p{
     position: relative;
     display:flex;
     align-items: center;
-    padding: 25px 50px;
+    padding: 25px 20px;
 }
 .header-carrinho img{
     filter: invert(0.5);
@@ -971,11 +971,11 @@ footer .footer-text p{
     align-items: center;
 
     border-top: 1px solid var(--dark-red);
-    padding: 15px 50px;
+    padding: 15px 20px;
 }
 .carrinho-content .carrinho-card .img-produto{
     position: relative;
-    width: 170px;
+    width: 120px;
     height: 100px;
     object-fit: contain;
 }
@@ -990,7 +990,8 @@ footer .footer-text p{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 145px;
+    width: 100%;
+    /* height: 145px; */
     padding-right: 20px;
     color: var(--dark-red);
 }
@@ -1011,6 +1012,14 @@ footer .footer-text p{
 .carrinho-card .detalhe-produto table tbody tr td{
     padding: 5px 5px;
     text-align: center;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+tbody, td, tfoot, th, thead, tr {
+    vertical-align: baseline;
+    margin-top: 5px;
 }
 
 .carrinho-card .detalhe-produto table tbody tr td i{
