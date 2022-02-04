@@ -14,7 +14,7 @@ if (@$_GET['pagina'] != null) {
 
 $limite = $pag * @$itens_por_pagina;
 $pagina = $pag;
-$nome_pag = 'lista-produtos.php';
+$nome_pag = 'produtos.php';
 ?>
 
 
