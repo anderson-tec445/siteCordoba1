@@ -12,7 +12,7 @@
         <form method="post">
            <div class="form">
             
-                <div>
+                <div> 
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" placeholder="Seu Nome">
                 </div>
@@ -21,12 +21,12 @@
                     <label for="email">E-mail</label>
                     <input type="text" name="email" id="email" placeholder="Seu Email">
                 </div>
+                <small><div id="div-mensagem"></div></small>
                 <button name="btn-enviar-email" id="btn-enviar-email" type="button" class="site-btn">Enviar</button>
            </div>
         </form>
     </div>
 </section>
-
 
 
 <script type="text/javascript">
@@ -44,8 +44,8 @@
                     $('#div-mensagem').addClass('text-success')
                     $('#div-mensagem').text(msg);
                     $('#btn-fechar-cadastrar').click();
-                    $('#idnome').val(document.getElementById('nome').value);
-                    $('#idemail').val(document.getElementById('email').value);
+                    $('#nome').val(document.getElementById('nome').value);
+                    $('#email').val(document.getElementById('email').value);
                     }
                  else{
                     $('#div-mensagem').addClass('text-danger')
