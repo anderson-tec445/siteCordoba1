@@ -115,7 +115,9 @@ echo '
                   <td>
                       <div class="quantity">
                           <div class="pro-qty">
+                            <span class="dec qtybtn">-</span>
                             <input onchange="editarCarrinho('.$id_carrinho.')" type="text" data-zeros="true" value="'.$quantidade.'" min="1" max="1000" id="quantidade">
+                            <span class="inc qtybtn">+</span>
                           </div>
                       </div>
                   </td>
@@ -233,8 +235,8 @@ $nome_carac = $res1[0]['nome'];
 
 <!--SCRIPT PARA ALTERAR O INPUT NUMBER -->
 <script type="text/javascript">
-  jQuery('<span class="dec qtybtn">-</span>').insertBefore('.pro-qty input'); 
-  jQuery('<span class="inc qtybtn">+</span>').insertAfter('.pro-qty input'); 
+  // jQuery('<span class="dec qtybtn">-</span>').insertBefore('.pro-qty input'); 
+  // jQuery('<span class="inc qtybtn">+</span>').insertAfter('.pro-qty input'); 
   jQuery('.pro-qty').each(function() {
     var spinner = jQuery(this),
     input = spinner.find('input[type="text"]'),

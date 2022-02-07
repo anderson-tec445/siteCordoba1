@@ -250,7 +250,7 @@ $valor = number_format($valor, 2, ',', '.');
     require_once("rodape.php");
     ?>
 
-
+<!-- 
     <script type="text/javascript">
         var proQty = $('.pro-qty');
         proQty.prepend('<span class="dec qtybtn">-</span>');
@@ -270,7 +270,7 @@ $valor = number_format($valor, 2, ',', '.');
         }
         $button.parent().find('input').val(newVal);
     });
-</script>
+</script> -->
 
 
 

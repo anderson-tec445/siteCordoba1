@@ -227,9 +227,9 @@ $valor = number_format($valor, 2, ',', '.');
                         <div class="quantity">
                             <span>Quantidade</span>
                             <div class="pro-qty">
-                                <!-- <span class="dec qtybtn">-</span> -->
+                                <span class="dec qtybtn">-</span>
                                 <input type="text" value="1" id="quantidade">
-                                <!-- <span class="inc qtybtn">+</span> -->
+                                <span class="inc qtybtn">+</span>
                             </div>
                         </div>
                     </div>

@@ -86,7 +86,7 @@ require_once("rodape.php");
 
 
 <!--SCRIPT PARA ALTERAR O INPUT NUMBER -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   jQuery('<span class="dec qtybtn">-</span>').insertBefore('.pro-qty input'); 
   jQuery('<span class="inc qtybtn">+</span>').insertAfter('.pro-qty input'); 
   jQuery('.pro-qty').each(function() {
@@ -131,7 +131,7 @@ require_once("rodape.php");
 
 
 });
-</script>
+</script> -->
 
 
 
