@@ -50,12 +50,9 @@
 <!--AJAX PARA INSERÇÃO DOS DADOS VINDO DE UMA FUNÇÃO -->
 <script>
     function carrinhoModal(idproduto, combo) {
-
-
         event.preventDefault();
         console.log(combo);
         $.ajax({
-
             url: "carrinho/inserir-carrinho.php",
             method: "post",
             data: {
@@ -64,22 +61,17 @@
             },
             dataType: "text",
             success: function(mensagem) {
-
                 $('#mensagem').removeClass()
-
                 if (mensagem == 'Cadastrado com Sucesso!!') {
+                    toggleCarrinho();
                     atualizarCarrinho();
                     $("#modalCarrinho").modal("show");
-                    //$('#mensagem').text(mensagem);
+                    $('#mensagem').text(mensagem);
                 } else {
                     $("#modalCarrinho").modal("show");
                     $('#mensagem').text(mensagem);
                 }
-
-
-
             },
-
         })
     }
 </script>

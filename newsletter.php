@@ -46,6 +46,7 @@
                     $('#btn-fechar-cadastrar').click();
                     $('#nome').val(document.getElementById('nome').value);
                     $('#email').val(document.getElementById('email').value);
+                    window.location.reload(true);
                     }
                  else{
                     $('#div-mensagem').addClass('text-danger')
