@@ -31,7 +31,7 @@
                     </div>
                 </form>
             </div>
-            <button name="btn-reg" id="btn-reg" type="button" class="site-btn">Registrar me</button>
+            <button name="btn-reg" id="btn-reg" type="button" class="site-btn btn-reg">Registrar me</button>
         </div>
 
         <div class="modal-login">
@@ -48,7 +48,7 @@
                     </div>
                 </form>
             </div>
-            <button name="btn-reg" id="btn-reg" type="button" class="site-btn">Registrar m</button>
+            <button name="btn-reg" id="btn-reg" type="button" class="site-btn btn-reg">Registrar m</button>
         </div>
     </div>
 </section>
