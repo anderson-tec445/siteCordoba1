@@ -1933,4 +1933,12 @@ object-fit: cover;
         transition: 00.5s ease-in-out;
     }
 
+    .product-container {
+        justify-items: center;
+        padding: 20px 0;
+    }
+    .product-container .card {
+        margin-left: 0px;
+    }
+
 }

@@ -56,7 +56,7 @@
     </div>
 </section> -->
             <section id="lista-produtos">
-                <div class="container">
+                <div class="container-cordoba">
                     <div class="product-container lista">
 
                             <?php 
@@ -247,7 +247,7 @@
 </section>
 
 <section id="promocao">
-    <div class="container">
+    <div class="container-cordoba">
         <div class="content">
             <div class="headline">
                 <h4>Kits / Promoções</h4>

@@ -227,7 +227,9 @@ $valor = number_format($valor, 2, ',', '.');
                         <div class="quantity">
                             <span>Quantidade</span>
                             <div class="pro-qty">
-                                <input type="text" value="1" id="produto-quantidade">
+                                <!-- <span class="dec qtybtn">-</span> -->
+                                <input type="text" value="1" id="quantidade">
+                                <!-- <span class="inc qtybtn">+</span> -->
                             </div>
                         </div>
                     </div>
@@ -299,7 +301,7 @@ $valor = number_format($valor, 2, ',', '.');
 </section>
 
 <section class="produto-relacionado">
-    <div class="container">
+    <div class="container-cordoba">
         <h2>Quem viu este produto comprou estes também...</h2>
          
         <div class="product-container">
@@ -416,7 +418,7 @@ $valor = number_format($valor, 2, ',', '.');
 </section>
 
 <section id="promocao">
-    <div class="container">
+    <div class="container-cordoba">
         <div class="content">
             <div class="headline">
                 <h4>Kits / Promoções</h4>
@@ -589,7 +591,7 @@ require_once("rodape.php");
     });
 </script> -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   jQuery('<span class="dec qtybtn">-</span>').insertBefore('.pro-qty input'); 
   jQuery('<span class="inc qtybtn">+</span>').insertAfter('.pro-qty input'); 
   jQuery('.pro-qty').each(function() {
@@ -626,7 +628,7 @@ require_once("rodape.php");
       spinner.find("input").trigger("change");
     });
   });
-</script>
+</script> -->
 
 
 
