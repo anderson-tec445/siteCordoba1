@@ -9,7 +9,7 @@ $nome_loja = 'Cordoba';
 $texto_destaque = 'FRETE GRÁTIS APARTIR DE R$200,00';
 $endereco_loja = 'Rua Alameda Campos, Número 50, Bairro Centro, Belo Horizonte - MG';
 
-$url_loja = 'localhost/sitecordoba';
+$url_loja = 'localhost/siteCordoba1';
 
 
 
