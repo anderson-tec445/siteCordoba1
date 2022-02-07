@@ -69,6 +69,7 @@
 
                 if (mensagem == 'Cadastrado com Sucesso!!') {
                     atualizarCarrinho();
+                    toggleCarrinho();
                     $("#modalCarrinho").modal("show");
                     //$('#mensagem').text(mensagem);
                 } else {
