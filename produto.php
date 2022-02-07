@@ -226,7 +226,7 @@ $valor = number_format($valor, 2, ',', '.');
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <span>Quantidade</span>
-                            <div class="pro-qty">
+                            <div class="pro-qty-produto">
                                 <span class="dec qtybtn">-</span>
                                 <input type="text" value="1" id="quantidade">
                                 <span class="inc qtybtn">+</span>
@@ -571,7 +571,7 @@ require_once("rodape.php");
 
 <!-- Precisa verificar o bug que não para de add + e -  -->
 <!-- <script type="text/javascript">
-    var proQty = $('.pro-qty');
+    var proQtyProd = $('.pro-qty-produto');
     proQty.prepend('<span class="dec qtybtn">-</span>');
     proQty.append('<span class="inc qtybtn">+</span>');
     proQty.on('click', '.qtybtn', function () {
@@ -591,10 +591,10 @@ require_once("rodape.php");
     });
 </script> -->
 
-<!-- <script type="text/javascript">
-  jQuery('<span class="dec qtybtn">-</span>').insertBefore('.pro-qty input'); 
-  jQuery('<span class="inc qtybtn">+</span>').insertAfter('.pro-qty input'); 
-  jQuery('.pro-qty').each(function() {
+<script type="text/javascript">
+//   jQuery('<span class="dec qtybtn">-</span>').insertBefore('.pro-qty-produto input'); 
+//   jQuery('<span class="inc qtybtn">+</span>').insertAfter('.pro-qty-produto input'); 
+  jQuery('.pro-qty-produto').each(function() {
     var spinner = jQuery(this),
     input = spinner.find('input[type="text"]'),
     btnUp = spinner.find('.inc'),
@@ -628,7 +628,7 @@ require_once("rodape.php");
       spinner.find("input").trigger("change");
     });
   });
-</script> -->
+</script>
 
 
 
