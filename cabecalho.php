@@ -119,7 +119,7 @@ for ($i = 0; $i < count($dados); $i++) {
             <div class="logo">
                 <a href="index.php"><img src="img/cordoba-logo.png" alt="Cordoba"></a>
             </div>
-            <div class="toggle"></div>
+            <div class="toggle" onclick="toggleMenu()"></div>
             <div class="menu">
                 <ul>
                     <!-- precisa ajustar o link para as categorias -->
