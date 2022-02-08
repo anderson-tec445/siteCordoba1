@@ -650,8 +650,9 @@ require_once("rodape.php");
                     // window.location='Modal_carrinho.php';
                     
                     // alert('Produto Adicionado ao carrinho!');
-                    toggleCarrinho();
+                   
                     atualizarCarrinho();
+                    toggleCarrinho();
                     
                     // setTimeout(() => {
                         // window.location.reload(true);

@@ -63,7 +63,7 @@
             success: function(mensagem) {
                 $('#mensagem').removeClass()
                 if (mensagem == 'Cadastrado com Sucesso!!') {
-                    toggleCarrinho();
+                
                     atualizarCarrinho();
                     toggleCarrinho();
                     $("#modalCarrinho").modal("show");
