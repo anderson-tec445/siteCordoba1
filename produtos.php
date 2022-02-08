@@ -20,6 +20,7 @@
                               }
 
                               $nome = $res[$i]['nome'];
+                              $nome_categoria = $res[$i]['nome'];
 
                               $nome_url = $res[$i]['nome_url'];
 
@@ -106,7 +107,7 @@
                             <div class="content">
                                 <div class="productName">
                                     <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
-                                    <p>Masculino</p>
+                                    <p><?php echo $nome_categoria ?></p>
                                 </div>
                                 <div class="price-rating">
                                     <h2>R$ <?php echo $valor ?></h2>
@@ -149,10 +150,6 @@
                             <div class="imgbox">
                                 <img src="img/produtos/<?php echo $imagem ?>" alt="">
                                 <ul class="action">
-                                    <!-- <li>
-                                        <i class="fas fa-heart"></i>
-                                        <span>Add aos Favoritos</span>
-                                    </li> -->
                                     <li><a href="" onclick="carrinhoModal('<?php echo $id ?>, Não')"><i class="fa fa-shopping-cart"></i></a>
                                             <span>Adicionar ao carrinho</span>
                                         </li>
@@ -165,7 +162,7 @@
                             <div class="content">
                                 <div class="productName">
                                     <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
-                                    <p>Masculino</p>
+                                    <p><?php echo $nome_categoria ?></p>
                                 </div>
                                 <div class="price-rating">
                                     <h2>R$ <?php echo $valor ?></h2>
@@ -227,7 +224,7 @@
                         <div class="content">
                             <div class="productName">
                                 <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
-                                <p>Masculino</p>
+                                <p><?php echo $nome_categoria ?></p>
                             </div>
                             <div class="price-rating">
                                 <h2>R$ <?php echo $valor ?></h2>
@@ -321,7 +318,7 @@
                                 <div class="content">
                                     <div class="productName">
                                         <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
-                                        <p>Masculino</p>
+                                        <p><?php echo $nome_categoria ?></p>
                                     </div>
                                     <div class="price-rating">
                                         <h2>R$ <?php echo $valor ?></h2>
@@ -359,7 +356,7 @@
                             <div class="content">
                                 <div class="productName">
                                     <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
-                                    <p>Masculino</p>
+                                    <p><?php echo $nome_categoria ?></p>
                                 </div>
                                 <div class="price-rating">
                                     <h2>R$ <?php echo $valor ?></h2>

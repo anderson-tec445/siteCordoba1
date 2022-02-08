@@ -97,6 +97,7 @@ require_once("conexao.php");
                         }
 
                         $nome = $res[$i]['nome'];
+                        $nome_categoria = $res[$i]['nome'];
 
                         $nome_url = $res[$i]['nome_url'];
                         
@@ -156,7 +157,7 @@ require_once("conexao.php");
                                 <div class="content">
                                     <div class="productName">
                                         <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
-                                        <p>Masculino</p>
+                                        <p><?php echo $nome_categoria ?></p>
                                     </div>
                                     <div class="price-rating">
                                         <h2>R$ <?php echo $valor ?></h2>
@@ -194,7 +195,7 @@ require_once("conexao.php");
                             <div class="content">
                                 <div class="productName">
                                     <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
-                                    <p>Masculino</p>
+                                    <p><?php echo $nome_categoria ?></p>
                                 </div>
                                 <div class="price-rating">
                                     <h2>R$ <?php echo $valor ?></h2>
@@ -265,7 +266,7 @@ require_once("conexao.php");
                                 <div class="content">
                                     <div class="productName">
                                         <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
-                                        <p>Masculino</p>
+                                        <p><?php echo $nome_categoria ?></p>
                                     </div>
                                     <div class="price-rating">
                                         <h2>R$ <?php echo $valor ?></h2>
@@ -303,7 +304,7 @@ require_once("conexao.php");
                             <div class="content">
                                 <div class="productName">
                                     <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
-                                    <p>Masculino</p>
+                                    <p><?php echo $nome_categoria ?></p>
                                 </div>
                                 <div class="price-rating">
                                     <h2>R$ <?php echo $valor ?></h2>
@@ -351,6 +352,7 @@ require_once("conexao.php");
                         }
 
                         $nome = $res[$i]['nome'];
+                        $nome_categoria = $res[$i]['nome'];
 
                         $nome_url = $res[$i]['nome_url'];
                         
@@ -411,7 +413,7 @@ require_once("conexao.php");
                                 <div class="content">
                                     <div class="productName">
                                         <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
-                                        <p>Masculino</p>
+                                        <p><?php echo $nome_categoria ?></p>
                                     </div>
                                     <div class="price-rating">
                                         <h2>R$ <?php echo $valor ?></h2>
@@ -449,7 +451,7 @@ require_once("conexao.php");
                             <div class="content">
                                 <div class="productName">
                                     <h3><a href="produto-<?php echo $nome_url ?>"><?php echo $nome ?></a></h3>
-                                    <p>Masculino</p>
+                                    <p><?php echo $nome_categoria ?></p>
                                 </div>
                                 <div class="price-rating">
                                     <h2>R$ <?php echo $valor ?></h2>
