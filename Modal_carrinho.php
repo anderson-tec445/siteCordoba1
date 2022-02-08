@@ -63,10 +63,6 @@
             success: function(mensagem) {
                 $('#mensagem').removeClass()
                 if (mensagem == 'Cadastrado com Sucesso!!') {
-<<<<<<< HEAD
-                
-=======
->>>>>>> 2f206bfacb5390d7db5266e8be660bb8d6e04ae9
                     atualizarCarrinho();
                     toggleCarrinho();
                     $("#modalCarrinho").modal("show");
