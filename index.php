@@ -488,5 +488,5 @@ require_once("conexao.php");
 <?php
 require_once("newsletter.php");
 require_once("rodape.php");
- require_once("modal_carrinho.php");
+//require_once("modal_carrinho.php");
 ?>
