@@ -51,7 +51,7 @@
 <script>
     function carrinhoModal(idproduto, combo) {
         event.preventDefault();
-        console.log(combo);
+        console.log(idproduto,combo);
         $.ajax({
             url: "carrinho/inserir-carrinho.php",
             method: "post",
@@ -63,7 +63,10 @@
             success: function(mensagem) {
                 $('#mensagem').removeClass()
                 if (mensagem == 'Cadastrado com Sucesso!!') {
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 2f206bfacb5390d7db5266e8be660bb8d6e04ae9
                     atualizarCarrinho();
                     toggleCarrinho();
                     $("#modalCarrinho").modal("show");
