@@ -107,6 +107,7 @@ $valor = number_format($valor, 2, ',', '.');
                     </div>
                 </div>
             </div>
+
             <div class="produto-info-box">
                 <h3><?php echo $nome ?></h3>
                 <span>código</span>
@@ -121,10 +122,11 @@ $valor = number_format($valor, 2, ',', '.');
                         <input type="hidden" value="carac" id="carac" name="carac">
                     </div>
                     <!--
-                        <div class="row mt-4 ml-1">
-                            ?php 
+                        <div class="row mt-4 ml-1"> 
+                            <?php 
                                $query2 = $pdo->query("SELECT * from carac_prod where id_prod = '$id_produto' ");
                                 $res2 = $query2->fetchAll(PDO::FETCH_ASSOC);
+                                
                                 for ($i=0; $i < count($res2); $i++) { 
                                     foreach ($res2[$i] as $key => $value) {
                                     }
@@ -142,7 +144,7 @@ $valor = number_format($valor, 2, ',', '.');
                                 
                                  <span>
                                      <select class='form-control form-control-sm' name='<?php echo $i ?>' id='<?php echo $i ?>'>";
-                                ?php 
+                                <?php 
 
                                  echo "<option value='0' >Selecionar " . $nome_carac . "</option>"; 
                                
@@ -166,18 +168,17 @@ $valor = number_format($valor, 2, ',', '.');
                                 </span>
                             </div>
 
-                        ?php } ?
+                        <?php } ?>
                                </div> -->
-                         
-                        <?php if(@$tem_cor == 'Sim'){ ?>
-                            <div class="mt-4">
-                                <?php 
+                               <?php if(@$tem_cor == 'Sim'){ ?>
+                                <div class="mt-4">
+                                    <?php 
                                     $query2 = $pdo->query("SELECT * from carac_prod where id_prod = '$id_produto' ");
                                     $res2 = $query2->fetchAll(PDO::FETCH_ASSOC);
                                     for ($i=0; $i < count($res2); $i++) { 
                                         foreach ($res2[$i] as $key => $value) {
-                                    }
-
+                                        }
+                                        
                                         $id_carac = $res2[$i]['id_carac'];
                                         $id_carac_prod = $res2[$i]['id'];
                                         $query3 = $pdo->query("SELECT * from carac where id = '$id_carac' ");
@@ -188,6 +189,7 @@ $valor = number_format($valor, 2, ',', '.');
                                             
                                             $query4 = $pdo->query("SELECT * from carac_itens where id_carac_prod = '$id_carac_prod'");
                                             $res4 = $query4->fetchAll(PDO::FETCH_ASSOC);
+                                            
                                             for ($i2=0; $i2 < count($res4); $i2++) { 
                                                 foreach ($res4[$i2] as $key => $value) {
                                                 }
@@ -212,14 +214,38 @@ $valor = number_format($valor, 2, ',', '.');
                         <div class="tamanho">
                             <p>Selecione o Tamanho</p>
                             <div class="tamanhos">
-                                <input type="checkbox"class="input-tamanho-produto" name="tamanho-p" id="tamanho-p" value="p">
-                                <label for="tamanho-p"></label>
-                                <input type="checkbox"class="input-tamanho-produto" name="tamanho-m" id="tamanho-m" value="m">
+                            <?php 
+                               $query2 = $pdo->query("SELECT * from carac_prod where id_prod = '$id_produto' ");
+                                $res2 = $query2->fetchAll(PDO::FETCH_ASSOC);
+                                
+                                for ($i=0; $i < count($res2); $i++) { 
+                                    foreach ($res2[$i] as $key => $value) {
+                                    }
+
+                                    $id_carac = $res2[$i]['id_carac'];
+                                    $id_carac_prod = $res2[$i]['id'];
+                                    $query3 = $pdo->query("SELECT * from carac where id = '$id_carac' ");
+                                    $res3 = $query3->fetchAll(PDO::FETCH_ASSOC);
+                                    $nome_carac = $res3[0]['nome'];
+                                    if($nome_carac == 'Tamanho'){
+                                        $query5 = $pdo->query("SELECT * from carac_itens where id_carac_prod = '$id_carac_prod'");
+                                        $res5 = $query5->fetchAll(PDO::FETCH_ASSOC);
+                                        
+                                        
+                                        for ($i2=0; $i2 < count($res5); $i2++) { 
+                                            foreach ($res5[$i2] as $key => $value) {
+                                            }
+                                                ?>
+                                <input type="checkbox"class="input-tamanho-produto" name="<?php echo $res5[$i2]['id'] ?>" id="<?php echo $res5[$i2]['nome'] ?>" value="<?php echo $res5[$i2]['nome'] ?>">
+                                <label for="<?php echo $res5[$i2]['nome'] ?>"></label>
+                            
+                            <?php } }}?>
+                                <!-- <input type="checkbox"class="input-tamanho-produto" name="<?php echo $i ?>" id="tamanho-m" value="m">
                                 <label for="tamanho-m"></label>
-                                <input type="checkbox"class="input-tamanho-produto" name="tamanho-g" id="tamanho-g" value="g">
+                                <input type="checkbox"class="input-tamanho-produto" name="<?php echo $i ?>" id="tamanho-g" value="g">
                                 <label for="tamanho-g"></label>
-                                <input type="checkbox"class="input-tamanho-produto" name="tamanho-gg" id="tamanho-gg" value="gg">
-                                <label for="tamanho-gg"></label>
+                                <input type="checkbox"class="input-tamanho-produto" name="<?php echo $i ?>" id="tamanho-gg" value="gg">
+                                <label for="tamanho-gg"></label> -->
                             </div>
                         </div>
 
@@ -228,7 +254,7 @@ $valor = number_format($valor, 2, ',', '.');
                             <span>Quantidade</span>
                             <div class="pro-qty-produto">
                                 <span class="dec qtybtn">-</span>
-                                <input type="text" value="1" id="quantidade">
+                                <input type="text" value="1" id="quantidade" name="quantidade">
                                 <span class="inc qtybtn">+</span>
                             </div>
                         </div>
@@ -650,7 +676,7 @@ require_once("rodape.php");
                     // window.location='Modal_carrinho.php';
                     
                     // alert('Produto Adicionado ao carrinho!');
-                   
+                   console.log($('form'));
                     atualizarCarrinho();
                     toggleCarrinho();
                     

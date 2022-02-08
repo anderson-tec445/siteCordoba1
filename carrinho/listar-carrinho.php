@@ -46,10 +46,10 @@ for ($i=0; $i < count($dados); $i++) {
  }else{
   $res_p = $pdo->query("SELECT * from produtos where id = '$id_produto' ");
  }
- 
  $dados_p = $res_p->fetchAll(PDO::FETCH_ASSOC);
  $nome_produto = $dados_p[0]['nome'];
-
+ 
+ 
  if($combo == 'Sim'){ 
   $promocao = ""; 
   $pasta = "combos";
@@ -105,7 +105,7 @@ echo '
           <tbody>
               <tr>
                   <td>
-                      <p>P</p>
+                      <p>'.$tamanho.'</p>
                   </td>
                   <td>
                       <div class="preco">
@@ -172,6 +172,10 @@ for ($i2=0; $i2 < count($res4); $i2++) {
 
 $nome_item_carac = $res4[$i2]['nome'];
 $id_carac = $res4[$i2]['id_carac'];
+
+if($res4[$i2]['id_carac'] == 1){
+  $tamanho = $res4[$i2]['nome'];
+}
 
 $query1 = $pdo->query("SELECT * from carac where id = '$id_carac' ");
 $res1 = $query1->fetchAll(PDO::FETCH_ASSOC);
