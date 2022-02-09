@@ -236,7 +236,7 @@ $valor = number_format($valor, 2, ',', '.');
                                             foreach ($res5[$i2] as $key => $value) {
                                             }
                                                 ?>
-                                <input type="checkbox"class="input-tamanho-produto" name="<?php echo $res5[$i2]['id'] ?>" id="<?php echo $res5[$i2]['nome'] ?>" value="<?php echo $res5[$i2]['nome'] ?>">
+                                <input type="checkbox" class="input-tamanho-produto" name="<?php echo $res5[$i2]['id'] ?>" id="<?php echo $res5[$i2]['nome'] ?>" value="<?php echo $res5[$i2]['nome'] ?>">
                                 <label for="<?php echo $res5[$i2]['nome'] ?>"></label>
                             
                             <?php } }}?>
@@ -306,11 +306,11 @@ $valor = number_format($valor, 2, ',', '.');
                 <tbody>
                     <tr>
                         <th>Categoria</th>
-                        <td><?php echo $sub_cat ?></td>
+                        <td><?php echo $nome ?></td>
                     </tr>
                     <tr>
                         <th>Cor</th>
-                        <td><?php echo "#####" ?></td>
+                        <td><?php echo $res4[$i2]['nome'] ?></td>
                     </tr>
                     <tr>
                         <th>Gênero</th>
