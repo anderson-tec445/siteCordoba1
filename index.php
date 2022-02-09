@@ -71,7 +71,7 @@ require_once("conexao.php");
             Conheça o verdadeiro significado de 
             <br>Estilo e Conforto!
             </h3>
-            <button>Produtos</button>
+            <a class="btn-forms" href="produtos.php">Produtos</a>
         </div>
     </div>
 </section>
