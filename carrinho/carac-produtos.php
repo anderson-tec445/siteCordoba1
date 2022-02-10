@@ -103,23 +103,11 @@ $id_carrinho = @$_POST['id_carrinho'];
                                     }
 
                                     echo "<small><span class='mr-3'><i class='fa fa-circle mr-1' style='color:".$res4[$i2]['valor_item']."'></i>" .$res4[$i2]['nome']."</span></small><br>";
-
                                 }
-                                
-
                             }
                         }
-
                     }
                 }
-
-                                 
-                         
-                         
-
-                        
-
-
 ?>
 
 

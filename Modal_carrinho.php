@@ -16,8 +16,8 @@
         } else {
 
             echo "<div id='listar-carrinho'></div>";
-            echo "<div id='listar-itens-caract'></div>";
-            echo "<div id='listar-caract'></div>";
+            // echo "<div id='listar-itens-caract'></div>";
+            // echo "<div id='listar-caract'></div>";
         }
         ?>
 
@@ -181,7 +181,7 @@
             dataType: "text",
             success: function(mensagem) {
                 $('#mensagem-caract').removeClass()
-                // $("#modal-caract").modal("show");
+                $("#modal-caract").modal("show");
                 $('#listar-caract').html(mensagem)
             },
         })
