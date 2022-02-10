@@ -150,7 +150,7 @@ $valor = number_format($valor, 2, ',', '.');
                                
                                 $query4 = $pdo->query("SELECT * from carac_itens where id_carac_prod = '$id_carac_prod'");
                                 $res4 = $query4->fetchAll(PDO::FETCH_ASSOC);
-                                for ($i2=0; $i2 < count($res4); $i2++) { 
+                                for ($i2=0; $i2 < @count($res4); $i2++) { 
                                     foreach ($res4[$i2] as $key => $value) {
                                     }
 
@@ -310,7 +310,7 @@ $valor = number_format($valor, 2, ',', '.');
                     </tr>
                     <tr>
                         <th>Cor</th>
-                        <td><?php echo $res4[$i2]['nome'] ?></td>
+                        <td><?php echo @$res4[$i2]['nome'] ?></td>
                     </tr>
                     <tr>
                         <th>Gênero</th>
