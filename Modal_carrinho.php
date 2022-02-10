@@ -39,7 +39,7 @@
 
     <div class="menu-carrinho">
         <a href="produtos.php">Continuar Comprando</a>
-        <a href="checkout.php">Finalizar Compra</a>
+        <a href="" onclick="finalizarPedido()">Finalizar Compra</a>
     </div>
 </section>
 
@@ -185,5 +185,26 @@
                 $('#listar-caract').html(mensagem)
             },
         })
+    }
+</script>
+
+<script type="text/javascript">
+    function finalizarPedido() {
+        event.preventDefault();
+        $.ajax({
+            url: "carrinho/verificar-carac.php",
+            method: "post",
+            data: {},
+            dataType: "text",
+            success: function(mensagem){
+                if(mensagem.trim() === 'Selecione as Características dos Produtos!'){
+                $('#mensagem').addClass('text-danger');
+                $('#mensagem').text(mensagem);
+                }else{
+                window.location="checkout.php";
+                //$('#mensagem').text(mensagem);
+                }
+            },  
+        })     
     }
 </script>
