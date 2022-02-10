@@ -14,14 +14,8 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
 
 <!-- DataTales Example -->
-<div class="titulo">
-    <h3>Clientes</h3>
-
-    <!-- Precisa corrigir o link -->
-    <a type="button" class="botao-add" href="index.php?pag=<?php echo $pag ?>&funcao=novo"><i class="fas fa-plus"></i></a>
-
-</div>
 <div class="card shadow mb-4">
+
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -31,8 +25,7 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                         <th>CPF</th>
                         <th>Telefone</th>
                         <th>Email</th>
-                        <th>Endereço</th>
-                        <th>Ações</th>
+                        <th>Cartões</th>
                     </tr>
                 </thead>
 
@@ -52,11 +45,6 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                   $telefone = $res[$i]['telefone'];
                   $email = $res[$i]['email'];
                   $cartoes = $res[$i]['cartoes'];
-                  $rua = $res[$i]['rua'];
-                  $numero = $res[$i]['numero'];
-                  $bairro = $res[$i]['bairro'];
-                  $cidade = $res[$i]['cidade'];
-                  $estado = $res[$i]['estado'];
 
 
                   $id = $res[$i]['id'];
@@ -73,11 +61,7 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                     <td><?php echo $cpf ?></td>
                     <td><?php echo $telefone ?></td>
                     <td><?php echo $email ?></td>
-                    <td><?php echo $endereco . ", " . $numero . " - " . $bairro . " - " . $cidade . " - " . $estado ?></td>
-                    <td>
-                        <a href="index.php?pag=<?php echo $pag ?>&funcao=editar&id=<?php echo $id ?>" class='text-primary mr-1' title='Editar Dados'><i class='far fa-edit'></i></a>
-                        <a href="index.php?pag=<?php echo $pag ?>&funcao=excluir&id=<?php echo $id ?>" class='text-danger mr-1' title='Excluir Registro'><i class='far fa-trash-alt'></i></a>
-                    </td>
+                    <td><?php echo $cartoes ?></td>
 
 
 

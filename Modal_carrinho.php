@@ -39,7 +39,7 @@
 
     <div class="menu-carrinho">
         <a href="produtos.php">Continuar Comprando</a>
-        <a href="" onclick="finalizarPedido()">Finalizar Compra</a>
+        <a href="checkout.php"> onclick="finalizarPedido()">Finalizar Compra</a>
     </div>
 </section>
 
