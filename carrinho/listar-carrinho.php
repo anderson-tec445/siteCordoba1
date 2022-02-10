@@ -21,6 +21,12 @@ $linhas = @count($dados);
 if($linhas == 0){
   $linhas = 0;
   $total = 0;
+
+  echo '
+      <div class="carrinho-vazio">
+            <h3>Não existem produtos no carrinho</h3>
+            <button class="btn-forms">Ir para compras</button>
+       </div>';
 }
 
 $total;
@@ -74,7 +80,36 @@ $total_item = number_format( $total_item , 2, ',', '.');
 
 
 
-echo ' <tr>
+echo ' 
+
+<div class="carrinho-card">
+  <div class="info-produto">
+      <div class="nome-produto">
+        <a href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')"><p>'.$nome_produto.' <i class="fa fa-edit text-info"></i></p></a>
+      </div>
+      <div class="detalhe-produto">
+      <table>
+          <thead>
+              <tr>
+                  <th>tamanho</th>
+                  <th>Valor</th>
+                  <th>Quantidade</th>
+                  <th>Total</th>
+                  <th></th>
+              </tr>
+              
+          </thead>
+          <tbody>
+              <tr>
+                  <td>
+
+
+
+
+
+
+
+<tr>
 <td class="shoping__cart__item">
 <img src="img/'.$pasta.'/'.$imagem.'" alt="" width="60">';
 if($combo != 'Sim'){
