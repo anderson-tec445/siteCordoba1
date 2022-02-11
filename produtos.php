@@ -8,16 +8,16 @@
 // print_r($_REQUEST);
 
 // print_r($_GET);
-if($_REQUEST['categoria'] === 'masculino'){
+if(@$_REQUEST['categoria'] === 'masculino'){
     echo 'Masculino';
     $num_cat = 'WHERE categoria = 1';
-}elseif($_REQUEST['categoria'] === 'feminino'){
+}elseif(@$_REQUEST['categoria'] === 'feminino'){
     echo 'Feminino';
     $num_cat = 'WHERE categoria = 2';
-}elseif($_REQUEST['categoria'] === 'lancamento'){
+}elseif(@$_REQUEST['categoria'] === 'lancamento'){
     echo 'Lançamentos';
     $num_cat = '';
-}elseif($_REQUEST['categoria'] === 'promocao'){
+}elseif(@$_REQUEST['categoria'] === 'promocao'){
     echo 'Promoções';
     $num_cat = "WHERE promocao = 'Sim'";
 }
@@ -83,7 +83,7 @@ if($_REQUEST['categoria'] === 'masculino'){
                     <div class="product-container lista">
 
                             <?php 
-                            $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6 ");
+                            @$query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6 ");
                             $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                             for ($i=0; $i < count($res); $i++) { 
@@ -145,7 +145,7 @@ if($_REQUEST['categoria'] === 'masculino'){
                         </div>
                     <?php } ?>
                     <?php 
-                        $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6,6 ");
+                        @$query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6,6 ");
                         $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                         for ($i=0; $i < count($res); $i++) { 

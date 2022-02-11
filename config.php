@@ -1,7 +1,7 @@
 <?php 
 
 //VARIÁVEIS GLOBAIS
-$email = 'cordoba.com';
+$email = 'thiago_newdesign@hotmail.com';
 $telefone = '(31) 3333-3333';
 $whatsapp = '(31) 97527-5084';
 $whatsapp_link = '5531975275084';
