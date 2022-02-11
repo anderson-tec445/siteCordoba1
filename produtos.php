@@ -2,23 +2,40 @@
     require_once("cabecalho.php");
 
     ini_set('display_errors',1);
-  ini_set('display_startup_erros',1);
-  error_reporting(E_ALL);
+    ini_set('display_startup_erros',1);
+    error_reporting(E_ALL);
 
 
   $num_cat = '';
+  $num_subcat = '';
 
 
-
+// Busca as categorias para fazer o filtro
   $query = $pdo->query("SELECT * FROM categorias order by nome asc ");
   $categorias = $query->fetchAll(PDO::FETCH_ASSOC);
 
   for($cat = 0 ; $cat < count($categorias) ; $cat++){
       foreach ($categorias[$cat] as $key => $value) {
     }
+        // Comparando nome do REQUEST com Categoria
         if(@$_REQUEST['categoria'] === $categorias[$cat]['nome']){
         @$categoria_nome = $categorias[$cat]['nome'];
         @$id_categoria = $categorias[$cat]['id'];
+        }
+    };
+
+// Busca as SUB categorias para fazer o filtro
+  $query = $pdo->query("SELECT * FROM sub_categorias order by nome asc ");
+  $subcategorias = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  for($scat = 0 ; $scat < count($subcategorias) ; $scat++){
+      foreach ($subcategorias[$scat] as $key => $value) {
+    }
+        // Comparando nome do REQUEST com Categoria
+        if(@$_REQUEST['subcategoria'] === $subcategorias[$scat]['nome']){
+            @$subcategoria_nome = $subcategorias[$scat]['nome'];
+            
+            @$id_subcategoria = $subcategorias[$scat]['id'];
         }
     };
 
@@ -26,7 +43,7 @@
         echo '
         <div class="container-cordoba">
             <div class="titulo-pag-produto">
-                <h4>'.$categoria_nome.'</h4>
+                <h4>'.@$categoria_nome.'</h4>
             </div>
         </div>' ;
         @$num_cat = "WHERE categoria = '{$id_categoria}' ";
@@ -51,7 +68,25 @@
         @$num_cat = "";
     }
 
-    
+if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria']){
+    echo '
+        <div class="container-cordoba">
+            <div class="titulo-pag-produto">
+                <h4>'.@$subcategoria_nome.'</h4>
+            </div>
+        </div>' ;
+        @$num_subcat = "WHERE sub_categoria = '{$id_subcategoria}' ";
+}elseif(@$_REQUEST['subcategoria'] === @$subcategoria_nome){
+    echo '
+        <div class="container-cordoba">
+            <div class="titulo-pag-produto">
+                <h4>'.@$subcategoria_nome.'</h4>
+             </div>
+        </div>' ;
+    @$num_subcat = " AND sub_categoria = '{$id_subcategoria}' ";
+}else{
+    @$num_subcat = " ";
+}
 
 ?>
 
@@ -114,8 +149,22 @@
                     <div class="product-container lista">
 
                             <?php 
-                            $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6 ");
-                            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                            if(!@$_REQUEST['categoria'] && !@$_REQUEST['subcategoria']){
+                                $query = $pdo->query("SELECT * FROM produtos order by id desc limit 6 ");
+                                $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                            }elseif(@$_REQUEST['categoria'] && !@$_REQUEST['subcategoria']){
+                                $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6 ");
+                                $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                            }
+                            elseif(!@$_REQUEST['categoria'] && @$_REQUEST['subcategoria']){
+                                $query = $pdo->query("SELECT * FROM produtos $num_subcat order by id desc limit 6 ");
+                                $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                            }elseif(@$_REQUEST['categoria'] && @$_REQUEST['subcategoria']){
+                                $query = $pdo->query("SELECT * FROM produtos $num_cat $num_subcat order by id desc limit 6 ");
+                                $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                            }
+                            // $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6 ");
+                            // $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                             for ($i=0; $i < count($res); $i++) { 
                               foreach ($res[$i] as $key => $value) {
