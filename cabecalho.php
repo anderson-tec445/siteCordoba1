@@ -123,10 +123,10 @@ for ($i = 0; $i < count($dados); $i++) {
             <div class="menu">
                 <ul>
                     <!-- precisa ajustar o link para as categorias -->
-                    <li><a href="produtos.php?categoria=masculino">MASCULINO</a></li>
-                    <li><a href="produtos.php?categoria=feminino">FEMININO</a></li>
-                    <li><a href="produtos.php?categoria=lancamento">LANÇAMENTOS</a></li>
-                    <li><a href="produtos.php?categoria=promocao">PROMOÇÕES</a></li>
+                    <li><a href="produtos.php?categoria=Masculino">MASCULINO</a></li>
+                    <li><a href="produtos.php?categoria=Feminino">FEMININO</a></li>
+                    <li><a href="produtos.php?categoria=Lancamento">LANÇAMENTOS</a></li>
+                    <li><a href="produtos.php?categoria=Promocao">PROMOÇÕES</a></li>
                     <!-- <li><a href="promocoes.php">PROMOÇÕES</a></li> -->
                 </ul>
             </div>

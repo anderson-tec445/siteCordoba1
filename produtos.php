@@ -5,22 +5,53 @@
   ini_set('display_startup_erros',1);
   error_reporting(E_ALL);
 
-// print_r($_REQUEST);
 
-// print_r($_GET);
-if($_REQUEST['categoria'] === 'masculino'){
-    echo 'Masculino';
-    $num_cat = 'WHERE categoria = 1';
-}elseif($_REQUEST['categoria'] === 'feminino'){
-    echo 'Feminino';
-    $num_cat = 'WHERE categoria = 2';
-}elseif($_REQUEST['categoria'] === 'lancamento'){
-    echo 'Lançamentos';
-    $num_cat = '';
-}elseif($_REQUEST['categoria'] === 'promocao'){
-    echo 'Promoções';
-    $num_cat = "WHERE promocao = 'Sim'";
-}
+  $num_cat = '';
+
+
+
+  $query = $pdo->query("SELECT * FROM categorias order by nome asc ");
+  $categorias = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  for($cat = 0 ; $cat < count($categorias) ; $cat++){
+      foreach ($categorias[$cat] as $key => $value) {
+    }
+        if(@$_REQUEST['categoria'] === $categorias[$cat]['nome']){
+        @$categoria_nome = $categorias[$cat]['nome'];
+        @$id_categoria = $categorias[$cat]['id'];
+        }
+    };
+
+    if(@$_REQUEST['categoria'] === @$categoria_nome){
+        echo '
+        <div class="container-cordoba">
+            <div class="titulo-pag-produto">
+                <h4>'.$categoria_nome.'</h4>
+            </div>
+        </div>' ;
+        @$num_cat = "WHERE categoria = '{$id_categoria}' ";
+        // $id_categoria;
+    }elseif(@$_REQUEST['categoria'] === 'Lancamento'){
+        echo '
+            <div class="container-cordoba">
+                <div class="titulo-pag-produto">
+                    <h4>Lançamentos</h4>
+                </div>
+            </div>' ;
+        $num_cat = '';
+    }elseif(@$_REQUEST['categoria'] === 'Promocao'){
+        echo '
+            <div class="container-cordoba">
+                <div class="titulo-pag-produto">
+                    <h4>Promoções</h4>
+                </div>
+            </div>' ;
+        $num_cat = "WHERE promocao = 'Sim'";
+    }else{
+        @$num_cat = "";
+    }
+
+    
 
 ?>
 

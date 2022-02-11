@@ -1240,6 +1240,14 @@ section.institucional{
     margin-top: 20px;
     background-color: var(--cinza-medio24);
 }
+.titulo-pag-produto{
+    text-align: center;
+}
+
+.titulo-pag-produto h4{
+    font-size: 26px;
+    color: var(--dark-red);
+}
 
 .produto-content{
     display: flex;
