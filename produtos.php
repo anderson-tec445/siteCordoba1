@@ -1,5 +1,27 @@
 <?php
     require_once("cabecalho.php");
+
+    ini_set('display_errors',1);
+  ini_set('display_startup_erros',1);
+  error_reporting(E_ALL);
+
+// print_r($_REQUEST);
+
+// print_r($_GET);
+if($_REQUEST['categoria'] === 'masculino'){
+    echo 'Masculino';
+    $num_cat = 'WHERE categoria = 1';
+}elseif($_REQUEST['categoria'] === 'feminino'){
+    echo 'Feminino';
+    $num_cat = 'WHERE categoria = 2';
+}elseif($_REQUEST['categoria'] === 'lancamento'){
+    echo 'Lançamentos';
+    $num_cat = '';
+}elseif($_REQUEST['categoria'] === 'promocao'){
+    echo 'Promoções';
+    $num_cat = "WHERE promocao = 'Sim'";
+}
+
 ?>
 
 <!-- Product Section Begin -->
@@ -61,7 +83,7 @@
                     <div class="product-container lista">
 
                             <?php 
-                            $query = $pdo->query("SELECT * FROM produtos order by id desc limit 6 ");
+                            $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6 ");
                             $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                             for ($i=0; $i < count($res); $i++) { 
@@ -123,7 +145,7 @@
                         </div>
                     <?php } ?>
                     <?php 
-                        $query = $pdo->query("SELECT * FROM produtos order by id desc limit 6,6 ");
+                        $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6,6 ");
                         $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                         for ($i=0; $i < count($res); $i++) { 

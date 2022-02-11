@@ -43,7 +43,10 @@ if($promocao == 'Sim'){
 
 $valor = number_format($valor, 2, ',', '.');
 
+
 ?>
+
+
 
 <!-- Product Details Section Begin -->
 <section id="produto" class="product-details spad">
