@@ -12,9 +12,9 @@
                 <a href="#"><img src="img/icons/logo-facebook.png" alt="Login com o Facebook"></a>
                 <a href="#"><img src="img/icons/logo-google.png" alt="Login com o Google"></a>
             </div>
-            <button class="btn-reg" onclick="toggleRegistro()">Registrar-me</button>
+            <button class="btn-reg" onclick="toggleRegistro()">Registrar</button>
             <p>ou</p>
-            <button class="btn-login" onclick="toggleLogin()">Entrar com Email e Senha</button>
+            <button class="btn-login" onclick="toggleLogin()">Entrar com E-mail e Senha</button>
         </div>
         <div class="modal-registro"> 
             <p>Se Cadastre e Fique por
@@ -48,7 +48,7 @@
                     </div>
                 </form>
             </div>
-            <button name="btn-reg" id="btn-reg" type="button" class="site-btn btn-reg">Registrar m</button>
+            <button name="btn-reg" id="btn-reg" type="button" class="site-btn btn-reg">Registrar</button>
         </div>
     </div>
 </section>

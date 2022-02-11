@@ -28,11 +28,16 @@ a{
     color: var(--dark-red);
     text-decoration: none;
 }
-a:hover{
+.btn-forms:hover{
+    color: var(--white);
+}
+.btn-normal:hover{
     color: var(--dark-red);
-
 }
 
+.swiper-button-next, .swiper-button-prev{
+    color: var(--dark-red);
+}
 
 body {
     height: 100%;
