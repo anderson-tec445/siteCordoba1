@@ -6,19 +6,86 @@
     error_reporting(E_ALL);
 
 
-// print_r($_GET);
-if(@$_REQUEST['categoria'] === 'masculino'){
-    echo 'Masculino';
-    $num_cat = 'WHERE categoria = 1';
-}elseif(@$_REQUEST['categoria'] === 'feminino'){
-    echo 'Feminino';
-    $num_cat = 'WHERE categoria = 2';
-}elseif(@$_REQUEST['categoria'] === 'lancamento'){
-    echo 'Lançamentos';
-    $num_cat = '';
-}elseif(@$_REQUEST['categoria'] === 'promocao'){
-    echo 'Promoções';
-    $num_cat = "WHERE promocao = 'Sim'";
+  $num_cat = '';
+  $num_subcat = '';
+
+
+// Busca as categorias para fazer o filtro
+  $query = $pdo->query("SELECT * FROM categorias order by nome asc ");
+  $categorias = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  for($cat = 0 ; $cat < count($categorias) ; $cat++){
+      foreach ($categorias[$cat] as $key => $value) {
+    }
+        // Comparando nome do REQUEST com Categoria
+        if(@$_REQUEST['categoria'] === $categorias[$cat]['nome']){
+        @$categoria_nome = $categorias[$cat]['nome'];
+        @$id_categoria = $categorias[$cat]['id'];
+        }
+    };
+
+// Busca as SUB categorias para fazer o filtro
+  $query = $pdo->query("SELECT * FROM sub_categorias order by nome asc ");
+  $subcategorias = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  for($scat = 0 ; $scat < count($subcategorias) ; $scat++){
+      foreach ($subcategorias[$scat] as $key => $value) {
+    }
+        // Comparando nome do REQUEST com Categoria
+        if(@$_REQUEST['subcategoria'] === $subcategorias[$scat]['nome']){
+            @$subcategoria_nome = $subcategorias[$scat]['nome'];
+            
+            @$id_subcategoria = $subcategorias[$scat]['id'];
+        }
+    };
+
+    if(@$_REQUEST['categoria'] === @$categoria_nome){
+        echo '
+        <div class="container-cordoba">
+            <div class="titulo-pag-produto">
+                <h4>'.@$categoria_nome.'</h4>
+            </div>
+        </div>' ;
+        @$num_cat = "WHERE categoria = '{$id_categoria}' ";
+        // $id_categoria;
+    }elseif(@$_REQUEST['categoria'] === 'Lancamento'){
+        echo '
+            <div class="container-cordoba">
+                <div class="titulo-pag-produto">
+                    <h4>Lançamentos</h4>
+                </div>
+            </div>' ;
+        $num_cat = '';
+    }elseif(@$_REQUEST['categoria'] === 'Promocao'){
+        echo '
+            <div class="container-cordoba">
+                <div class="titulo-pag-produto">
+                    <h4>Promoções</h4>
+                </div>
+            </div>' ;
+        $num_cat = "WHERE promocao = 'Sim'";
+    }else{
+        @$num_cat = "";
+    }
+
+if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria']){
+    echo '
+        <div class="container-cordoba">
+            <div class="titulo-pag-produto">
+                <h4>'.@$subcategoria_nome.'</h4>
+            </div>
+        </div>' ;
+        @$num_subcat = "WHERE sub_categoria = '{$id_subcategoria}' ";
+}elseif(@$_REQUEST['subcategoria'] === @$subcategoria_nome){
+    echo '
+        <div class="container-cordoba">
+            <div class="titulo-pag-produto">
+                <h4>'.@$subcategoria_nome.'</h4>
+             </div>
+        </div>' ;
+    @$num_subcat = " AND sub_categoria = '{$id_subcategoria}' ";
+}else{
+    @$num_subcat = " ";
 }
 
 ?>
@@ -82,8 +149,22 @@ if(@$_REQUEST['categoria'] === 'masculino'){
                     <div class="product-container lista">
 
                             <?php 
-                            @$query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6 ");
-                            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                            if(!@$_REQUEST['categoria'] && !@$_REQUEST['subcategoria']){
+                                $query = $pdo->query("SELECT * FROM produtos order by id desc limit 6 ");
+                                $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                            }elseif(@$_REQUEST['categoria'] && !@$_REQUEST['subcategoria']){
+                                $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6 ");
+                                $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                            }
+                            elseif(!@$_REQUEST['categoria'] && @$_REQUEST['subcategoria']){
+                                $query = $pdo->query("SELECT * FROM produtos $num_subcat order by id desc limit 6 ");
+                                $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                            }elseif(@$_REQUEST['categoria'] && @$_REQUEST['subcategoria']){
+                                $query = $pdo->query("SELECT * FROM produtos $num_cat $num_subcat order by id desc limit 6 ");
+                                $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                            }
+                            // $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6 ");
+                            // $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                             for ($i=0; $i < count($res); $i++) { 
                               foreach ($res[$i] as $key => $value) {
@@ -110,7 +191,7 @@ if(@$_REQUEST['categoria'] === 'masculino'){
 
                         <div class="card">
                             <div class="imgbox">
-                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                            <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                 <ul class="action">
                                     <!-- <li>
                                         <i class="fas fa-heart"></i>
@@ -169,7 +250,7 @@ if(@$_REQUEST['categoria'] === 'masculino'){
                     ?>
                         <div class="card">
                             <div class="imgbox">
-                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                            <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                 <ul class="action">
                                     <li><a href="" onclick="carrinhoModal('<?php echo $id ?>, Não')"><i class="fa fa-shopping-cart"></i></a>
                                             <span>Adicionar ao carrinho</span>
@@ -227,7 +308,7 @@ if(@$_REQUEST['categoria'] === 'masculino'){
 
                     <div class="card">
                         <div class="imgbox">
-                            <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                        <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                             <ul class="action">
                                 <!-- <li>
                                     <i class="fas fa-heart"></i>
@@ -321,7 +402,7 @@ if(@$_REQUEST['categoria'] === 'masculino'){
     
                             <div class="swiper-slide card">
                                 <div class="imgbox">
-                                    <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                     <ul class="action">
                                         <!-- <li>
                                             <i class="fas fa-heart"></i>
@@ -359,7 +440,7 @@ if(@$_REQUEST['categoria'] === 'masculino'){
 
                         <div class="swiper-slide card">
                             <div class="imgbox">
-                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                            <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                 <ul class="action">
                                     <!-- <li>
                                         <i class="fas fa-heart"></i>
