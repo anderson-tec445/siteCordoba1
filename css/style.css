@@ -28,11 +28,16 @@ a{
     color: var(--dark-red);
     text-decoration: none;
 }
-a:hover{
+.btn-forms:hover{
+    color: var(--white);
+}
+.btn-normal:hover{
     color: var(--dark-red);
-
 }
 
+.swiper-button-next, .swiper-button-prev{
+    color: var(--dark-red);
+}
 
 body {
     height: 100%;
@@ -1239,6 +1244,14 @@ section.institucional{
 #produto{
     margin-top: 20px;
     background-color: var(--cinza-medio24);
+}
+.titulo-pag-produto{
+    text-align: center;
+}
+
+.titulo-pag-produto h4{
+    font-size: 26px;
+    color: var(--dark-red);
 }
 
 .produto-content{

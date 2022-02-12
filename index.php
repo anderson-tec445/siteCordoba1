@@ -48,21 +48,21 @@ require_once("conexao.php");
         <div class="categoria-box">
             <div class="categoria-card">
                 <div class="categoria-card-img">
-                    <a href="#"><img src="img/categorias/cueca.png" alt=""></a>
+                    <a class="btn-normal" href="produtos.php?subcategoria=Cuecas"><img src="img/categorias/cueca.png" alt=""></a>
                 </div>
-                <a href="#">Cuecas</a>
+                <a class="btn-normal" href="produtos.php?subcategoria=Cuecas">Cuecas</a>
             </div>
             <div class="categoria-card">
                 <div class="categoria-card-img">
-                    <a href="#"><img src="img/categorias/calcinhas.png" alt=""></a>
+                    <a class="btn-normal" href="produtos.php?subcategoria=Calcinhas"><img src="img/categorias/calcinhas.png" alt=""></a>
                 </div>
-                <a href="#">Calcinhas</a>
+                <a class="btn-normal" href="produtos.php?subcategoria=Calcinhas">Calcinhas</a>
             </div>
             <div class="categoria-card">
                 <div class="categoria-card-img">
-                    <a href="#"><img src="img/categorias/meia.png" alt=""></a>
+                    <a class="btn-normal" href="produtos.php?subcategoria=Meias"><img src="img/categorias/meia.png" alt=""></a>
                 </div>
-                <a href="#">Meias</a>
+                <a class="btn-normal" href="produtos.php?subcategoria=Meias">Meias</a>
             </div>
         </div>
 

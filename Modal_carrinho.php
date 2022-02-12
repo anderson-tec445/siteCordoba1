@@ -11,7 +11,7 @@
                         <h3>
                             Você precisa fazer Login para adicionar produtos  ao carrinho!! 
                         </h3>
-                        <button class='btn-forms'><a class='text-info' href='sistema'>Login</a></button>
+                        <button class='btn-forms'><a class='btn-forms' href='sistema'>Login</a></button>
                     </div>";
         } else {
 
