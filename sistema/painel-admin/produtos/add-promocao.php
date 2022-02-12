@@ -4,6 +4,11 @@ require_once("../../../conexao.php");
 
 $desconto = $_POST['valor-promocao'];
 
+if($desconto == ""){
+	echo 'Insira um Valor!';
+	exit();
+}
+
 $data_ini = $_POST['data-inicial-promocao'];
 $data_fin = $_POST['data-final-promocao'];
 $ativo = $_POST['ativo-promocao'];
@@ -16,10 +21,7 @@ $valor = $dados[0]['valor'];
 $valor = $valor - ($valor * ($desconto / 100));
 
 
-if($desconto == ""){
-	echo 'Insira um Valor!';
-	exit();
-}
+
 
 
 

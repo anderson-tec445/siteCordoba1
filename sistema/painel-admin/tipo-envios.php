@@ -9,6 +9,31 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 }
 
 
+//VERIFICAR SE OS TIPOS DE ENVIO OBRIGATÓRIOS JÁ ESTÃO CADASTRADOS, CASO CONTRÁRIO CADASTRAR
+ $query = $pdo->query("SELECT * FROM tipo_envios where nome = 'Correios' ");
+ $res = $query->fetchAll(PDO::FETCH_ASSOC);
+ if(@count($res)==0){
+    $pdo->query("INSERT INTO tipo_envios (nome) values ('Correios') ");
+ }
+
+  $query = $pdo->query("SELECT * FROM tipo_envios where nome = 'Valor Fixo' ");
+ $res = $query->fetchAll(PDO::FETCH_ASSOC);
+ if(@count($res)==0){
+    $pdo->query("INSERT INTO tipo_envios (nome) values ('Valor Fixo') ");
+ }
+
+  $query = $pdo->query("SELECT * FROM tipo_envios where nome = 'Sem Frete' ");
+ $res = $query->fetchAll(PDO::FETCH_ASSOC);
+ if(@count($res)==0){
+    $pdo->query("INSERT INTO tipo_envios (nome) values ('Sem Frete') ");
+ }
+
+  $query = $pdo->query("SELECT * FROM tipo_envios where nome = 'Digital' ");
+ $res = $query->fetchAll(PDO::FETCH_ASSOC);
+ if(@count($res)==0){
+    $pdo->query("INSERT INTO tipo_envios (nome) values ('Digital') ");
+ }
+
 ?>
 
 <div class="row mt-4 mb-4">

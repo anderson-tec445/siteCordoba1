@@ -140,6 +140,7 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
           $comprimento2 = $res[0]['comprimento'];
 
           $valor_frete2 = $res[0]['valor_frete'];
+          $link2 = $res[0]['link'];
 
 
 
@@ -296,6 +297,12 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
 </div>
 </div>
+</div>
+
+
+<div class="form-group">
+    <label >Link <small>(Se for Produto Digital)</small></label>
+    <input value="<?php echo @$link2 ?>" type="text" class="form-control form-control-sm" id="link" name="link" placeholder="Link para Produto Digital">
 </div>
 
 <div class="row">

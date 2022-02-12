@@ -9,25 +9,25 @@
     $dados = $res->fetchAll(PDO::FETCH_ASSOC);
     
     if(@count($dados) > 0){
-        $_SESSION['id_usuario'] = $dados[0]['id'];
-        $_SESSION['nome_usuario'] = $dados[0]['nome'];
-        $_SESSION['email_usuario'] = $dados[0]['email'];
-        $_SESSION['cpf_usuario'] = $dados[0]['cpf'];
-        $_SESSION['nivel_usuario'] = $dados[0]['nivel'];
+    	$_SESSION['id_usuario'] = $dados[0]['id'];
+    	$_SESSION['nome_usuario'] = $dados[0]['nome'];
+    	$_SESSION['email_usuario'] = $dados[0]['email'];
+    	$_SESSION['cpf_usuario'] = $dados[0]['cpf'];
+    	$_SESSION['nivel_usuario'] = $dados[0]['nivel'];
 
-        if($_SESSION['nivel_usuario'] == 'Admin'){
-            echo "<script language='javascript'> window.location='painel-admin' </script>";
-        }
+    	if($_SESSION['nivel_usuario'] == 'Admin'){
+    		echo "<script language='javascript'> window.location='painel-admin' </script>";
+    	}
 
-        if($_SESSION['nivel_usuario'] == 'Cliente'){
-            echo "<script language='javascript'> window.location='../' </script>";
-        }
+    	if($_SESSION['nivel_usuario'] == 'Cliente'){
+    		echo "<script language='javascript'> window.location='../' </script>";
+    	}
 
 
 
     }else{
-        echo "<script language='javascript'> window.alert('Dados Incorretos!') </script>";
-        echo "<script language='javascript'> window.location='index.php' </script>";
+    	echo "<script language='javascript'> window.alert('Dados Incorretos!') </script>";
+    	echo "<script language='javascript'> window.location='index.php' </script>";
 
     }
 
