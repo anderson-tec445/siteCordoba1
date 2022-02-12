@@ -191,7 +191,7 @@ if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria'
 
                         <div class="card">
                             <div class="imgbox">
-                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                            <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                 <ul class="action">
                                     <!-- <li>
                                         <i class="fas fa-heart"></i>
@@ -250,7 +250,7 @@ if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria'
                     ?>
                         <div class="card">
                             <div class="imgbox">
-                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                            <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                 <ul class="action">
                                     <li><a href="" onclick="carrinhoModal('<?php echo $id ?>, Não')"><i class="fa fa-shopping-cart"></i></a>
                                             <span>Adicionar ao carrinho</span>
@@ -308,7 +308,7 @@ if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria'
 
                     <div class="card">
                         <div class="imgbox">
-                            <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                        <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                             <ul class="action">
                                 <!-- <li>
                                     <i class="fas fa-heart"></i>
@@ -402,7 +402,7 @@ if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria'
     
                             <div class="swiper-slide card">
                                 <div class="imgbox">
-                                    <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                     <ul class="action">
                                         <!-- <li>
                                             <i class="fas fa-heart"></i>
@@ -440,7 +440,7 @@ if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria'
 
                         <div class="swiper-slide card">
                             <div class="imgbox">
-                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                            <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                 <ul class="action">
                                     <!-- <li>
                                         <i class="fas fa-heart"></i>

@@ -364,7 +364,7 @@ $valor = number_format($valor, 2, ',', '.');
     
                             <div class="swiper-slide card">
                                 <div class="imgbox">
-                                    <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                     <ul class="action">
                                         <!-- <li>
                                             <i class="fas fa-heart"></i>
@@ -402,7 +402,7 @@ $valor = number_format($valor, 2, ',', '.');
 
                         <div class="swiper-slide card">
                             <div class="imgbox">
-                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                            <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                 <ul class="action">
                                     <!-- <li>
                                         <i class="fas fa-heart"></i>
@@ -503,7 +503,7 @@ $valor = number_format($valor, 2, ',', '.');
     
                             <div class="swiper-slide card">
                                 <div class="imgbox">
-                                    <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                     <ul class="action">
                                         <!-- <li>
                                             <i class="fas fa-heart"></i>
@@ -541,7 +541,7 @@ $valor = number_format($valor, 2, ',', '.');
 
                         <div class="swiper-slide card">
                             <div class="imgbox">
-                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                            <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                 <ul class="action">
                                     <!-- <li>
                                         <i class="fas fa-heart"></i>
