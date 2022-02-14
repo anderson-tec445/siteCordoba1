@@ -10,11 +10,19 @@ function toggleMenu(){
     menuToggle.classList.toggle('active');
     menu.classList.toggle('active');
 }
+
+function editarCarac(){
+    var modalCarac = document.querySelector('#modal_carac');
+    // var menu = document.querySelector('.menu');
+    modalCarac.classList.toggle('active');
+    // menu.classList.toggle('active');
+}
+
 function toggleModalNews(){
     var modalnewsToggle = document.querySelector('#modal_news');
     modalnewsToggle.classList.toggle('active');
-
 }
+
 function toggleModalLogin(){
     var modalLoginToggle = document.querySelector('#modal_login');
     modalLoginToggle.classList.toggle('active');

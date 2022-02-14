@@ -1,18 +1,9 @@
-
 <?php 
 
 require_once("../conexao.php");
 
 @session_start();
 $id_usuario = @$_SESSION['id_usuario'];
-
-echo '
-
-<div class="cart-inline-header">
-
-<div class="shoping__cart__table">
-<table>';
-
 
 $res = $pdo->query("SELECT * from carrinho where id_usuario = '$id_usuario' and id_venda = 0 order by id asc");
 $dados = $res->fetchAll(PDO::FETCH_ASSOC);
@@ -21,6 +12,12 @@ $linhas = @count($dados);
 if($linhas == 0){
   $linhas = 0;
   $total = 0;
+
+  echo '
+    <div class="carrinho-vazio">
+        <h3>Não existem produtos no carrinho</h3>
+        <button class="btn-forms"><a class="btn-forms" href="produtos.php">Ir para compras</a></button>
+    </div>';
 }
 
 $total;
@@ -72,20 +69,21 @@ $valor = number_format( $valor , 2, ',', '.');
                             //$total = number_format( $total , 2, ',', '.');
 $total_item = number_format( $total_item , 2, ',', '.');
 
+// <div id="listar-caract">
+// <img src="img/icons/close.png" alt="Fechar Janela do Carrinho" onclick="editarCarac()">
+// </div>
+echo ' 
+<div class="carrinho-card">
+  <div class="info-produto">
+      <div class="nome-produto">
+        <a href="" class="link_normal" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')"><p>'.$nome_produto. ' <i class="fa fa-edit " onClick="editarCarac()"></i></p></a>
+';
 
-
-echo ' <tr>
-<td class="shoping__cart__item">
-<img src="img/'.$pasta.'/'.$imagem.'" alt="" width="60">';
 if($combo != 'Sim'){
+  // <div id="listar-itens-caract"></div>
 echo '
-<h5><small><a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')">'.$nome_produto.'
- <i class="fa fa-edit text-info"></i></a></small>
-</h5>
-
-</td> 
-<td width="150" class="shoping__cart__item">
-  <span class="mt-4 d-none d-sm-none d-md-block" id="div-listar-carac-itens-2">';
+  <span class="mt-2 d-none d-sm-none d-md-block" id="div-listar-carac-itens-2">';
+  
 
 
  $query_c = $pdo->query("SELECT * from carac_prod where id_prod = '$id_produto'");
@@ -113,74 +111,84 @@ if($total_prod_carac > 0){
   $nome_carac = $res1[0]['nome'];
 
 
-    echo '<small><span class="mr-2"><i class="mr-1 fa fa-check text-info"></i>'.$nome_carac.' : '.$nome_item_carac.'</span></small><br>';
+    echo '<small><span class="mr-2"><i class="mr-1 fa fa-check "></i>'.$nome_carac.' : '.$nome_item_carac.'</span></small><br>';
 
   }
 }
 
 }else{
-  echo '
-<h5><small>'.$nome_produto.'
+//   echo '
+// <h5><small>'.$nome_produto.'
  
-</h5>
-  </td> 
-<td width="150" class="shoping__cart__item">';
+// </h5>
+//   </td> 
+// <td width="150" class="shoping__cart__item">';
 } 
 
 echo '</span> 
-</td>
-<td class="shoping__cart__price">
-R$ '.$total_item.'
-</td> 
-<td class="shoping__cart__quantity">
-<div class="quantity">
-  <div class="pro-qty">
-
-    <input onchange="editarCarrinho('.$id_carrinho.')" type="text" data-zeros="true" value="'.$quantidade.'" min="1" max="1000" id="quantidade">
-
 </div>
-</div>
-</td>
-
-<td class="shoping__cart__item__close">
-<a onclick="deletarCarrinho('.$id_carrinho.')" id="btn-deletar" href="" class="ml-2" title="Remover Item do Carrinho">
-<span class="icon_close"></span>
-</a>
-</td>
-
-
-
-
-
-
-</tr>
+      <div class="detalhe-produto">
+        <table>
+          <thead>
+              <tr>
+                  <th>Valor</th>
+                  <th>Quantidade</th>
+                  <th>Total</th>
+                  <th></th>
+              </tr>
+              
+          </thead>
+          <tbody>
+              <tr>
+                  <td>
+                      <div class="preco">
+                          <p>'.$valor.'</p>
+                      </div>
+                  </td>
+                  <td>
+                      <div class="quantity">
+                          <div class="pro-qty">
+                            <span class="dec qtybtn">-</span>
+                            <input onchange="editarCarrinho('.$id_carrinho.')" type="text" data-zeros="true" value="'.$quantidade.'" min="1" max="1000" id="quantidade">
+                            <span class="inc qtybtn">+</span>
+                          </div>
+                      </div>
+                  </td>
+                  <td>
+                      <div class="preco">
+                          <p>R$ '.$total_item.'</p>
+                      </div>
+                  </td>
+                  <td>
+                      <!--a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')">
+                      <i class="fa fa-edit "></i></a-->
+                      <a onclick="deletarCarrinho('.$id_carrinho.')" id="btn-deletar" href="" class="ml-2" title="Remover Item do Carrinho"><i class="fas fa-trash-alt"></i></a>
+                  </td>
+              </tr>
+          </tbody>
+        </table>                   
+        <div class="img-produto">
+        <img src="img/'.$pasta.'/'.$imagem.'" alt="">
+        </div>
+      </div>
+      </div>
+      </div><!-- fim do card produto --> 
 ';
-
-
 }
 
 echo ' 
-
 </table>  
-</div>
-
-</div>
-
-
-
-
-';
+  </div>
+</div>';
 
 @$total = number_format(@$total, 2, ',', '.');
 
 ?>
 
-
-
 <!--SCRIPT PARA ALTERAR O INPUT NUMBER -->
 <script type="text/javascript">
-  jQuery('<span class="dec qtybtn">-</span>').insertBefore('.pro-qty input'); 
-  jQuery('<span class="inc qtybtn">+</span>').insertAfter('.pro-qty input'); 
+  // jQuery('<span class="dec qtybtn">-</span>').insertBefore('.pro-qty input'); 
+  // jQuery('<span class="inc qtybtn">+</span>').insertAfter('.pro-qty input'); 
   jQuery('.pro-qty').each(function() {
     var spinner = jQuery(this),
     input = spinner.find('input[type="text"]'),
@@ -236,8 +244,3 @@ echo '
   $("#total_itens").text(itens);
   $("#valor_total").text(total);
 </script>
-
-
-
-
-

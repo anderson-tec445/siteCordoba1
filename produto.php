@@ -43,10 +43,15 @@ if($promocao == 'Sim'){
 
 $valor = number_format($valor, 2, ',', '.');
 
+$querye = $pdo->query("SELECT * FROM tipo_envios where id = '$tipo_envio' ");
+    $rese = $querye->fetchAll(PDO::FETCH_ASSOC);
+    $nome_frete = @$rese[0]['nome'];
+
+
+@session_start();
+$nivel_usuario = $_SESSION['nivel_usuario'];
 
 ?>
-
-
 
 <!-- Product Details Section Begin -->
 <section id="produto" class="product-details spad">
@@ -54,7 +59,7 @@ $valor = number_format($valor, 2, ',', '.');
         <div class="produto-content">
             <div class="produto-galeria">
                 <div
-                    style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                    style="--swiper-navigation-color: #961913; --swiper-pagination-color: #961913"
                     class="swiper mySwiper2"
                     >
                     <div class="swiper-wrapper">
@@ -123,8 +128,10 @@ $valor = number_format($valor, 2, ',', '.');
                         <input type="hidden" value="<?php echo $id_produto ?>" id="idproduto" name="idproduto">
                         <input type="hidden" value="Não" id="combo" name="combo">
                         <input type="hidden" value="carac" id="carac" name="carac">
+                        
                     </div>
-                    <!--
+                    
+                    <!-- Inicio do trecho original -->
                         <div class="row mt-4 ml-1"> 
                             <?php 
                                $query2 = $pdo->query("SELECT * from carac_prod where id_prod = '$id_produto' ");
@@ -157,124 +164,42 @@ $valor = number_format($valor, 2, ',', '.');
                                     foreach ($res4[$i2] as $key => $value) {
                                     }
 
-                                      
-
-                                       echo "<option value='".$res4[$i2]['id']."' >" . $res4[$i2]['nome'] . "</option>"; 
-                                  
-
-
+                                    echo "<option value='".$res4[$i2]['id']."' >" . $res4[$i2]['nome'] . "</option>"; 
                                }
-
-
                                ?>
                            </select>
                                 </span>
                             </div>
 
                         <?php } ?>
-                               </div> -->
-                               <?php if(@$tem_cor == 'Sim'){ ?>
-                                <div class="mt-4">
-                                    <?php 
-                                    $query2 = $pdo->query("SELECT * from carac_prod where id_prod = '$id_produto' ");
-                                    $res2 = $query2->fetchAll(PDO::FETCH_ASSOC);
-                                    for ($i=0; $i < count($res2); $i++) { 
-                                        foreach ($res2[$i] as $key => $value) {
-                                        }
-                                        
-                                        $id_carac = $res2[$i]['id_carac'];
-                                        $id_carac_prod = $res2[$i]['id'];
-                                        $query3 = $pdo->query("SELECT * from carac where id = '$id_carac' ");
-                                        $res3 = $query3->fetchAll(PDO::FETCH_ASSOC);
-                                        $nome_carac = $res3[0]['nome'];
-                                        
-                                        if($nome_carac == 'Cor'){
-                                            
-                                            $query4 = $pdo->query("SELECT * from carac_itens where id_carac_prod = '$id_carac_prod'");
-                                            $res4 = $query4->fetchAll(PDO::FETCH_ASSOC);
-                                            
-                                            for ($i2=0; $i2 < count($res4); $i2++) { 
-                                                foreach ($res4[$i2] as $key => $value) {
-                                                }
+                               </div>
 
-                                                echo "<span class='mr-3'><i class='fa fa-circle mr-1' style='color:".$res4[$i2]['valor_item']."'></i>" .$res4[$i2]['nome']."</span>";
-
-                                            }
-                                        
-
-                                        }
-                                    }
-
-
-                                ?>
-                            </div>
-                        <?php } ?>
-
-
-
-
-
-                        <div class="tamanho">
-                            <p>Selecione o Tamanho</p>
-                            <div class="tamanhos">
-                            <?php 
-                               $query2 = $pdo->query("SELECT * from carac_prod where id_prod = '$id_produto' ");
-                                $res2 = $query2->fetchAll(PDO::FETCH_ASSOC);
-                                
-                                for ($i=0; $i < count($res2); $i++) { 
-                                    foreach ($res2[$i] as $key => $value) {
-                                    }
-
-                                    $id_carac = $res2[$i]['id_carac'];
-                                    $id_carac_prod = $res2[$i]['id'];
-                                    $query3 = $pdo->query("SELECT * from carac where id = '$id_carac' ");
-                                    $res3 = $query3->fetchAll(PDO::FETCH_ASSOC);
-                                    $nome_carac = $res3[0]['nome'];
-                                    if($nome_carac == 'Tamanho'){
-                                        $query5 = $pdo->query("SELECT * from carac_itens where id_carac_prod = '$id_carac_prod'");
-                                        $res5 = $query5->fetchAll(PDO::FETCH_ASSOC);
-                                        
-                                        
-                                        for ($i2=0; $i2 < count($res5); $i2++) { 
-                                            foreach ($res5[$i2] as $key => $value) {
-                                            }
-                                                ?>
-                                <input type="checkbox" class="input-tamanho-produto" name="<?php echo $res5[$i2]['id'] ?>" id="<?php echo $res5[$i2]['nome'] ?>" value="<?php echo $res5[$i2]['nome'] ?>">
-                                <label for="<?php echo $res5[$i2]['nome'] ?>"></label>
-                            
-                            <?php } }}?>
-                                <!-- <input type="checkbox"class="input-tamanho-produto" name="<?php echo $i ?>" id="tamanho-m" value="m">
-                                <label for="tamanho-m"></label>
-                                <input type="checkbox"class="input-tamanho-produto" name="<?php echo $i ?>" id="tamanho-g" value="g">
-                                <label for="tamanho-g"></label>
-                                <input type="checkbox"class="input-tamanho-produto" name="<?php echo $i ?>" id="tamanho-gg" value="gg">
-                                <label for="tamanho-gg"></label> -->
-                            </div>
-                        </div>
-
-                    <div class="product__details__quantity">
+                               <!-- trecho do código original -->
                         <div class="quantity">
                             <span>Quantidade</span>
-                            <div class="pro-qty-produto">
+                            <div class="pro-qty">
                                 <span class="dec qtybtn">-</span>
-                                <input type="text" value="1" id="quantidade" name="quantidade">
+                                <input type="text" name="quantidade" value="1">
                                 <span class="inc qtybtn">+</span>
                             </div>
                         </div>
-                    </div>
-                <div class="texto-frete">
+                        <!--  -->
+
+                    <div class="texto-frete">
                     <p>
                         <?php echo $texto_destaque ?>
                     </p>
                 </div>
                 <div class="botao">
+                                            
                     <button id="btn-add-car">
                     <img src="img/icons/cesto-produto.png" alt="icone cesto de produto">
                     SELECIONE O TAMANHO
                     </button>
                     <small><div id="div-mensagem-prod"></div></small>
                 </div>
-
+                        </form>
+                               <!-- fim do trecho original -->
                 
                 <div class="produto-social">
                     <p>Compartilhe</p>
@@ -334,7 +259,7 @@ $valor = number_format($valor, 2, ',', '.');
         <h2>Quem viu este produto comprou estes também...</h2>
          
         <div class="product-container">
-                <div class="swiper myProducts">
+                <div class="swiper  myProducts">
                     <div class="swiper-wrapper">
                         <?php 
                             $query = $pdo->query("SELECT * FROM produtos order by vendas desc limit 8 ");
@@ -364,7 +289,7 @@ $valor = number_format($valor, 2, ',', '.');
     
                             <div class="swiper-slide card">
                                 <div class="imgbox">
-                                    <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                     <ul class="action">
                                         <!-- <li>
                                             <i class="fas fa-heart"></i>
@@ -402,7 +327,7 @@ $valor = number_format($valor, 2, ',', '.');
 
                         <div class="swiper-slide card">
                             <div class="imgbox">
-                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                            <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                 <ul class="action">
                                     <!-- <li>
                                         <i class="fas fa-heart"></i>
@@ -503,7 +428,7 @@ $valor = number_format($valor, 2, ',', '.');
     
                             <div class="swiper-slide card">
                                 <div class="imgbox">
-                                    <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                                <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                     <ul class="action">
                                         <!-- <li>
                                             <i class="fas fa-heart"></i>
@@ -541,7 +466,7 @@ $valor = number_format($valor, 2, ',', '.');
 
                         <div class="swiper-slide card">
                             <div class="imgbox">
-                                <img src="img/produtos/<?php echo $imagem ?>" alt="">
+                            <a href="produto-<?php echo $nome_url ?>"><img src="img/produtos/<?php echo $imagem ?>" alt=""></a>
                                 <ul class="action">
                                     <!-- <li>
                                         <i class="fas fa-heart"></i>
@@ -593,36 +518,10 @@ $valor = number_format($valor, 2, ',', '.');
 <?php
 require_once("newsletter.php");
 require_once("rodape.php");
-// require_once("modal-carrinho.php");
 ?>
 
 
-
-<!-- Precisa verificar o bug que não para de add + e -  -->
-<!-- <script type="text/javascript">
-    var proQtyProd = $('.pro-qty-produto');
-    proQty.prepend('<span class="dec qtybtn">-</span>');
-    proQty.append('<span class="inc qtybtn">+</span>');
-    proQty.on('click', '.qtybtn', function () {
-        var $button = $(this);
-        var oldValue = $button.parent().find('input').val();
-        if ($button.hasClass('inc')) {
-            var newVal = parseFloat(oldValue) + 1;
-        } else {
-            // Don't allow decrementing below zero
-            if (oldValue > 0) {
-                var newVal = parseFloat(oldValue) - 1;
-            } else {
-                newVal = 0;
-            }
-        }
-        $button.parent().find('input').val(newVal);
-    });
-</script> -->
-
 <script type="text/javascript">
-//   jQuery('<span class="dec qtybtn">-</span>').insertBefore('.pro-qty-produto input'); 
-//   jQuery('<span class="inc qtybtn">+</span>').insertAfter('.pro-qty-produto input'); 
   jQuery('.pro-qty-produto').each(function() {
     var spinner = jQuery(this),
     input = spinner.find('input[type="text"]'),
@@ -660,10 +559,6 @@ require_once("rodape.php");
 </script>
 
 
-
-
-
-
 <script type="text/javascript">
     $('#btn-add-car').click(function(event){
         event.preventDefault();
@@ -675,37 +570,22 @@ require_once("rodape.php");
             dataType: "text",
             success: function(msg){
                 if(msg.trim() === 'Cadastrado com Sucesso!!'){
-                    
-                    // window.location='Modal_carrinho.php';
-                    
-                    // alert('Produto Adicionado ao carrinho!');
                    console.log($('form'));
                     atualizarCarrinho();
                     toggleCarrinho();
-                    
-                    // setTimeout(() => {
-                        // window.location.reload(true);
-                            // }, 700)
                     }
                  else{
                     console.log(msg);
                     $('#div-mensagem-prod').addClass('text-danger')
                     $('#div-mensagem-prod').text(msg);
-
                  }
             },
         })
     })
 </script>
 
-
-
-
-
-
 <script>
 function atualizarCarrinho() {
-
     $.ajax({
       url:  "carrinho/listar-carrinho.php",
       method: "post",
@@ -713,7 +593,6 @@ function atualizarCarrinho() {
       dataType: "html",
       success: function(result){
         $('#listar-carrinho').html(result)
-
       },
      })
 }
