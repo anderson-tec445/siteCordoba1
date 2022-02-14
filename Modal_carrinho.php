@@ -16,13 +16,11 @@
         } else {
 
             echo "<div id='listar-carrinho'></div>";
-            // echo "<div id='listar-itens-caract'></div>";
-            // echo "<div id='listar-caract'></div>";
         }
         ?>
 
         <!-- carrinho-card = cada produto -->
-        <h5 class="cart-inline-title">Carrinho: <span id="total_itens" class="ml-1"> </span> Produto(s)</h5>
+        <h5 class="texto-quantidade">Carrinho: <span id="total_itens" class="ml-1"> </span> Produto(s)</h5>
         <input type="hidden" id="txtquantidade">
 
         <div class="total-compra">
@@ -41,6 +39,8 @@
         <a href="produtos.php">Continuar Comprando</a>
         <a href="checkout.php">Finalizar Compra</a>
     </div>
+
+    
 </section>
 
 
