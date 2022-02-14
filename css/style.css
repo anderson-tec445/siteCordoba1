@@ -346,9 +346,9 @@ nav .icons i{
     /* border-bottom: 1px solid transparent; */
 }
 
-#destaques .container-cordoba .headline a:hover{
+/* #destaques .container-cordoba .headline a:hover{ */
     /* border-bottom: 1px solid var(--dark-red); */
-}
+/* } */
 
 .product-container{
     position: relative;
