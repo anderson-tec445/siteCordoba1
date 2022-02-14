@@ -1,3 +1,9 @@
+<?php
+//@session_start();
+include_once 'lib/face.php';
+//lib\face.php
+?>
+
 <section id="modal_login">
     <div class="modal-card">
         <div class="modal-exit" onclick="toggleModalLogin()">
@@ -9,7 +15,7 @@
         <div class="modal-login-principal">
             <p>Use uma das opções</p>
             <div class="modal-social">
-                <a href="#"><img src="img/icons/logo-facebook.png" alt="Login com o Facebook"></a>
+                <a href="<?php echo $loginUrl; ?>"><img src="img/icons/logo-facebook.png" alt="Login com o Facebook"></a>
                 <a href="#"><img src="img/icons/logo-google.png" alt="Login com o Google"></a>
             </div>
             <button class="btn-reg" onclick="toggleRegistro()">Registrar</button>

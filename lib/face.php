@@ -1,11 +1,11 @@
 <?php 
-session_start();
+@session_start();
 //unset($_SESSION['face_access_token']);
-require_once '../lib/Facebook/autoload.php';
-include_once '../conexao.php';
+require_once 'Facebook/autoload.php';
+include_once 'conexao2.php';
 $fb = new \Facebook\Facebook([
-  'app_id' => '{app-id}',
-  'app_secret' => '{app-secret}',
+  'app_id' => '{5008563262560574}',
+  'app_secret' => '{3479810695f9ed6e016a03b9def1d99b}',
   'default_graph_version' => 'v2.9',
   //'default_access_token' => '{access-token}', // optional
 ]);
@@ -53,7 +53,15 @@ if (! isset($accessToken)) {
 		$response = $fb->get('/me?fields=name, picture, email');
 		$user = $response->getGraphUser();
 		var_dump($user);
-	
+		$result_usuario = "SELECT id, nome, email FROM usuarios WHERE email='".$user['email']."' LIMIT 1";
+		$resultado_usuario = mysqli_query($conn, $result_usuario);
+		if($resultado_usuario){
+			$row_usuario = mysqli_fetch_assoc($resultado_usuario);
+			$_SESSION['id'] = $row_usuario['id'];
+			$_SESSION['nome'] = $row_usuario['nome'];
+			$_SESSION['email'] = $row_usuario['email'];
+			header("Location: administrativo.php");			
+		}
 	} catch(Facebook\Exceptions\FacebookResponseException $e) {
 		echo 'Graph returned an error: ' . $e->getMessage();
 		exit;
@@ -64,5 +72,5 @@ if (! isset($accessToken)) {
 }
 
 ?>
-<a href="<?php echo $loginUrl; ?>">Facebook</a>
+
 
