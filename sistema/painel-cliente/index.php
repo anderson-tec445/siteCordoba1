@@ -38,7 +38,7 @@ $cpf_usu = @$dados[0]['cpf'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Hugo Vasconcelos">
+    <meta name="author" content="Dev.org">
 
     <title>Painel Cliente</title>
 
