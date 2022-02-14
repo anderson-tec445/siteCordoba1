@@ -3,19 +3,15 @@ require_once("config.php");
 
 date_default_timezone_set('America/Sao_Paulo');
 
-		// $envPath = 'env.ini';
-        // $env = parse_ini_file($envPath);
-		// $database = $env['database'];
-		// $host = $env['host'];
-		// $username = $env['username'];
-		// $password = $env['password'];
-		// oooooo
-		$database = "heroku_93b6f8386c612fb";
-		$host = 'us-cdbr-east-05.cleardb.net';
-		$username = "bde521d256ce9e";
-		$password = "a9477394";
-
+		$envPath = 'env.ini';
+        $env = parse_ini_file($envPath);
+		$database = $env['database'];
+		$host = $env['host'];
+		$username = $env['username'];
+		$password = $env['password'];
 		
+
+
 try {
 	$pdo = new PDO("mysql:dbname=$database;host=$host;charset=utf8", "$username", "$password");
 
