@@ -2,7 +2,7 @@
 
 
 //VERIFICAR SE TEM REGISTROS NO CARRINHO COM MAIS DE XX DIAS
-//$data_carrinho = date('Y-m-d', strtotime("-".$dias_limpar_carrinho." days"));
+$data_carrinho = date('Y-m-d', strtotime("-".$dias_limpar_carrinho." days"));
 $res = $pdo->query("SELECT * from carrinho where data <= '$data_carrinho' and id_venda = 0");
 $dados = $res->fetchAll(PDO::FETCH_ASSOC);
 for ($i=0; $i < count($dados); $i++) { 

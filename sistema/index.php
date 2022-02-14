@@ -10,35 +10,29 @@
     }
 
 ?>
+
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html>
 <head>
-
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
    <title>Login - <?php echo $nome_loja ?></title>
-
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-   <!------ Include the above in your HEAD tag ---------->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-   <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-   <link href="css/style-painel.css" rel="stylesheet">
-   <!-- <link href="../css/login.css" rel="stylesheet"> -->
-   <script src="../js/login.js"></script>
+      <link href="../css/login.css" rel="stylesheet">
+      <script src="../js/login.js"></script>
 
-   <!-- <link rel="shortcut icon" href="../img/logoicone1.ico" type="image/x-icon"> -->
-    <!-- <link rel="icon" href="../img/logoicone2.ico" type="image/x-icon"> -->
+      <link rel="shortcut icon" href="../img/logoicone1.ico" type="image/x-icon">
+    <link rel="icon" href="../img/logoicone2.ico" type="image/x-icon">
 
 
 </head>
@@ -46,35 +40,52 @@
 
 
 <body>
-<section id="login">
-   <div class="container">
-      <div class="card">
-         <div class="logo-login">
-            <img src="img-sistema/cordoba-logo-login.png" alt="Logo Cordoba">
-         </div>
-            <form action="autenticar.php" method="post" name="login">
-               <label for="exampleInputEmail1">Email ou CPF</label>
-               <input type="text" name="email_login"  class="" id="email_login" aria-describedby="emailHelp" placeholder="Insira seu Email ou CPF">
-               <label for="exampleInputEmail1">Senha</label>
-               <input type="password" name="senha_login" id="senha_login"  class="" aria-describedby="emailHelp" placeholder="Senha">
-               <p class="text-center"><a class="text-danger" href="#" data-toggle="modal" data-target="#modalRecuperar">Esqueci minha senha</a></p>
-               <div class="btn-form">
-                  <button type="submit" class="btn-forms">Acessar</button>
-               </div>
+    <div class="container">
+        <div class="row">
+			<div class="col-md-5 mx-auto">
+			<div id="first">
+				<div class="myform form ">
+					 <div class="logo mb-3">
+						 <div class="col-md-12 text-center">
+							<h1>Login</h1>
+						 </div>
+					</div>
+                   <form action="autenticar.php" method="post" name="login">
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Email ou CPF</label>
+                              <input type="text" name="email_login"  class="form-control" id="email_login" aria-describedby="emailHelp" placeholder="Insira seu Email ou CPF">
+                           </div>
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Senha</label>
+                              <input type="password" name="senha_login" id="senha_login"  class="form-control" aria-describedby="emailHelp" placeholder="Senha">
+                           </div>
+                          
 
-               <div class="form-group mt-4">
+                           <div class="col-md-12 text-center mt-4">
+                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                           </div>
+                          
+
+                           
+
+                           <div class="form-group mt-4">
                               <small>
                               <p class="text-center">Não possui Cadastro? <a href="#" data-toggle="modal" data-target="#modalCadastro">Cadastre-se</a></p>
                               <p class="text-center"><a class="text-danger" href="#" data-toggle="modal" data-target="#modalRecuperar">Recuperar Senha?</a></p>
                            </small>
                            </div>
-                           
-            </form>
-      </div>
-   </div>
-</section>
- <p class="text-center">Não possui Cadastro? <a href="#" data-toggle="modal" data-target="#modalCadastro">Cadastre-se</a></p>
+                        </form>
+                 
+				</div>
+			</div>
+			  
+			</div>
+		</div>
+      </div>   
+         
 </body>
+
+
 </html>
 
 
@@ -101,7 +112,7 @@
 
     <div class="form-group">
      <label for="exampleInputEmail1">Email</label>
-     <input type="email" class="form-control" id="email" name="email" placeholder="Seu Email">
+     <input value="<?php echo @$_GET['email'] ?>" type="email" class="form-control" id="email" name="email" placeholder="Seu Email">
     
   </div>
 
@@ -192,6 +203,13 @@
 
 
 
+<?php 
+
+if (@$_GET["email"] != null) {
+    echo "<script>$('#modalCadastro').modal('show');</script>";
+}
+
+?>
 
 
 <script type="text/javascript">

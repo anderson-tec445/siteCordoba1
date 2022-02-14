@@ -14,6 +14,7 @@ $largura = $_POST['largura'];
 $altura = $_POST['altura'];
 $comprimento = $_POST['comprimento'];
 $valor_frete = $_POST['valor-frete'];
+$link = $_POST['link'];
 
 $valor = str_replace(',', '.', $valor);
 $valor_frete = str_replace(',', '.', $valor_frete);
@@ -65,14 +66,14 @@ move_uploaded_file($imagem_temp, $caminho);
 
 
 if($id == ""){
-	$res = $pdo->prepare("INSERT INTO combos (nome, nome_url, descricao, descricao_longa, valor, imagem, tipo_envio, palavras, ativo, peso, largura, altura, comprimento, valor_frete) VALUES (:nome, :nome_url, :descricao, :descricao_longa, :valor, :imagem,  :tipo_envio, :palavras, :ativo, :peso, :largura, :altura, :comprimento,  :valor_frete)");
+	$res = $pdo->prepare("INSERT INTO combos (nome, nome_url, descricao, descricao_longa, valor, imagem, tipo_envio, palavras, ativo, peso, largura, altura, comprimento, valor_frete, link) VALUES (:nome, :nome_url, :descricao, :descricao_longa, :valor, :imagem,  :tipo_envio, :palavras, :ativo, :peso, :largura, :altura, :comprimento,  :valor_frete, :link)");
 	$res->bindValue(":imagem", $imagem);
 }else{
 
 	if($imagem == "sem-foto.jpg"){
-		$res = $pdo->prepare("UPDATE combos SET nome = :nome, nome_url = :nome_url, descricao = :descricao, descricao_longa = :descricao_longa, valor = :valor,  tipo_envio = :tipo_envio, palavras = :palavras, ativo = :ativo, peso = :peso, largura = :largura, altura = :altura, comprimento = :comprimento, valor_frete = :valor_frete WHERE id = :id");
+		$res = $pdo->prepare("UPDATE combos SET nome = :nome, nome_url = :nome_url, descricao = :descricao, descricao_longa = :descricao_longa, valor = :valor,  tipo_envio = :tipo_envio, palavras = :palavras, ativo = :ativo, peso = :peso, largura = :largura, altura = :altura, comprimento = :comprimento, valor_frete = :valor_frete, link = :link WHERE id = :id");
 	}else{
-		$res = $pdo->prepare("UPDATE combos SET nome = :nome, nome_url = :nome_url,descricao = :descricao,descricao_longa = :descricao_longa,valor = :valor, tipo_envio = :tipo_envio,palavras = :palavras,ativo = :ativo,peso = :peso, largura = :largura, altura = :altura, comprimento = :comprimento, valor_frete = :valor_frete, imagem = :imagem WHERE id = :id");
+		$res = $pdo->prepare("UPDATE combos SET nome = :nome, nome_url = :nome_url,descricao = :descricao,descricao_longa = :descricao_longa,valor = :valor, tipo_envio = :tipo_envio,palavras = :palavras,ativo = :ativo,peso = :peso, largura = :largura, altura = :altura, comprimento = :comprimento, valor_frete = :valor_frete, imagem = :imagem, link = :link WHERE id = :id");
 		$res->bindValue(":imagem", $imagem);
 	}
 
@@ -95,7 +96,7 @@ if($id == ""){
 	$res->bindValue(":comprimento", $comprimento);
 	
 	$res->bindValue(":valor_frete", $valor_frete);
-	
+	$res->bindValue(":link", $link);
 	
 	
 	

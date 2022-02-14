@@ -225,7 +225,7 @@ if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria'
                         </div>
                     <?php } ?>
                     <?php 
-                        $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6,6 ");
+                        @$query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6,6 ");
                         $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                         for ($i=0; $i < count($res); $i++) { 
