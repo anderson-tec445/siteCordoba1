@@ -127,9 +127,9 @@ $cartoes_cliente = $dados_total[0]['cartoes'];
 <?php 
 for ($i=1; $i <= $total_cartoes_troca; $i++) { 
 	if($i <= $cartoes_cliente){
-		$img = 'logo-maior.png';
+		$img = 'logo1.jpeg';
 	}else{
-		$img = 'logo-inativa.png';
+		$img = 'logo1-inativa.jpeg';
 	}
  ?>
 

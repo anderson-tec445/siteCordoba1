@@ -49,7 +49,7 @@ $querye = $pdo->query("SELECT * FROM tipo_envios where id = '$tipo_envio' ");
 
 
 @session_start();
-$nivel_usuario = $_SESSION['nivel_usuario'];
+@$nivel_usuario = $_SESSION['nivel_usuario'];
 
 ?>
 

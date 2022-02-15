@@ -155,7 +155,7 @@ $agora = date('Y-m-d');
           $modelo2 = $res[0]['modelo'];
           $valor_frete2 = $res[0]['valor_frete'];
           $nome_cat2 = $res[0]['categoria'];
-          $link2 = $res[0]['link'];
+          @$link2 = $res[0]['link'];
 
 
         } else {
