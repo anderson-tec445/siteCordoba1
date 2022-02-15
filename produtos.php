@@ -154,7 +154,7 @@ if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria'
                                 $res = $query->fetchAll(PDO::FETCH_ASSOC);
                             }elseif(@$_REQUEST['categoria'] && !@$_REQUEST['subcategoria']){
                                 $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6 ");
-                                $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                                $res = @$query->fetchAll(PDO::FETCH_ASSOC);
                             }
                             elseif(!@$_REQUEST['categoria'] && @$_REQUEST['subcategoria']){
                                 $query = $pdo->query("SELECT * FROM produtos $num_subcat order by id desc limit 6 ");
