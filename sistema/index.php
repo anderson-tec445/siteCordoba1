@@ -12,12 +12,18 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="pt_BR">
 <head>
+
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
    <title>Login - <?php echo $nome_loja ?></title>
+
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -26,13 +32,13 @@
 
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-      <link href="../css/login.css" rel="stylesheet">
-      <script src="../js/login.js"></script>
+<link href="css/style-painel.css" rel="stylesheet">
+<script src="../js/login.js"></script>
 
-      <link rel="shortcut icon" href="../img/logoicone1.ico" type="image/x-icon">
-    <link rel="icon" href="../img/logoicone2.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../img-sistema/icons/miniatura.jpeg" type="image/x-icon">
+<link rel="icon" href="../img-sistema/icons/miniatura.jpeg" type="image/x-icon">
 
 
 </head>
@@ -40,52 +46,34 @@
 
 
 <body>
-    <div class="container">
-        <div class="row">
-			<div class="col-md-5 mx-auto">
-			<div id="first">
-				<div class="myform form ">
-					 <div class="logo mb-3">
-						 <div class="col-md-12 text-center">
-							<h1>Login</h1>
-						 </div>
-					</div>
-                   <form action="autenticar.php" method="post" name="login">
-                           <div class="form-group">
-                              <label for="exampleInputEmail1">Email ou CPF</label>
-                              <input type="text" name="email_login"  class="form-control" id="email_login" aria-describedby="emailHelp" placeholder="Insira seu Email ou CPF">
-                           </div>
-                           <div class="form-group">
-                              <label for="exampleInputEmail1">Senha</label>
-                              <input type="password" name="senha_login" id="senha_login"  class="form-control" aria-describedby="emailHelp" placeholder="Senha">
-                           </div>
-                          
-
-                           <div class="col-md-12 text-center mt-4">
-                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
-                           </div>
-                          
-
-                           
-
-                           <div class="form-group mt-4">
-                              <small>
-                              <p class="text-center">Não possui Cadastro? <a href="#" data-toggle="modal" data-target="#modalCadastro">Cadastre-se</a></p>
-                              <p class="text-center"><a class="text-danger" href="#" data-toggle="modal" data-target="#modalRecuperar">Recuperar Senha?</a></p>
-                           </small>
-                           </div>
-                        </form>
+<section id="login">
+   <div class="container">
+      <div class="card">
+         <div class="logo-login">
+            <img src="img-sistema/cordoba-logo-login.png" alt="Logo Cordoba">
+         </div>
+            <form action="autenticar.php" method="post" name="login">
+               <label for="email_login">Email ou CPF</label>
+               <input type="text" name="email_login"  class="" id="email_login" aria-describedby="emailHelp" placeholder="Insira seu Email ou CPF">
+               
+               <label for="senha_login">Senha</label>
+               <input type="password" name="senha_login" id="senha_login"  class="form-control" aria-describedby="emailHelp" placeholder="Senha">
                  
-				</div>
-			</div>
-			  
+               <div class="btn-form">
+                  <button type="submit" class="btn-forms">Acessar</button>
+               </div>
+
+               <div class="form-group mt-4">
+                  <small>
+                     <p class="text-center">Não possui Cadastro? <a href="#" data-toggle="modal" data-target="#modalCadastro">Cadastre-se</a></p>
+                     <p class="text-center"><a class="text-danger" href="#" data-toggle="modal" data-target="#modalRecuperar">Recuperar Senha?</a></p>
+                  </small>
+               </div>
+            </form>     
 			</div>
 		</div>
-      </div>   
-         
+</section>       
 </body>
-
-
 </html>
 
 
@@ -105,19 +93,19 @@
    <form method="post">
 
    <div class="form-group">
-     <label for="exampleInputEmail1">Nome Completo</label>
+     <label for="nome">Nome Completo</label>
      <input type="text" class="form-control" id="nome" name="nome" placeholder="Insira o nome e Sobrenome">
     
   </div>
 
     <div class="form-group">
-     <label for="exampleInputEmail1">Email</label>
+     <label for="email">Email</label>
      <input value="<?php echo @$_GET['email'] ?>" type="email" class="form-control" id="email" name="email" placeholder="Seu Email">
     
   </div>
 
    <div class="form-group">
-     <label for="exampleInputEmail1">CPF</label>
+     <label for="cpf">CPF</label>
      <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Insira seu CPF">
     
   </div>
@@ -126,7 +114,7 @@
 
    <div class="col-md-6">
       <div class="form-group">
-       <label for="exampleInputEmail1">Senha</label>
+       <label for="senha">Senha</label>
        <input type="password" class="form-control" id="senha" name="senha" placeholder="Inserir Senha">
 
     </div>
@@ -134,7 +122,7 @@
 
  <div class="col-md-6">
    <div class="form-group">
-    <label for="exampleInputEmail1">Confirmar Senha</label>
+    <label for="confirmar-senha">Confirmar Senha</label>
     <input type="password" class="form-control" id="confirmar-senha" name="confirmar-senha" placeholder="Confirmar Senha">
     
  </div>
@@ -149,9 +137,9 @@
 </div>
 <div class="modal-footer">
 
- <button type="button" id="btn-fechar-cadastrar" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+ <button type="button" id="btn-fechar-cadastrar" class="btn-forms" data-dismiss="modal">Fechar</button>
    
-  <button type="button" id="btn-cadastrar" class="btn btn-info">Cadastrar</button>
+  <button type="button" id="btn-cadastrar" class="btn-forms">Cadastrar</button>
 
   </form>
 
@@ -180,7 +168,7 @@
  
 
     <div class="form-group">
-     <label for="exampleInputEmail1">Email</label>
+     <label for="email-recuperar">Email</label>
      <input type="email" class="form-control" id="email-recuperar" name="email-recuperar" placeholder="Seu Email">
     
   </div>
@@ -190,9 +178,9 @@
 
 </div>
 <div class="modal-footer">
- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+ <button type="button" class="btn-forms" data-dismiss="modal">Fechar</button>
    
-  <button type="button" id="btn-recuperar" class="btn btn-info">Recuperar</button>
+  <button type="button" id="btn-recuperar" class="btn-forms">Recuperar</button>
 
   </form>
 

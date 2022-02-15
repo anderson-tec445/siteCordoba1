@@ -33,11 +33,23 @@ a:hover{
    text-decoration: none;
 }
 
-input:focus {
-   outline: none !important;
-   box-shadow: 0 0 5px var(--dark-red);
- }
+.link_normal:hover{
+   color: var(--dark-red);
+}
 
+.btn-forms:hover{
+   color: var(--white);
+}
+.btn-normal:hover{
+   color: var(--dark-red);
+}
+
+input{
+   padding-left: 8px;
+}
+input:focus {
+   outline: 2px solid var(--dark-red);
+ }
 body {
     height: 100%;
 }
@@ -73,7 +85,7 @@ body {
 }
 
 .navigation.active{
-   width: 60px;
+   width: 80px;
    transition: 0.5s;
 }
 
