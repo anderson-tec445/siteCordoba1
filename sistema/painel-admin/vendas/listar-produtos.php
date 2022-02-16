@@ -36,8 +36,8 @@ if($combo != 'Sim'){
 
 
 $dados2 = $res2->fetchAll(PDO::FETCH_ASSOC);
-$nome_produto = $dados2[0]['nome'];
-$valor = $dados2[0]['valor'];
+@$nome_produto = $dados2[0]['nome'];
+@$valor = $dados2[0]['valor'];
 
 $valor = number_format( $valor , 2, ',', '.');
                           
