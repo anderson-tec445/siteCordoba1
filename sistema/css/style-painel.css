@@ -932,7 +932,7 @@ body {
       width: 145px;
    }
 }
-@media screen and (max-width:330px){
+@media screen and (max-width:368px){
    .main .topbar {
       height: 110px;
   }
