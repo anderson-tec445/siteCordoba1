@@ -209,12 +209,40 @@ $querye = $pdo->query("SELECT * FROM tipo_envios where id = '$tipo_envio' ");
                         <a href="#"><img src="img/icons/logo-facebook.png" alt="Logo Facebook"></a>
                     </div>
                 </div>
-                <div class="produto-calcular-frete">
-                    <p>Consultar Frete e Entrega</p>
-                    <input type="text" name="cep-calcular-frete" placeholder="13400-000">
-                    <span>Não sei meu frete</span>
-                    <button>CALCULAR FRETE</button>
-                </div>
+                
+                <div class="checkout__order__total">Calcular Frete<br> 
+                            <div class="checkout__input py-2">
+                               
+                                    <form id="frm" method="post">
+                                    <div class="row">
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                             <input type="hidden" value="<?php echo @$total_peso ?>" name="total_peso" id="total_peso">
+
+                                             <div class="checkout__input">
+                                            <input type="text" name="cep2" id="cep2" placeholder="CEP">
+                                             </div>
+                                        </div>
+                                         <div class="col-md-5">
+                                             <div class="checkout__input">
+                                             <select name="codigo_servico" id="codigo_servico">
+                                            <option value="0">Escolher</option>
+                                            <option value="40010">Sedex</option>
+                                            
+                                            <option value="41106">PAC</option>
+                                         </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                   
+                                </form>
+                             
+                            <div id="listar-frete"></div>
+                       </div>
+                       <div  class="checkout__order__total">Total <span id="total_final"></span></div>
                 
                 </form>
 

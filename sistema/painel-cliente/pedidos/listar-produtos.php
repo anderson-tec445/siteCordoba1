@@ -39,7 +39,7 @@ $dados2 = $res2->fetchAll(PDO::FETCH_ASSOC);
 $nome_produto = $dados2[0]['nome'];
 $valor = $dados2[0]['valor'];
 $tip_envio = $dados2[0]['tipo_envio'];
-$link = $dados2[0]['link'];
+@$link = $dados2[0]['link'];
 
 $res3 = $pdo->query("SELECT * FROM tipo_envios where id = '$tip_envio'");
 $dados3 = $res3->fetchAll(PDO::FETCH_ASSOC);

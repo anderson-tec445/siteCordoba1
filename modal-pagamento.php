@@ -32,7 +32,7 @@
                       </div>
 
                       <div class="col-md-4 col-sm-12 mb-1">
-                        <a title="Paypal - Acesso Imediato ao Curso" href="pagamentos/cielo/efetuar-pagamento.php?id=<?php echo $id_venda; ?>" target="_blank"><img src="img/pagamentos/cielo.png" width="200"></a> 
+                        <a title="Paypal - Acesso Imediato ao Curso" href="pagamentos/cielo/index.php?id=<?php echo $id_venda; ?>" target="_blank"><img src="img/pagamentos/cielo.png" width="200"></a> 
                           <span class="text-muted"><i><small><br>Cartão de Crédito <br>
                           Aprovação Automatica.</small></i></span>
                       </div>
