@@ -35,6 +35,10 @@ include_once 'lib/face.php';
                         <label for="registro-email">*E-mail</label>
                         <input type="email" name="email" id="email" placeholder="Digite um e-mail válido" required>
                     </div>
+                    <div class="telefone">
+                        <label for="registro-telefone">*Telefone</label>
+                        <input type="text" name="telefone" id="telefone" placeholder="(21) 9999 - 9999" required>
+                    </div>
                 </form>
             </div>
             <button name="btn-reg" id="btn-reg" type="button" class="site-btn btn-reg">Registrar</button>

@@ -5,6 +5,7 @@ require_once("../conexao.php");
 $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
 $email = $_POST['email'];
+$telefone = $_POST['telefone'];
 $senha = $_POST['senha'];
 $senha_crip = md5($senha);
 
@@ -50,9 +51,10 @@ if(@count($dados) == 0){
 	$res->execute();
 
 
-	$res = $pdo->prepare("INSERT into clientes (nome, cpf, email) values (:nome, :cpf, :email)");
+	$res = $pdo->prepare("INSERT into clientes (nome, cpf, email, telefone) values (:nome, :cpf, :email, :telefone)");
 	$res->bindValue(":nome", $nome);
 	$res->bindValue(":email", $email);
+	$res->bindValue(":telefone", $telefone);
 	$res->bindValue(":cpf", $cpf);
 	
 	$res->execute();

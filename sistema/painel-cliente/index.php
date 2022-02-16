@@ -1,4 +1,6 @@
 <?php 
+date_default_timezone_set('America/Sao_Paulo');
+setlocale(LC_TIME,'ptb', 'ptb.utf-8', 'portuguese');
 require_once("../../conexao.php"); 
 @session_start();
     //verificar se o usuário está autenticado
@@ -7,7 +9,7 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Cliente')
 
 }
 
-
+$date = new DateTime();
 $agora = date('Y-m-d');
 
     //variaveis para o menu
@@ -48,7 +50,7 @@ $cpf_usu = @$dados[0]['cpf'];
 
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-painel.css" rel="stylesheet">
 
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
@@ -57,155 +59,74 @@ $cpf_usu = @$dados[0]['cpf'];
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="shortcut icon" href="../../img/logoicone2.ico" type="image/x-icon">
-    <link rel="icon" href="../../img/logoicone2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img-sistema/icons/miniatura.jpeg" type="image/x-icon">
+    <link rel="icon" href="../img-sistema/icons/miniatura.jpeg" type="image/x-icon">
 
 </head>
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+<div class="main">
+        <div class="topbar">
+            <div><img src="../img-sistema/cordoba-logo-painel.png" alt=""></div>
+           <div class="time">
+               <?php
+               echo date_format($date,'H:i:s') . '<br>'; ?>
+               <?php echo date_format($date,"l d F Y") ?>
+           </div>
+            <div class="user">
+                <h3><?php echo @$nome_usu ?></h3>
+                <a href="#" data-toggle="modal" data-target="#ModalPerfil">Configuração <img src="../img-sistema/icons/icon-tools.png" alt=""></a>
+                <a href="../logout.php">Sair <img src="../img-sistema/icons/icon-off.png" alt=""></a>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <div class="toggle" onclick="menuToggle()"></div>
+        <!-- Page Wrapper -->
+        <!-- <div id="wrapper"> -->
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul class="accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-
-                <div class="sidebar-brand-text mx-3">Cliente</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Consultas
-            </div>
-
-
-            
-
-            <!-- Nav Item - Charts -->
-
-              <li class="nav-item">
-                <a class="nav-link" href="index.php">
-                    <i class="fas fa-home fa-chart-area"></i>
-                    <span>Home</span></a>
+                <li class="side-menu">
+                    <a class=" collapsed" href="index.php" >
+                        <span class="icon">
+                            <img src="../img-sistema/icons/icon-casa.png" alt="Icone de casa">
+                        </span>
+                        <span class="title">Inicio</span>
+                    </a>
                 </li>
 
-
-
-             <li class="nav-item">
-                <a class="nav-link" href="index.php?pag=<?php echo $menu1 ?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Pedidos</span></a>
+                <li class="side-menu">
+                    <a class=" collapsed" href="index.php?pag=<?php echo $menu1 ?>" >
+                        <span class="icon">
+                            <img src="../img-sistema/icons/icon-jornal.png" alt="Icone de pedidos">
+                        </span>
+                        <span class="title">Pedidos <span class="tracinho"></span></span>
+                    </a>
                 </li>
+            </ul>
+        </div>
 
-           
+                <!-- Begin Page Content -->
+        <div class="container-fluid">
 
-                        <!-- Divider -->
-                        <hr class="sidebar-divider d-none d-md-block">
+            <?php if ($pag == null) { 
+                include_once("home.php"); 
+            } else if ($pag==$menu1) {
+                include_once($menu1.".php");
+            } else {
+                include_once("home.php");
+            }
+            ?>
+        </div>
+</div>
 
-                        <!-- Sidebar Toggler (Sidebar) -->
-                        <div class="text-center d-none d-md-inline">
-                            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                        </div>
-
-                    </ul>
-                    <!-- End of Sidebar -->
-
-                    <!-- Content Wrapper -->
-                    <div id="content-wrapper" class="d-flex flex-column">
-
-                        <!-- Main Content -->
-                        <div id="content">
-
-                            <!-- Topbar -->
-                            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                                <!-- Sidebar Toggle (Topbar) -->
-                                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                                    <i class="fa fa-bars"></i>
-                                </button>
-
-
-
-                                <!-- Topbar Navbar -->
-                                <ul class="navbar-nav ml-auto">
-
-
-
-                                    <!-- Nav Item - User Information -->
-                                    <li class="nav-item dropdown no-arrow">
-                                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo @$nome_usu ?></span>
-                                            <img class="img-profile rounded-circle" src="../../img/sem-foto.jpg">
-
-                                        </a>
-                                        <!-- Dropdown - User Information -->
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                            <a class="dropdown-item" href="" data-toggle="modal" data-target="#ModalPerfil">
-                                                <i class="fas fa-user fa-sm fa-fw mr-2 text-primary"></i>
-                                                Editar Perfil
-                                            </a>
-
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="../logout.php">
-                                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-danger"></i>
-                                                Sair
-                                            </a>
-                                        </div>
-                                    </li>
-
-                                </ul>
-
-                            </nav>
-                            <!-- End of Topbar -->
-
-                            <!-- Begin Page Content -->
-                            <div class="container-fluid">
-
-                                <?php if ($pag == null) { 
-                                    include_once("home.php"); 
-
-                                } else if ($pag==$menu1) {
-                                    include_once($menu1.".php");
-
-                               
-                               
-
-                                } else {
-                                    include_once("home.php");
-                                }
-                                ?>
-
-
-
-                            </div>
-                            <!-- /.container-fluid -->
-
-                        </div>
-                        <!-- End of Main Content -->
-
-
-
-                    </div>
-                    <!-- End of Content Wrapper -->
-
-                </div>
-                <!-- End of Page Wrapper -->
-
-                <!-- Scroll to Top Button-->
-                <a class="scroll-to-top rounded" href="#page-top">
-                    <i class="fas fa-angle-up"></i>
-                </a>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
 
 
@@ -275,7 +196,7 @@ $cpf_usu = @$dados[0]['cpf'];
                                 <div class="modal-footer">
 
 
-
+                                    <!-- Esse input não tem no sistema.php -->
                                     <input value="<?php echo $_SESSION['id_usuario'] ?>" type="hidden" name="txtid" id="txtid">
                                     <input value="<?php echo $_SESSION['cpf_usuario'] ?>" type="hidden" name="antigo" id="antigo">
 
@@ -405,3 +326,35 @@ $cpf_usu = @$dados[0]['cpf'];
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
 <script src="../../js/mascara.js"></script>
+
+
+<!-- Esse trecho estava na pagina antes -->
+<script>
+    function detalhesToggle(){
+        var detalhes = document.querySelectorAll('.detalhes');
+
+        var iconBox = document.querySelectorAll('.side-menu a');
+        for(var i = 0; i <iconBox.length; i++){
+            iconBox[i].addEventListener('click', function() {
+                for(var i=0; i < detalhes.length; i++){
+                    
+                    detalhes[i].className = 'detalhes';
+                }
+                document.getElementById(this.dataset.id).className = 'detalhes active'
+
+                for(var i=0; i < iconBox.length; i++){
+                    iconBox[i].className = 'iconBox';
+                }
+
+                this.className = "iconBox active";
+            })
+        }
+    }
+
+    function menuToggle(){
+        var menuToggle = document.querySelector('.navigation');
+        var container = document.querySelector('.container-fluid');
+        menuToggle.classList.toggle('active');
+        container.classList.toggle('active');
+    }
+</script>

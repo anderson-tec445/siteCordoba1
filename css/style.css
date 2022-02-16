@@ -368,7 +368,8 @@ nav .icons i{
     width: 250px;
     margin-left: 15px;
     background: var(--white);
-    border: 1px solid var(--dark-red);
+    border: none;
+    box-shadow: 0 0 10px 3px rgb(0 0 0 / 3%);
     display: flex;
     flex-direction: column;
 }
@@ -905,6 +906,8 @@ footer .footer-text p{
 
 #modal_login .modal-card .modal-registro .modal-form .nome,
 #modal_news .modal-card .modal-news-registro .modal-form .nome,
+#modal_news .modal-card .modal-news-registro .modal-form .telefone,
+#modal_login .modal-card .modal-registro .modal-form .telefone,
 #modal_login .modal-card .modal-registro .modal-form .email,
 #modal_news .modal-card .modal-news-registro .modal-form .email,
 #modal_login .modal-card .modal-login .modal-form .nome,
@@ -1661,6 +1664,9 @@ object-fit: cover;
     color: var(--dark-red);
 }
 
+.swiper-wrapper{
+    height: 99%;
+}
 /* SLIDE PRODUTO */
 
 
