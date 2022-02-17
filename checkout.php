@@ -566,7 +566,7 @@ require_once("rodape.php");
 
 
 <?php 
-//require_once("modal-pagamento.php");
+require_once("efetuar-pagamento.php");
  ?>
 
 
