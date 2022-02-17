@@ -105,7 +105,7 @@ require_once("../conexao.php");
             </div>
 
             <div class="mb-3">
-              <label for="address">Endereço</label>
+              <label for="address">Endereco</label>
               <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required>
               <div class="invalid-feedback">
                 Please enter your shipping address.
@@ -113,7 +113,7 @@ require_once("../conexao.php");
             </div>
 
             <div class="mb-3">
-              <label for="address2">Endereço 2 <span class="text-muted">(Optional)</span></label>
+              <label for="address2">Endereco 2 <span class="text-muted">(Optional)</span></label>
               <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment or suite">
             </div>
 
@@ -177,7 +177,7 @@ require_once("../conexao.php");
             </div>
             <div class="row">
               <div class="col-md-3 mb-3">
-                <label for="cc-expiration">Data de Validade</label>
+                <label for="cc-expiration">Data Validade</label>
                 <input type="text" class="form-control" name="cc-expiration" id="cc-expiration" placeholder="" required>
                 <div class="invalid-feedback">
                   Expiration date required
@@ -192,7 +192,7 @@ require_once("../conexao.php");
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Finalizae Compra</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Finalizar Compra</button>
           </form>
         </div>
       </div>

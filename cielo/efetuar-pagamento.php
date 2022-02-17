@@ -29,7 +29,7 @@ $merchant = new Merchant('d650dd9c-4e7e-436a-b67e-144e29f42509', 'BHVKURRITRZBOA
 $sale = new Sale('123');
 
 // Crie uma instância de Customer informando o nome do cliente
-$customer = $sale->customer($_POST['firstName'] . ' ' . $_POST['lastName']);
+$customer = $sale->customer($_POST['nome'] . ' ' . $_POST['nome']);
 
 // Crie uma instância de Payment informando o valor do pagamento
 $payment = $sale->payment((int) ($_POST['total'] . '00'));
@@ -42,7 +42,7 @@ $payment->setType(Payment::PAYMENTTYPE_CREDITCARD)
         ->creditCard($_POST['cc-cvv'], $_POST['cc-flag'])
         ->setExpirationDate($_POST['cc-expiration'])
         ->setCardNumber($_POST['cc-number'])  
-        ->setHolder($_POST['firstName'] . ' ' . $_POST['lastName']);
+        ->setHolder($_POST['nome'] . ' ' . $_POST['nome']);
 
 // Crie o pagamento na Cielo
 try {
