@@ -37,7 +37,7 @@
 
     <div class="menu-carrinho">
         <a href="produtos.php">Continuar Comprando</a>
-        <a href="checkout.php">Finalizar Compra</a>
+        <a href="cielo/index.php">Finalizar Compra</a>
     </div>
 
     

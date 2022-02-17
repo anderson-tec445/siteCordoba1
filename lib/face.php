@@ -2,7 +2,7 @@
 @session_start();
 //unset($_SESSION['face_access_token']);
 require_once 'Facebook/autoload.php';
-include_once 'conexao.php';
+include_once '../conexao.php';
 $fb = new \Facebook\Facebook([
   'app_id' => '{5008563262560574}',
   'app_secret' => '{3479810695f9ed6e016a03b9def1d99b}',

@@ -3,9 +3,9 @@ require_once("cabecalho.php");
 require_once("conexao.php");
 
 //includes para o mercado pago
-include_once("pagamentos/mercadopago/lib/mercadopago.php");
-include_once("pagamentos/mercadopago/PagamentoMP.php");
-$pagar = new PagamentoMP;
+//include_once("pagamentos/mercadopago/lib/mercadopago.php");
+//include_once("pagamentos/mercadopago/PagamentoMP.php");
+//$pagar = new PagamentoMP;
 
 
 
@@ -41,7 +41,8 @@ $cidade = $dados[0]['cidade'];
 $estado = $dados[0]['estado'];
 
 ?>
-
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Checkout Section Begin -->
 <section class="checkout spad">
@@ -467,6 +468,29 @@ require_once("rodape.php");
     })
 </script>
 
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+
 
 <script type="text/javascript">
     $('#codigo_servico').change(function(event){
@@ -542,7 +566,7 @@ require_once("rodape.php");
 
 
 <?php 
-require_once("modal-pagamento.php");
+//require_once("modal-pagamento.php");
  ?>
 
 

@@ -1,6 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 
+
 use Cielo\API30\Merchant;
 
 use Cielo\API30\Ecommerce\Environment;
@@ -53,4 +54,5 @@ try {
     // os códigos de erro estão todos disponíveis no manual de integração.
     $error = $e->getCieloError();
 }
+
 // ...
