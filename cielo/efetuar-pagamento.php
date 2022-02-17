@@ -23,7 +23,7 @@ use Cielo\API30\Ecommerce\Request\CieloRequestException;
 $environment = $environment = Environment::sandbox();
 
 // Configure seu merchant
-$merchant = new Merchant('d650dd9c-4e7e-436a-b67e-144e29f42509', '');
+$merchant = new Merchant('d650dd9c-4e7e-436a-b67e-144e29f42509', 'BHVKURRITRZBOATGFNLYJQNGNBWMFJPWBRENOMNJ');
 
 // Crie uma instância de Sale informando o ID do pedido na loja
 $sale = new Sale('123');

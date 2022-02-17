@@ -18,12 +18,10 @@
 
   <body class="bg-light">
 
-    <div class="container">
+  <div class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="img/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>Pagamento Online</h2>
-        <p class="lead">Aprenda a criar uma página no seu ecommerce para receber pagamentos online utilizando a API Cielo 3.0 com Bootstrap e PHP.
-Um exemplo rápido e simples, que abre as portas para aplicações mais complexas.</p>
+      <img src="../img/cielo.png" width="200"></a>
+ 
       </div>
 
       <div class="row">
