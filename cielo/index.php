@@ -1,6 +1,6 @@
 <?php
-require_once("../cabecalho.php");
 require_once("../conexao.php");
+require_once("../cabecalho.php");
 ?>
 <!doctype html>
 <html lang="pt_BR">
@@ -10,14 +10,15 @@ require_once("../conexao.php");
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-
+    
     <title>API 3.0 da Cielo e PHP</title>
-
+    
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-
+    
     <!-- Custom styles for this template -->
     <link href="../css/form-validation.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-site.css">
   </head>
 
   <body class="bg-light">
@@ -66,9 +67,9 @@ require_once("../conexao.php");
 
           <form class="card p-2">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code">
+              <input type="text" class="form-control" placeholder="Cupom de desconto">
               <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary">Redeem</button>
+                <button type="submit" class="btn btn-secondary">Enviar</button>
               </div>
             </div>
           </form>
@@ -82,14 +83,14 @@ require_once("../conexao.php");
                 <label for="firstName">Primeiro nome</label>
                 <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  Valid first name is required.
+                  Preencha o campo de nome corretamente.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="lastName">Sobrenome</label>
                 <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  Valid last name is required.
+                  Preencha o campo de sobrenome corretamente.
                 </div>
               </div>
             </div>
@@ -98,23 +99,23 @@ require_once("../conexao.php");
 
             <div class="mb-3">
               <label for="email">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
+              <input type="email" class="form-control" name="email" id="email" placeholder="email@exemplo.com">
               <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
+                Por favor, preencha com um e-mail válido.
               </div>
             </div>
 
             <div class="mb-3">
               <label for="address">Endereco</label>
-              <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required>
+              <input type="text" class="form-control" name="address" id="address" placeholder="Endereço" required>
               <div class="invalid-feedback">
-                Please enter your shipping address.
+                Preencha o Endereço corretamente.
               </div>
             </div>
 
             <div class="mb-3">
               <label for="address2">Endereco 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment or suite">
+              <input type="text" class="form-control" name="address2" id="address2" placeholder="Complemento">
             </div>
 
             <div class="row">
@@ -123,11 +124,11 @@ require_once("../conexao.php");
               <div class="col-md-4 mb-3">
                 <label for="state">Estado</label>
                 <select class="custom-select d-block w-100" name="state" id="state" required>
-                  <option value="">Choose...</option>
+                  <option value="">Selecionar...</option>
                   <option>SP</option>
                 </select>
                 <div class="invalid-feedback">
-                  Please provide a valid state.
+                  Selecione o Estado.
                 </div>
               </div>
 			  
@@ -135,21 +136,21 @@ require_once("../conexao.php");
 			<div class="col-md-5 mb-3">
                 <label for="city">Cidade</label>
                 <select class="custom-select d-block w-100" name="city" id="city" required>
-                  <option value="">Choose...</option>
+                  <option value="">Selecionar...</option>
                   <option>Campinas</option>
                 </select>
                 <div class="invalid-feedback">
-                  Please select a valid city.
+                  Selecione a cidade.
                 </div>
               </div>
 			  
 			  
 			  
               <div class="col-md-3 mb-3">
-                <label for="zip">Zip</label>
+                <label for="zip">Cep</label>
                 <input type="text" class="form-control" id="zip" id="zip" placeholder="" required>
                 <div class="invalid-feedback">
-                  Zip code required.
+                  Digite um Cep válido.
                 </div>
               </div>
             </div>
@@ -164,14 +165,14 @@ require_once("../conexao.php");
                 <label for="cc-flag">Bandeira</label>
                 <input type="text" class="form-control" name="cc-flag" id="cc-flag" placeholder="" required>
                 <div class="invalid-feedback">
-                  Flag is required
+                  É necessário a bandeira do cartão.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="cc-number">Numero do Cartão</label>
                 <input type="text" class="form-control" name="cc-number" id="cc-number" placeholder="" required>
                 <div class="invalid-feedback">
-                  Credit card number is required
+                  Preencha o número do cartão.
                 </div>
               </div>
             </div>
@@ -180,22 +181,23 @@ require_once("../conexao.php");
                 <label for="cc-expiration">Data Validade</label>
                 <input type="text" class="form-control" name="cc-expiration" id="cc-expiration" placeholder="" required>
                 <div class="invalid-feedback">
-                  Expiration date required
+                  Preencha a validade do cartão.
                 </div>
               </div>
               <div class="col-md-3 mb-3">
                 <label for="cc-cvv">CVV</label>
                 <input type="text" class="form-control" name="cc-cvv" id="cc-cvv" placeholder="" required>
                 <div class="invalid-feedback">
-                  Security code required
+                  Preencha o código de segurança do cartão.
                 </div>
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Finalizar Compra</button>
+            <button class="btn-forms " type="submit">Finalizar Compra</button>
           </form>
         </div>
       </div>
+</div>
         <br>
       <?php
       require_once("../rodape.php");

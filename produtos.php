@@ -350,24 +350,6 @@ if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria'
         <div class="content">
             <div class="headline">
                 <h4>Kits / Promoções</h4>
-                <div class="links">
-                    <?php 
-                        $query = $pdo->query("SELECT * FROM categorias order by nome asc ");
-                        $res = $query->fetchAll(PDO::FETCH_ASSOC);
-
-                        for ($i=0; $i < count($res); $i++) { 
-                        foreach ($res[$i] as $key => $value) {
-                        }
-
-                        $nome = $res[$i]['nome'];
-
-                        $nome_url = $res[$i]['nome_url'];
-                        
-                        ?>
-                        <a href="sub-categoria-de-<?php echo $nome_url ?>"><?php echo $nome ?></a>
-
-                    <?php } ?>
-                </div>
             </div>
 
             <div class="product-container">
@@ -480,7 +462,7 @@ if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria'
                     <div class="swiper-button-next"></div>
                 </div>
             </div>
-            <a class="link-ver-todos" href="produtos.php">Ver Todos</a>
+            <a class="link-ver-todos" href="produtos.php?categoria=Promocao">Ver Todos</a>
         </div>
         <div class="banner">
             <img src="img/banner/banner-front-pequeno 1.png" alt="Banner">
