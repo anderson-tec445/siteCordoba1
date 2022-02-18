@@ -3,22 +3,21 @@ require_once("cabecalho.php");
 require_once("conexao.php");
 
 //includes para o mercado pago
-include_once("pagamentos/mercadopago/lib/mercadopago.php");
-include_once("pagamentos/mercadopago/PagamentoMP.php");
-$pagar = new PagamentoMP;
+//include_once("pagamentos/mercadopago/lib/mercadopago.php");
+//include_once("pagamentos/mercadopago/PagamentoMP.php");
+//$pagar = new PagamentoMP;
 
 
 
 
-if(@$_SESSION['id_usuario'] == null){
+if (@$_SESSION['id_usuario'] == null) {
     echo "<script language='javascript'> window.location='sistema' </script>";
-
 }
 
 $id_venda = @$_GET['id_venda'];
 $id_usuario = @$_SESSION['id_usuario'];
 $nome_usuario = @$_SESSION['nome_usuario'];
-//$cpf_usuario = @$_SESSION['cpf_usuario'];
+$cpf_usuario = @$_SESSION['cpf_usuario'];
 $email_usuario = @$_SESSION['email_usuario'];
 $total = 0;
 $frete_correios;
@@ -41,7 +40,8 @@ $cidade = $dados[0]['cidade'];
 $estado = $dados[0]['estado'];
 
 ?>
-
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Checkout Section Begin -->
 <section class="checkout spad">
@@ -129,79 +129,79 @@ $estado = $dados[0]['estado'];
                                 <div class="checkout__input">
                                     <p>Estado<span>*</span></p>
                                     <select name="estado" id="estado">
-       <option value="AC" <?php if(@$estado == 'AC'){ ?> selected <?php } ?> >AC</option>
-        <option value="AL" <?php if(@$estado == 'AL'){ ?> selected <?php } ?>>AL</option>
+                                        <option value="AC" <?php if (@$estado == 'AC') { ?> selected <?php } ?>>AC</option>
+                                        <option value="AL" <?php if (@$estado == 'AL') { ?> selected <?php } ?>>AL</option>
 
-         <option value="AP" <?php if(@$estado == 'AP'){ ?> selected <?php } ?>>AP</option>
+                                        <option value="AP" <?php if (@$estado == 'AP') { ?> selected <?php } ?>>AP</option>
 
-         <option value="AM" <?php if(@$estado == 'AM'){ ?> selected <?php } ?>>AM</option>
-
-
-         <option value="BA" <?php if(@$estado == 'BA'){ ?> selected <?php } ?>>BA</option>
-         <option value="CE" <?php if(@$estado == 'CE'){ ?> selected <?php } ?>>CE</option>
-         <option value="DF" <?php if(@$estado == 'DF'){ ?> selected <?php } ?>>DF</option>
-         <option value="ES" <?php if(@$estado == 'ES'){ ?> selected <?php } ?>>ES</option>
-         <option value="GO" <?php if(@$estado == 'GO'){ ?> selected <?php } ?>>GO</option>
-         <option value="MA" <?php if(@$estado == 'MA'){ ?> selected <?php } ?>>MA</option>
-         <option value="MT" <?php if(@$estado == 'MT'){ ?> selected <?php } ?>>MT</option>
-         <option value="MS" <?php if(@$estado == 'MS'){ ?> selected <?php } ?>>MS</option>
-         <option value="MG" <?php if(@$estado == 'MG'){ ?> selected <?php } ?>>MG</option>
-         <option value="PA" <?php if(@$estado == 'PA'){ ?> selected <?php } ?>>PA</option>
+                                        <option value="AM" <?php if (@$estado == 'AM') { ?> selected <?php } ?>>AM</option>
 
 
+                                        <option value="BA" <?php if (@$estado == 'BA') { ?> selected <?php } ?>>BA</option>
+                                        <option value="CE" <?php if (@$estado == 'CE') { ?> selected <?php } ?>>CE</option>
+                                        <option value="DF" <?php if (@$estado == 'DF') { ?> selected <?php } ?>>DF</option>
+                                        <option value="ES" <?php if (@$estado == 'ES') { ?> selected <?php } ?>>ES</option>
+                                        <option value="GO" <?php if (@$estado == 'GO') { ?> selected <?php } ?>>GO</option>
+                                        <option value="MA" <?php if (@$estado == 'MA') { ?> selected <?php } ?>>MA</option>
+                                        <option value="MT" <?php if (@$estado == 'MT') { ?> selected <?php } ?>>MT</option>
+                                        <option value="MS" <?php if (@$estado == 'MS') { ?> selected <?php } ?>>MS</option>
+                                        <option value="MG" <?php if (@$estado == 'MG') { ?> selected <?php } ?>>MG</option>
+                                        <option value="PA" <?php if (@$estado == 'PA') { ?> selected <?php } ?>>PA</option>
 
-         <option value="PB" <?php if(@$estado == 'PB'){ ?> selected <?php } ?>>PB</option>
-         <option value="PR" <?php if(@$estado == 'PR'){ ?> selected <?php } ?>>PR</option>
-         <option value="PE" <?php if(@$estado == 'PE'){ ?> selected <?php } ?>>PE</option>
-         <option value="PI" <?php if(@$estado == 'PI'){ ?> selected <?php } ?>>PI</option>
-         <option value="RJ" <?php if(@$estado == 'RJ'){ ?> selected <?php } ?>>RJ</option>
-         <option value="RN" <?php if(@$estado == 'RN'){ ?> selected <?php } ?>>RN</option>
-         <option value="RS" <?php if(@$estado == 'RS'){ ?> selected <?php } ?>>RS</option>
-         <option value="RO" <?php if(@$estado == 'RO'){ ?> selected <?php } ?>>RO</option>
-         <option value="RR" <?php if(@$estado == 'RR'){ ?> selected <?php } ?>>RR</option>
-         <option value="SC" <?php if(@$estado == 'SC'){ ?> selected <?php } ?>>SC</option>
-         <option value="SP" <?php if(@$estado == 'SP'){ ?> selected <?php } ?>>SP</option>
 
-         <option value="SE" <?php if(@$estado == 'SE'){ ?> selected <?php } ?>>SE</option>
-         <option value="TO" <?php if(@$estado == 'TO'){ ?> selected <?php } ?>>TO</option>
+
+                                        <option value="PB" <?php if (@$estado == 'PB') { ?> selected <?php } ?>>PB</option>
+                                        <option value="PR" <?php if (@$estado == 'PR') { ?> selected <?php } ?>>PR</option>
+                                        <option value="PE" <?php if (@$estado == 'PE') { ?> selected <?php } ?>>PE</option>
+                                        <option value="PI" <?php if (@$estado == 'PI') { ?> selected <?php } ?>>PI</option>
+                                        <option value="RJ" <?php if (@$estado == 'RJ') { ?> selected <?php } ?>>RJ</option>
+                                        <option value="RN" <?php if (@$estado == 'RN') { ?> selected <?php } ?>>RN</option>
+                                        <option value="RS" <?php if (@$estado == 'RS') { ?> selected <?php } ?>>RS</option>
+                                        <option value="RO" <?php if (@$estado == 'RO') { ?> selected <?php } ?>>RO</option>
+                                        <option value="RR" <?php if (@$estado == 'RR') { ?> selected <?php } ?>>RR</option>
+                                        <option value="SC" <?php if (@$estado == 'SC') { ?> selected <?php } ?>>SC</option>
+                                        <option value="SP" <?php if (@$estado == 'SP') { ?> selected <?php } ?>>SP</option>
+
+                                        <option value="SE" <?php if (@$estado == 'SE') { ?> selected <?php } ?>>SE</option>
+                                        <option value="TO" <?php if (@$estado == 'TO') { ?> selected <?php } ?>>TO</option>
 
                                     </select>
                                 </div>
                             </div>
 
                             <div class="col-md-12">
-                                    <div class="checkout__input">
+                                <div class="checkout__input">
                                     <p>Informações do Pedido <small>(Caso tenha alguma dúvida)</small><span></span></p>
                                     <input type="text" maxlength="1000" name="comentario" id="comentario" style="height:100px;">
-                                     </div>
-                                        
-                                                                  
+                                </div>
+
+
                             </div>
 
                         </div>
 
-                        
-                            
-                        
 
 
-                         <div class="shoping__continue">
+
+
+
+                        <div class="shoping__continue">
                             <div class="shoping__discount">
                                 <h5>Cupom de Desconto</h5>
                                 <form method="post">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                             <div class="checkout__input">
-                                            <input name="cupom" id="cupom" type="text" placeholder="Entre com o código do seu cupom">
-                                             </div>
-                                        </div>
-                                         <div class="col-lg-6">
-                                             <div class="checkout__input">
-                                             <button id="btn-cupom" type="submit" class="site-btn bg-info">APLICAR CUPOM</button>
+                                            <div class="checkout__input">
+                                                <input name="cupom" id="cupom" type="text" placeholder="Entre com o código do seu cupom">
                                             </div>
                                         </div>
-                                    </div>  
-                                    <div id="mensagem-cupom"></div> 
+                                        <div class="col-lg-6">
+                                            <div class="checkout__input">
+                                                <button id="btn-cupom" type="submit" class="site-btn bg-info">APLICAR CUPOM</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="mensagem-cupom"></div>
                                 </form>
                             </div>
                         </div>
@@ -214,185 +214,186 @@ $estado = $dados[0]['estado'];
                             <div class="checkout__order__products">Produtos <span>Total</span></div>
                             <ul>
 
-                                <?php 
+                                <?php
                                 $res = $pdo->query("SELECT * from carrinho where id_usuario = '$id_usuario' and id_venda = 0 order by id asc");
                                 $dados = $res->fetchAll(PDO::FETCH_ASSOC);
                                 $linhas = count($dados);
 
-                                if($linhas == 0){
-                                  $linhas = 0;
-                                  $total = 0;
-                              }
+                                if ($linhas == 0) {
+                                    $linhas = 0;
+                                    $total = 0;
+                                }
 
-                              $total;
-                              $total_peso;
-                              
-                              for ($i=0; $i < count($dados); $i++) { 
-                               foreach ($dados[$i] as $key => $value) {
-                               }
+                                $total;
+                                $total_peso;
 
-                               $id_produto = $dados[$i]['id_produto'];    
-                               $quantidade = $dados[$i]['quantidade'];
-                               $id_carrinho = $dados[$i]['id'];
-                               $combo = $dados[$i]['combo'];
+                                for ($i = 0; $i < count($dados); $i++) {
+                                    foreach ($dados[$i] as $key => $value) {
+                                    }
 
-                               if($combo == 'Sim'){
-                                 $res_p = $pdo->query("SELECT * from combos where id = '$id_produto' ");
-                             }else{
-                              $res_p = $pdo->query("SELECT * from produtos where id = '$id_produto' ");
-                          }
+                                    $id_produto = $dados[$i]['id_produto'];
+                                    $quantidade = $dados[$i]['quantidade'];
+                                    $id_carrinho = $dados[$i]['id'];
+                                    $combo = $dados[$i]['combo'];
 
-                          $dados_p = $res_p->fetchAll(PDO::FETCH_ASSOC);
-                          $nome_produto = $dados_p[0]['nome'];
-                          $tipo_envio = $dados_p[0]['tipo_envio'];
-                          $valor_frete = $dados_p[0]['valor_frete'];
+                                    if ($combo == 'Sim') {
+                                        $res_p = $pdo->query("SELECT * from combos where id = '$id_produto' ");
+                                    } else {
+                                        $res_p = $pdo->query("SELECT * from produtos where id = '$id_produto' ");
+                                    }
 
-                           $querye = $pdo->query("SELECT * FROM tipo_envios where id = '$tipo_envio' ");
-                              $rese = $querye->fetchAll(PDO::FETCH_ASSOC);
-                              $envio = $rese[0]['nome'];
+                                    $dados_p = $res_p->fetchAll(PDO::FETCH_ASSOC);
+                                    $nome_produto = $dados_p[0]['nome'];
+                                    $tipo_envio = $dados_p[0]['tipo_envio'];
+                                    $valor_frete = $dados_p[0]['valor_frete'];
 
-                              if($envio == 'Correios'){
-                                $frete_correios = 'Sim';
-                                $peso = $dados_p[0]['peso'];
-                                @$total_peso = @$total_peso + $peso;
-                                @$existe_frete = 'Sim';
-                              }
+                                    $querye = $pdo->query("SELECT * FROM tipo_envios where id = '$tipo_envio' ");
+                                    $rese = $querye->fetchAll(PDO::FETCH_ASSOC);
+                                    $envio = $rese[0]['nome'];
 
-
-                              
+                                    if ($envio == 'Correios') {
+                                        $frete_correios = 'Sim';
+                                        $peso = $dados_p[0]['peso'];
+                                        @$total_peso = @$total_peso + $peso;
+                                        @$existe_frete = 'Sim';
+                                    }
 
 
-                          if($combo == 'Sim'){ 
-                              $promocao = ""; 
-                              $pasta = "combos";
-                          }else{
-                              $promocao = $dados_p[0]['promocao']; 
-                              $pasta = "produtos";
-                          }
 
 
-                          if($promocao == 'Sim'){
-                              $queryp = $pdo->query("SELECT * FROM promocoes where id_produto = '$id_produto' ");
-                              $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
-                              $valor = $resp[0]['valor'];
 
-                          }else{
-                              $valor = $dados_p[0]['valor'];
-                          }
-
-
-                          $imagem = $dados_p[0]['imagem'];
+                                    if ($combo == 'Sim') {
+                                        $promocao = "";
+                                        $pasta = "combos";
+                                    } else {
+                                        $promocao = $dados_p[0]['promocao'];
+                                        $pasta = "produtos";
+                                    }
 
 
-                          $total_item = $valor * $quantidade;
-                          @$total = @$total + $total_item;
-
-                          if($valor_frete > 0){
-                                
-                                @$total = @$total + @$valor_frete;
-                              }
-
-
-                          $valor = number_format( $valor , 2, ',', '.');
-                            //$total = number_format( $total , 2, ',', '.');
-                          $total_item = number_format( $total_item , 2, ',', '.');
+                                    if ($promocao == 'Sim') {
+                                        $queryp = $pdo->query("SELECT * FROM promocoes where id_produto = '$id_produto' ");
+                                        $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
+                                        $valor = $resp[0]['valor'];
+                                    } else {
+                                        $valor = $dados_p[0]['valor'];
+                                    }
 
 
-                          ?>
-                          <li><?php echo $nome_produto ?> <span>R$<?php echo $total_item ?></span></li>
+                                    $imagem = $dados_p[0]['imagem'];
 
-                          <?php if($valor_frete > 0){ ?>
-                            <p align="right" class="text-danger"><small>Frete Fixo : <?php echo $valor_frete ?></small></p>
-                          <?php } ?>
 
-                          <?php } 
-                          @$total = number_format(@$total, 2, ',', '.');
-                           ?>
-                      </ul>
-                      <div class="checkout__order__subtotal">Subtotal <span>R$ <?php echo $total ?></span></div>
+                                    $total_item = $valor * $quantidade;
+                                    @$total = @$total + $total_item;
 
-                      <?php if(@$frete_correios == 'Sim'){ ?>
+                                    if ($valor_frete > 0) {
 
-                       <div class="checkout__order__total">Calcular Frete<br> 
-                            <div class="checkout__input py-2">
-                               
-                                    <form id="frm" method="post">
-                                    <div class="row">
-                                        
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-7">
-                                             <input type="hidden" value="<?php echo @$total_peso ?>" name="total_peso" id="total_peso">
+                                        @$total = @$total + @$valor_frete;
+                                    }
 
-                                             <div class="checkout__input">
-                                            <input type="text" name="cep2" id="cep2" placeholder="CEP">
-                                             </div>
-                                        </div>
-                                         <div class="col-md-5">
-                                             <div class="checkout__input">
-                                             <select name="codigo_servico" id="codigo_servico">
-                                            <option value="0">Escolher</option>
-                                            <option value="40010">Sedex</option>
-                                            
-                                            <option value="41106">PAC</option>
-                                         </select>
+
+                                    $valor = number_format($valor, 2, ',', '.');
+                                    //$total = number_format( $total , 2, ',', '.');
+                                    $total_item = number_format($total_item, 2, ',', '.');
+
+
+                                ?>
+                                    <li><?php echo $nome_produto ?> <span>R$<?php echo $total_item ?></span></li>
+
+                                    <?php if ($valor_frete > 0) { ?>
+                                        <p align="right" class="text-danger"><small>Frete Fixo : <?php echo $valor_frete ?></small></p>
+                                    <?php } ?>
+
+                                <?php }
+                                @$total = number_format(@$total, 2, ',', '.');
+                                ?>
+                            </ul>
+                            <div class="checkout__order__subtotal">Subtotal <span>R$ <?php echo $total ?></span></div>
+
+                            <?php if (@$frete_correios == 'Sim') { ?>
+
+                                <div class="checkout__order__total">Calcular Frete<br>
+                                    <div class="checkout__input py-2">
+
+                                        <form id="frm" method="post">
+                                            <div class="row">
+
                                             </div>
-                                        </div>
+                                            <div class="row">
+                                                <div class="col-md-7">
+                                                    <input type="hidden" value="<?php echo @$total_peso ?>" name="total_peso" id="total_peso">
+
+                                                    <div class="checkout__input">
+                                                        <input type="text" name="cep2" id="cep2" placeholder="CEP">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="checkout__input">
+                                                        <select name="codigo_servico" id="codigo_servico">
+                                                            <option value="0">Escolher</option>
+                                                            <option value="40010">Sedex</option>
+
+                                                            <option value="41106">PAC</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+
+                                        <div id="listar-frete"></div>
                                     </div>
-                                    
-                                   
-                                </form>
-                             
-                            <div id="listar-frete"></div>
-                       </div>
 
-                       
 
-                   </div>
 
-                    <?php } ?>
+                                </div>
 
-                      <div  class="checkout__order__total">Total <span id="total_final"></span></div>
-                     
+                            <?php } ?>
 
-                      <input type="hidden" value="0" id="vlr_frete" name="vlr_frete">
-                      <input type="hidden" value="<?php echo @$existe_frete ?>" id="existe_frete" name="existe_frete">
-                      <input type="hidden" value="<?php echo @$total ?>" id="total_compra" name="total_compra">
-                      <input type="hidden" value="<?php echo @$cpf_usuario ?>" id="antigo" name="antigo">
+                            <div class="checkout__order__total">Total <span id="total_final"></span></div>
 
-                      <button id="btn-finalizar" type="submit" class="site-btn bg-success">FINALIZAR COMPRA</button>
 
-                      <small><div class="mt-2" id="mensagem-finalizar"></div></small>
-                  </div>
-              </div>
-          </div>
-      </form>
-  </div>
-</div>
+                            <input type="hidden" value="0" id="vlr_frete" name="vlr_frete">
+                            <input type="hidden" value="<?php echo @$existe_frete ?>" id="existe_frete" name="existe_frete">
+                            <input type="hidden" value="<?php echo @$total ?>" id="total_compra" name="total_compra">
+                            <input type="hidden" value="<?php echo @$cpf_usuario ?>" id="antigo" name="antigo">
+
+                            <button id="btn-finalizar" type="submit" class="site-btn bg-success">FINALIZAR COMPRA</button>
+
+                            <small>
+                                <div class="mt-2" id="mensagem-finalizar"></div>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </section>
 <!-- Checkout Section End -->
-
+<br>
 
 
 <!-- Modal -->
 <div class="modal fade" id="modalPagamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal Pagamento</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-      </button>
-  </div>
-  <div class="modal-body">
-    ...
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
-</div>
-</div>
-</div>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal Pagamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -404,56 +405,54 @@ require_once("rodape.php");
 
 
 <script type="text/javascript">
-  $( document ).ready(function() {
-    var total = "<?=$total?>";
-    var id_venda = "<?=$id_venda?>";
+    $(document).ready(function() {
+        var total = "<?= $total ?>";
+        var id_venda = "<?= $id_venda ?>";
 
-    if(total == "0,00" &&  id_venda == ""){
-        window.location="produtos.php";
-    }
-  
-    total = "R$ " + total;
-    $('#total_final').text(total);
-    $('#total_pgto').text(total);
+        if (total == "0,00" && id_venda == "") {
+            window.location = "produtos.php";
+        }
+
+        total = "R$ " + total;
+        $('#total_final').text(total);
+        $('#total_pgto').text(total);
 
 
-  })
+    })
 </script>
 
 
 <script type="text/javascript">
-    $('#btn-cupom').click(function(event){
+    $('#btn-cupom').click(function(event) {
         event.preventDefault();
-                
+
         $.ajax({
-            url:"cupom/usar-cupom.php",
-            method:"post",
+            url: "cupom/usar-cupom.php",
+            method: "post",
             data: $('form').serialize(),
             dataType: "text",
-            success: function(msg){
-                if(msg.trim() === 'Insira um valor para o Cupom'){
-                    
+            success: function(msg) {
+                if (msg.trim() === 'Insira um valor para o Cupom') {
+
                     $('#mensagem-cupom').addClass('text-danger')
                     $('#mensagem-cupom').text(msg);
-                    }
-
-                 else if (msg.trim() === 'Esse código de cupom é inexistente!'){
+                } else if (msg.trim() === 'Esse código de cupom é inexistente!') {
                     $('#mensagem-cupom').addClass('text-danger')
                     $('#mensagem-cupom').text(msg);
 
 
 
-                    
 
-                 }else{
+
+                } else {
                     var tot;
                     total_final = $('#total_final').text();
-                    total_final = total_final.replace(",",".");
-                    total_final = total_final.replace("R$","");
+                    total_final = total_final.replace(",", ".");
+                    total_final = total_final.replace("R$", "");
                     tot = parseFloat(total_final) - parseFloat(msg);
                     tot = tot.toFixed(2);
                     $('#total_compra').val(tot);
-                    tot = "R$ " + tot.replace(".",",");
+                    tot = "R$ " + tot.replace(".", ",");
                     console.log(tot);
                     $('#total_final').text(tot);
                     $('#total_pgto').text(tot);
@@ -461,45 +460,68 @@ require_once("rodape.php");
 
                     $('#mensagem-cupom').addClass('text-success')
                     $('#mensagem-cupom').text("Cupom de desconto no valor de R$" + msg + " Reais");
-                 }
+                }
             }
         })
     })
 </script>
 
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
 
 <script type="text/javascript">
-    $('#codigo_servico').change(function(event){
+    $('#codigo_servico').change(function(event) {
         event.preventDefault();
 
         $.ajax({
-      url:  "correios/pegarDadosFrete.php",
-      method: "post",
-      data: $('#frm').serialize(),
-      dataType: "html",
-      success: function(result){
+            url: "correios/pegarDadosFrete.php",
+            method: "post",
+            data: $('#frm').serialize(),
+            dataType: "html",
+            success: function(result) {
 
-        var array = result.split(" ");
-        var tot_frete = array[7];
-        tot_frete = tot_frete.replace(",",".");
-        vlr_frete_antigo = $('#vlr_frete').val();
-        console.log(vlr_frete_antigo);
-        total_final = $('#total_final').text();
-        total_final = total_final.replace(",",".");
-        total_final = total_final.replace("R$","");
-        tot = parseFloat(total_final) + parseFloat(tot_frete) - parseFloat(vlr_frete_antigo);
-        tot = tot.toFixed(2);
-        $('#total_compra').val(tot);
-        tot = "R$ " + tot.replace(".",",");
-        console.log(tot);
-        $('#total_final').text(tot);
-        $('#total_pgto').text(tot);
+                var array = result.split(" ");
+                var tot_frete = array[7];
+                tot_frete = tot_frete.replace(",", ".");
+                vlr_frete_antigo = $('#vlr_frete').val();
+                console.log(vlr_frete_antigo);
+                total_final = $('#total_final').text();
+                total_final = total_final.replace(",", ".");
+                total_final = total_final.replace("R$", "");
+                tot = parseFloat(total_final) + parseFloat(tot_frete) - parseFloat(vlr_frete_antigo);
+                tot = tot.toFixed(2);
+                $('#total_compra').val(tot);
+                tot = "R$ " + tot.replace(".", ",");
+                console.log(tot);
+                $('#total_final').text(tot);
+                $('#total_pgto').text(tot);
 
-        $('#listar-frete').html(result);
-        $('#vlr_frete').val(tot_frete);
-        $('#mensagem-finalizar').text("");
-      },
-     })
+                $('#listar-frete').html(result);
+                $('#vlr_frete').val(tot_frete);
+                $('#mensagem-finalizar').text("");
+            },
+        })
 
     })
 </script>
@@ -509,40 +531,35 @@ require_once("rodape.php");
 
 
 <script type="text/javascript">
-    $('#btn-finalizar').click(function(event){
+    $('#btn-finalizar').click(function(event) {
         event.preventDefault();
 
         $.ajax({
-      url:  "finalizar-compra.php",
-      method: "post",
-      data: $('#form-dados').serialize(),
-      dataType: "html",
-      success: function(msg){
-        console.log(msg);
-        if(msg.trim() === 'Selecione um CEP válido para o Frete!'){
-            $('#listar-frete').html('');
-            $('#mensagem-finalizar').addClass('text-danger')
-            $('#mensagem-finalizar').text(msg);
-        }
+            url: "finalizar-compra.php",
+            method: "post",
+            data: $('#form-dados').serialize(),
+            dataType: "html",
+            success: function(msg) {
+                console.log(msg);
+                if (msg.trim() === 'Selecione um CEP válido para o Frete!') {
+                    $('#listar-frete').html('');
+                    $('#mensagem-finalizar').addClass('text-danger')
+                    $('#mensagem-finalizar').text(msg);
+                } else if (msg.trim() === 'Preencha o Campo Rua!') {
+                    $('#mensagem-finalizar').addClass('text-danger')
+                    $('#mensagem-finalizar').text(msg);
+                } else {
+                    window.location = "checkout.php?id_venda=" + msg;
 
-        else if(msg.trim() === 'Preencha o Campo Rua!'){
-                $('#mensagem-finalizar').addClass('text-danger')
-            $('#mensagem-finalizar').text(msg);
-         }   
-        else{
-            window.location="checkout.php?id_venda=" + msg;
-           
-        }
-        
-      },
-     })
+                }
+
+            },
+        })
 
     })
 </script>
 
 
-<?php 
-require_once("modal-pagamento.php");
- ?>
-
-
+<?php
+require_once("efetuar-pagamento.php");
+?>
