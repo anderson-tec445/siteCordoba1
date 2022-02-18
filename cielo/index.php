@@ -1,6 +1,6 @@
 <?php
 require_once("../conexao.php");
-require_once("../cabecalho.php");
+// require_once("../cabecalho.php");
 ?>
 <!doctype html>
 <html lang="pt_BR">
@@ -25,7 +25,7 @@ require_once("../cabecalho.php");
 
     <div class="container">
       <div class="py-5 text-center">
-      <img src="../img/cielo.png" width="200"></a>
+      <img src="../img/cordoba-logo.png" width="200"></a>
  
       </div>
 
@@ -200,7 +200,7 @@ require_once("../cabecalho.php");
 </div>
         <br>
       <?php
-      require_once("../rodape.php");
+      // require_once("../rodape.php");
       ?>
 
     <!-- Bootstrap core JavaScript
