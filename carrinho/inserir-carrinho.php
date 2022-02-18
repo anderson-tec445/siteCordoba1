@@ -17,7 +17,7 @@ if(@$_POST['quantidade'] != null and @$_POST['quantidade']!=""){
 if(@$_POST['carac'] != null and @$_POST['carac']!=""){
 	$carac = 'Sim';
 }
-
+print_r($_POST['carac']);
 
 if(@$carac == 'Sim'){
 	for ($i=0; $i < 6; $i++) {

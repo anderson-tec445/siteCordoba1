@@ -33,9 +33,9 @@ if(@count($res) > 0){
 
 
 // $date = new DateTime();
-$date = date_create();
 setlocale(LC_TIME,'ptb', 'ptb.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
+$date = date_create();
 $agora = date('Y-m-d');
 
     //variaveis para o menu
