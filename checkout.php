@@ -17,7 +17,7 @@ if (@$_SESSION['id_usuario'] == null) {
 $id_venda = @$_GET['id_venda'];
 $id_usuario = @$_SESSION['id_usuario'];
 $nome_usuario = @$_SESSION['nome_usuario'];
-$cpf_usuario = @$_SESSION['cpf_usuario'];
+//$cpf_usuario = @$_SESSION['cpf_usuario'];
 $email_usuario = @$_SESSION['email_usuario'];
 $total = 0;
 $frete_correios;
@@ -372,7 +372,7 @@ $estado = $dados[0]['estado'];
     </div>
 </section>
 <!-- Checkout Section End -->
-<br>
+
 
 
 <!-- Modal -->
@@ -395,7 +395,7 @@ $estado = $dados[0]['estado'];
         </div>
     </div>
 </div>
-
+<br>
 
 <?php
 require_once("rodape.php");
