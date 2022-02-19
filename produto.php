@@ -158,8 +158,8 @@ $nome_frete = @$rese[0]['nome'];
                                 }
                             } ?>
                             <?php
-                            print_r($_POST['carac']);
-                            echo $res5[$i2]['nome'];
+                            print_r(@$_POST['carac']);
+                            echo @$res5[$i2]['nome'];
                             $query2 = $pdo->query("SELECT * from carac_prod where id_prod = '$id_produto' ");
                             $res2 = $query2->fetchAll(PDO::FETCH_ASSOC);
 
