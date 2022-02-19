@@ -93,12 +93,55 @@ for ($i = 0; $i < count($dados); $i++) {
 
 <body>
 
+<!-- Login Facebook -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '451774609941079',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v13.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+    });
+}
+
+
+
+
+</script>
+    <!-- Fim do Login Facebook -->
+
+    <fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+
 
     <!-- Page Preloder 
     <div id="preloder">
         <div class="loader"></div>
     </div> -->
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v13.0&appId=451774609941079&autoLogAppEvents=1" nonce="gEcVnlTk"></script>
 
+<div class="fb-login-button" data-width="" data-size="small" data-button-type="login_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="false"></div>
 
     <header>
         <div class="card-frete">

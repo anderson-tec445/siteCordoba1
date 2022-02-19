@@ -15,7 +15,13 @@ include_once 'lib/face.php';
         <div class="modal-login-principal">
             <p>Use uma das opções</p>
             <div class="modal-social">
-                <a href="<?php echo $loginUrl; ?>"><img src="img/icons/logo-facebook.png" alt="Login com o Facebook"></a>
+                <fb:login-button 
+                scope="public_profile,email"
+                onlogin="checkLoginState();">
+                </fb:login-button>
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v13.0&appId=451774609941079&autoLogAppEvents=1" nonce="gEcVnlTk"></script>
+                <!-- <a href="<?php echo $loginUrl; ?>"><img src="img/icons/logo-facebook.png" alt="Login com o Facebook"></a> -->
                 <a href="#"><img src="img/icons/logo-google.png" alt="Login com o Google"></a>
             </div>
             <button class="btn-reg" onclick="toggleRegistro()">Registrar</button>
