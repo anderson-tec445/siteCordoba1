@@ -117,7 +117,7 @@ for ($i = 0; $i < count($dados); $i++) {
 
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '//aqui vai o código da api',
+      appId      : '451774609941079',
       cookie     : true,                     // Enable cookies to allow the server to access the session.
       xfbml      : true,                     // Parse social plugins on this webpage.
       version    : 'v13.0'           // Use this Graph API version for this call.

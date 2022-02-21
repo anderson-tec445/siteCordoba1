@@ -1,7 +1,7 @@
 <?php
 require_once("../conexao.php");
 // require_once("../cabecalho.php");
-
+// ;)
 
 if (@$_SESSION['id_usuario'] == null) {
   echo "<script language='javascript'> window.location='sistema' </script>";
