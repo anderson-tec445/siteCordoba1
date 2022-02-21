@@ -4,6 +4,16 @@ include_once 'lib/face.php';
 //lib\face.php
 ?>
 
+<!-- JS -->
+<script src="../js/login.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
 <section id="modal_login">
     <div class="modal-card">
         <div class="modal-exit" onclick="toggleModalLogin()">
@@ -32,47 +42,64 @@ include_once 'lib/face.php';
             <p>Se Cadastre e Fique por
             Dentro!!!</p>
             <div class="modal-form">
-                <form method="post">
+                <form method="post" action="sistema/cadastrar.php">
                     <div class="nome">
-                        <label for="registro-nome">*Nome</label>
+                        <label for="nome">*Nome</label>
                         <input type="text" name="nome" id="nome" placeholder="Nome Completo" required>
                     </div>
                     <div class="email">
-                        <label for="registro-email">*E-mail</label>
+                        <label for="email">*E-mail</label>
                         <input type="email" name="email" id="email" placeholder="Digite um e-mail válido" required>
                     </div>
                     <div class="telefone">
-                        <label for="registro-telefone">*Telefone</label>
+                        <label for="telefone">*Telefone</label>
                         <input type="text" name="telefone" id="telefone" placeholder="(21) 9999 - 9999" required>
                     </div>
+                    <div class="telefone">
+                        <label for="registro-cpf">*CPF</label>
+                        <input type="text" name="cpf" id="registro-cpf" placeholder="Insira seu CPF" required>
+                    </div>
+                    <div class="telefone">
+                        <label for="registro-senha">*Senha</label>
+                        <input type="password" name="senha" id="registro-senha" placeholder="insira uma senha" required>
+                    </div>
+                    <div class="telefone">
+                        <label for="registro-conf-senha">*Confirmar Senha</label>
+                        <input type="password" name="confirmar-senha" id="registro-conf-senha" placeholder="Confirme a senha" required>
+                    </div>
+                    <small><div id="div-mensagem"></div></small>
+                    <button name="btn-reg" id="btn-cadastrar" type="submit" class="site-btn btn-reg">Registrar</button>
                 </form>
             </div>
-            <button name="btn-reg" id="btn-reg" type="button" class="site-btn btn-reg">Registrar</button>
         </div>
 
         <div class="modal-login">
             <p>Entrar em sua conta.</p>
             <div class="modal-form">
-                <form method="post">
+                <form method="post" action="sistema/autenticar.php" name="login">
                     <div class="nome">
-                        <label for="registro-nome">*Nome</label>
-                        <input type="text" name="nome" id="nome" placeholder="Nome Completo" required>
+                        <!-- <label for="registro-nome">*Nome</label>
+                        <input type="text" name="nome" id="nome" placeholder="Nome Completo" required> -->
+                        <label for="email_login">Email ou CPF</label>
+                        <input type="text" name="email_login"  class="" id="email_login" aria-describedby="emailHelp" placeholder="Insira seu Email ou CPF">
                     </div>
                     <div class="email">
-                        <label for="registro-email">*E-mail</label>
-                        <input type="email" name="email" id="email" placeholder="Digite um e-mail válido" required>
+                        <!-- <label for="registro-email">*E-mail</label>
+                        <input type="email" name="email" id="email" placeholder="Digite um e-mail válido" required> -->
+                        <label for="senha_login">Senha</label>
+                        <input type="password" name="senha_login" id="senha_login"  class="form-control" aria-describedby="emailHelp" placeholder="Senha">
                     </div>
+                    <button name="btn-reg" id="btn-acessar" type="submit" class="site-btn btn-reg">Acessar</button>
                 </form>
             </div>
-            <button name="btn-reg" id="btn-reg" type="button" class="site-btn btn-reg">Registrar</button>
         </div>
     </div>
 </section>
 
 
 
-<script type="text/javascript">
-    $('#btn-reg').click(function(event){
+<!-- <script type="text/javascript">
+    $('#btn-cadastrar').click(function(event){
         event.preventDefault();
         
         $.ajax({
@@ -82,10 +109,10 @@ include_once 'lib/face.php';
             dataType: "text",
             success: function(msg){
                 if(msg.trim() === 'Cadastrado com Sucesso!'){
-                    
+                    console.log($('form').value);
                     $('#div-mensagem').addClass('text-success')
                     $('#div-mensagem').text(msg);
-                    $('#btn-fechar-cadastrar').click();
+                    $('.btn-fechar-cadastrar').click();
                     $('#nome').val(document.getElementById('nome').value);
                     $('#email').val(document.getElementById('email').value);
                     }
@@ -98,4 +125,10 @@ include_once 'lib/face.php';
             }
         })
     })
-</script>
+</script> -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+  <script src="js/mascara.js"></script>
+
