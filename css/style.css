@@ -32,6 +32,9 @@ a{
 .link_normal:hover{
     color: var(--dark-red);
 }
+.semhover:hover{
+    text-decoration: none;
+}
 
 .btn-forms:hover{
     color: var(--white);
@@ -163,6 +166,7 @@ header nav,
 }
 .menu ul li a:hover{
     color: var(--dark-red);
+    text-decoration: none;
 }
 
 .busca{
@@ -176,8 +180,10 @@ header nav,
     width: 210px;
     height: 30px;
     text-align: center;
+    font-size: 12px;
     color: var(--dark-red);
     border: 1px solid rgba(150, 25, 19, 0.37);
+    border-radius: 10px;
 }
 
 .busca input::placeholder{
@@ -684,16 +690,16 @@ nav .icons i{
 
 .institucional ul li{
     list-style: none;
+    margin-bottom: 5px;
 }
 
 .institucional ul li a{
     color: var(--dark-red);
-    border-bottom: 1px solid transparent;
 }
 
 .institucional ul li a:hover{
     color: var(--dark-red);
-    border-bottom: 1px solid var(--dark-red);
+    text-decoration:none;
 }
 .contato-info{
     margin-right: -200px;
@@ -1899,18 +1905,27 @@ object-fit: cover;
         background: url(../img/icons/menu.png);
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 30px;
+        background-size: 25px;
         cursor: pointer;
         filter: invert(1);
+        order:3;
     }
 
     .toggle.active{
         background: url(../img/icons/close.png);
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 30px;
+        background-size: 25px;
         cursor: pointer;
         filter: invert(1);
+        order: 3;
+    }
+
+    nav .icons i {
+        color: var(--dark-red);
+        font-size: 19px;
+        cursor: pointer;
+        margin-left: 10px;
     }
 
     
@@ -2035,7 +2050,7 @@ object-fit: cover;
     }
 
     header nav, .menu ul {flex-wrap: wrap;}
-    header nav .logo{width:100%; margin: 10px 0;}
+    header nav .logo{margin: 10px 0;}
 
     .info-cards .info-card {
         margin: 10px 20px;
@@ -2130,4 +2145,32 @@ object-fit: cover;
         margin-left: 0px;
     }
 
+}
+
+@media screen and (max-width: 390px){
+    header nav .logo a img{
+        width: 150px;
+    }
+
+    #inicio .container-cordoba .cordoba-text-box h3 {
+        font-size: 21px;
+        font-weight: 900;
+        width: 320px;
+    }
+    .btn-forms {
+        font-size: 15px;
+        padding: 5px 30px;
+        border-radius: 10px;
+    }
+
+    #promocao .container-cordoba .content .headline h4::after {
+        top: 52%;
+        right: 1px;
+        width: 8%;
+    }
+    #promocao .container-cordoba .content .headline h4::before {
+        top: 52%;
+        left: 0;
+        width: 8%;
+    }
 }
