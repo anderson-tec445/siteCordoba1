@@ -233,8 +233,11 @@ for ($i = 0; $i < count($dados); $i++) {
                 </ul>
             </div>
             <div class="busca">
-                <input type="text" name="buscar" placeholder="O que você procura?">
-                <i class="fas fa-search"></i>
+                <form action="produtos.php" method="get">          
+                    <input name="txtBuscar" type="text" placeholder="O que você procura?">
+                    <button type="submit" class="site-btn"><i class="fas fa-search"></i></button>
+                </form>
+                <!-- <input type="text" name="buscar" placeholder="O que você procura?"> -->
             </div>
             <div class="icons">
                 <i class="fas fa-shopping-cart" onclick="toggleCarrinho()"></i>

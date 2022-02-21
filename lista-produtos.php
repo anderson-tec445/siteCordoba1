@@ -42,7 +42,7 @@ if (@$_GET['txtBuscar'] != "") {
 }
 
 if ($subcategoria_get == "" and $valor_inicial == "") {
-    $query = $pdo->query("SELECT * FROM produtos where nome LIKE '$buscar' or palavras like '$buscar' order by id desc LIMIT $limite, $itens_por_pagina ");
+    $query = $pdo->query("SELECT * FROM produtos where nome LIKE '$buscar' or palavras like '$buscar' or categoria like '$buscar' or sub_categoria like '$buscar' order by id desc LIMIT $limite, $itens_por_pagina ");
 } else if ($valor_inicial != "") {
     $query = $pdo->query("SELECT * FROM produtos where valor >= '$valor_inicial' and valor <= '$valor_final' order by id desc");
 } else {

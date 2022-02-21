@@ -190,11 +190,14 @@ header nav,
     color: var(--dark-red);
 }
 
-nav .busca i{
+nav .busca button {
     position: absolute;
-    top: 7px;
+    background-color: transparent;
+    border:none;
+    top: 4px;
     left: 7px;
     color: rgba(150, 25, 19, 0.9);
+    cursor:pointer;
 }
 
 nav .icons i{

@@ -18,8 +18,6 @@ require_once("conexao.php");
                 <img src="img/banner/banner-front 1.png" alt="banner">
             </div>
         </div>
-        <!-- <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div> -->
     </div>
     <div class="info-cards">
         <div class="info-card">
@@ -87,25 +85,6 @@ require_once("conexao.php");
         <div class="content">
             <div class="headline">
                 <h4>DESTAQUES</h4>
-                <div class="links">
-                    <?php 
-                        $query = $pdo->query("SELECT * FROM categorias order by nome asc ");
-                        $res = $query->fetchAll(PDO::FETCH_ASSOC);
-
-                        for ($i=0; $i < count($res); $i++) { 
-                        foreach ($res[$i] as $key => $value) {
-                        }
-
-                        $nome = $res[$i]['nome'];
-                        $nome_categoria = $res[$i]['nome'];
-
-                        $nome_url = $res[$i]['nome_url'];
-                        
-                        ?>
-                        <a href="produtos.php?subcategoria=<?php echo $nome ?>"><?php echo $nome ?></a>
-
-                    <?php } ?>
-                </div>
             </div>
             
             <div class="product-container">

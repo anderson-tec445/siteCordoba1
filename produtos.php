@@ -10,6 +10,14 @@
   $num_subcat = '';
 
 
+// Filtro do buscar
+if (@$_GET['txtBuscar'] != "") {
+    $buscar = '%' . @$_GET['txtBuscar'] . '%';
+} else {
+    $buscar = '%';
+}
+
+
 // Busca as categorias para fazer o filtro
   $query = $pdo->query("SELECT * FROM categorias order by nome asc ");
   $categorias = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -149,9 +157,12 @@ if(@$_REQUEST['subcategoria'] === @$subcategoria_nome && !@$_REQUEST['categoria'
                     <div class="product-container lista">
 
                             <?php 
-                            if(!@$_REQUEST['categoria'] && !@$_REQUEST['subcategoria']){
+                            if(!@$_REQUEST['categoria'] && !@$_REQUEST['subcategoria'] && !@$_GET['txtBuscar']){
                                 $query = $pdo->query("SELECT * FROM produtos order by id desc limit 6 ");
                                 $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                            }elseif(@$_GET['txtBuscar']){
+                                $query = $pdo->query("SELECT * FROM produtos where nome LIKE '$buscar' or palavras like '$buscar' or categoria like '$buscar' or sub_categoria like '$buscar' order by id");
+                                $res = @$query->fetchAll(PDO::FETCH_ASSOC);
                             }elseif(@$_REQUEST['categoria'] && !@$_REQUEST['subcategoria']){
                                 $query = $pdo->query("SELECT * FROM produtos $num_cat order by id desc limit 6 ");
                                 $res = @$query->fetchAll(PDO::FETCH_ASSOC);
