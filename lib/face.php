@@ -4,8 +4,8 @@
 require_once 'Facebook/autoload.php';
 //include_once 'conexao.php';
 $fb = new \Facebook\Facebook([
-  'app_id' => '{5008563262560574}',
-  'app_secret' => '{3479810695f9ed6e016a03b9def1d99b}',
+  'app_id' => '{1615865688793996}',
+  'app_secret' => '{3fa583f6ed1685d8c3e73258be397837}',
   'default_graph_version' => 'v2.9',
   //'default_access_token' => '{access-token}', // optional
 ]);
