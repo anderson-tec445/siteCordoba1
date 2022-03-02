@@ -1,7 +1,8 @@
 <?php
 require_once("../conexao.php");
- require_once("../cabecalho.php");
-// ;)
+//require_once("../cabecalho.php");
+@session_start();
+
 
 if (@$_SESSION['id_usuario'] == null) {
   echo "<script language='javascript'> window.location='sistema' </script>";
@@ -10,7 +11,7 @@ if (@$_SESSION['id_usuario'] == null) {
 $id_venda = @$_GET['id_venda'];
 $id_usuario = @$_SESSION['id_usuario'];
 $nome_usuario = @$_SESSION['nome_usuario'];
-//$cpf_usuario = @$_SESSION['cpf_usuario'];
+$cpf_usuario = @$_SESSION['cpf_usuario'];
 $email_usuario = @$_SESSION['email_usuario'];
 $total = 0;
 $frete_correios;
@@ -260,7 +261,7 @@ $estado = $dados[0]['estado'];
 </div>
         <br>
       <?php
-       require_once("../rodape.php");
+       //require_once("../rodape.php");
       ?>
 
   <!-- Bootstrap core JavaScript
