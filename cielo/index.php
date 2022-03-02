@@ -1,6 +1,6 @@
 <?php
 require_once("../conexao.php");
-// require_once("../cabecalho.php");
+ require_once("../cabecalho.php");
 // ;)
 
 if (@$_SESSION['id_usuario'] == null) {
@@ -260,7 +260,7 @@ $estado = $dados[0]['estado'];
 </div>
         <br>
       <?php
-      // require_once("../rodape.php");
+       require_once("../rodape.php");
       ?>
 
   <!-- Bootstrap core JavaScript
