@@ -12,12 +12,10 @@ $agora = date('Y-m-d');
 
 ?>
 
-<div class="row mt-4 mb-4">
-    <a type="button" class="btn-primary btn-sm ml-3 d-none d-md-block" href="index.php?pag=<?php echo $pag ?>&funcao=novo">Novo Alerta</a>
-    <a type="button" class="btn-primary btn-sm ml-3 d-block d-sm-none" href="index.php?pag=<?php echo $pag ?>&funcao=novo">+</a>
-    
+<div class="titulo">
+    <h3>Alertas</h3>
+    <a type="button" class="botao-add" href="index.php?pag=<?php echo $pag ?>&funcao=novo"><i class="fas fa-plus"></i></a>
 </div>
-
 
 
 <!-- DataTales Example -->

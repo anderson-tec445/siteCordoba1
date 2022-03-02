@@ -793,6 +793,7 @@ footer .footer-text p{
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
     border-radius: 20%;
     text-align: center;
+    /* overflow-y: auto; */
 }
 
 #modal_login .modal-card .modal-login-principal{
@@ -809,6 +810,7 @@ footer .footer-text p{
 }
 #modal_login .modal-card .modal-login-principal.active{
     display: none;
+    
 }
 #modal_login .modal-card .modal-login.active{
     display: block;
@@ -821,7 +823,6 @@ footer .footer-text p{
 .modal-form {
     height: 200px;
 }
-
 #modal_login .modal-card .modal-exit,
 #modal_news .modal-card .modal-exit{
     position: absolute;

@@ -36,8 +36,8 @@
     </div>
 
     <div class="menu-carrinho">
-        <a href="produtos.php">Continuar Comprando</a>
-        <a href="cielo/index.php">Finalizar Compra</a>
+        <a class="btn-forms" href="produtos.php">Continuar Comprando</a>
+        <a class="btn-forms" href="cielo/index.php">Finalizar Compra</a>
     </div>
 
     

@@ -10,7 +10,10 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
 
 ?>
-
+<div class="titulo">
+    <h3>Estoque baixo</h3>
+    <!-- <a type="button" class="botao-add" href="index.php?pag=<?php echo $pag ?>&funcao=novo"><i class="fas fa-plus"></i></a> -->
+</div>
 
 
 

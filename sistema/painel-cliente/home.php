@@ -110,34 +110,3 @@ $cartoes_cliente = $dados_total[0]['cartoes'];
 
  ?>
 
-<h5 class="mt-3">Cartões Fidelidade</h5>
-<p class="text-muted"><small>Ao completar <?php echo $total_cartoes_troca ?> cartões você ganhará um cupom de desconto de R$ <?php echo $valor_cupom_cartao ?>,00 reais! 
-<?php if($cartoes_cliente == 0){
-	echo 'Você não efetuou nenhuma compra ainda, faça a sua primeira compra e ganhe seu primeiro cartão!';
-}else{
-	echo 'Você possui '.$cartoes_cliente.' Cartões!';
-} ?>
-</small></p>
-
-
-
-
-
-<div class="row">
-<?php 
-for ($i=1; $i <= $total_cartoes_troca; $i++) { 
-	if($i <= $cartoes_cliente){
-		$img = 'logo1.jpeg';
-	}else{
-		$img = 'logo1-inativa.jpeg';
-	}
- ?>
-
- 	  <div class="col-md-2 ml-2 " align="center">
-        <img src="../../img/<?php echo $img ?>" width="180">
-      </div>
-
- <?php } ?>
-
- </div>
-

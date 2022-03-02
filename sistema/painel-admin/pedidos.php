@@ -13,8 +13,7 @@ $agora = date('Y-m-d');
 
 <div class="titulo">
     <h3>Pedidos</h3>
-    <a type="button" class="botao-add" href="index.php?pag=<?php echo $pag ?>&funcao=novo"><i class="fas fa-plus"></i></a>
-
+    <!-- <a type="button" class="botao-add" href="index.php?pag=<?php echo $pag ?>&funcao=novo"><i class="fas fa-plus"></i></a> -->
 </div>
 
 

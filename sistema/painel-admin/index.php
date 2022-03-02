@@ -33,8 +33,9 @@ if(@count($res) > 0){
 
 
 // $date = new DateTime();
-setlocale(LC_TIME,'ptb', 'ptb.utf-8', 'portuguese');
-date_default_timezone_set('America/Sao_Paulo');
+$param = date("Y-m-d");
+setlocale(LC_ALL, 'pt_BR', "pt_BR.iso-8859-1", "pt_BR.utf-8", 'portuguese');
+ucfirst(utf8_encode(strftime("%A, %d de %B de %Y", strtotime($param))));
 $date = date_create();
 $agora = date('Y-m-d');
 
@@ -129,7 +130,7 @@ $pdo->query("UPDATE produtos SET promocao = 'Sim' where id = $id_pro");
            <div class="time">
                <?php
                echo date_format($date,'H:i:s') . '<br>'; ?>
-               <?php echo date_format($date,"l d F Y") ?>
+               <?php echo ucfirst(utf8_encode(strftime("%A, %d de %B de %Y", strtotime($param)))); ?>
            </div>
             <div class="user">
                 <h3><?php echo @$nome_usu ?></h3>

@@ -162,7 +162,7 @@ echo '</span>
                   <td>
                       <!--a class="text-dark mr-1" href="" title="Editar Características" onclick="addCarac('.$id_produto.', '.$id_carrinho.')">
                       <i class="fa fa-edit "></i></a-->
-                      <a onclick="deletarCarrinho('.$id_carrinho.')" id="btn-deletar" href="" class="ml-2" title="Remover Item do Carrinho"><i class="fas fa-trash-alt"></i></a>
+                      <a onclick="deletarCarrinho('.$id_carrinho.')" id="btn-deletar" href="" class="ml-2 btn-normal" title="Remover Item do Carrinho"><i class="fas fa-trash-alt"></i></a>
                   </td>
               </tr>
           </tbody>

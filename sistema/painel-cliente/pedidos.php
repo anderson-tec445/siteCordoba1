@@ -15,7 +15,9 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Cliente')
 
 ?>
 
-
+<div class="titulo">
+    <h3>Pedidos</h3>
+</div>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
