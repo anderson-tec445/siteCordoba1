@@ -36,7 +36,7 @@ for ($i = 0; $i < count($dados); $i++) {
         $promocao = "";
         $pasta = "combos";
     } else {
-        $promocao = $dados_p[0]['promocao'];
+        $promocao = @$dados_p[0]['promocao'];
         $pasta = "produtos";
     }
 
@@ -45,7 +45,7 @@ for ($i = 0; $i < count($dados); $i++) {
         $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
         $valor = $resp[0]['valor'];
     } else {
-        $valor = $dados_p[0]['valor'];
+        $valor = @$dados_p[0]['valor'];
     }
 
 
