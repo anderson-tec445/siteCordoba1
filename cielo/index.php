@@ -13,6 +13,8 @@ $id_usuario = @$_SESSION['id_usuario'];
 $nome_usuario = @$_SESSION['nome_usuario'];
 $cpf_usuario = @$_SESSION['cpf_usuario'];
 $email_usuario = @$_SESSION['email_usuario'];
+$valor = @$_SESSION['valor'];
+$nome = @$_SESSION['nome'];
 $total = 0;
 $frete_correios;
 
@@ -44,7 +46,7 @@ $estado = $dados[0]['estado'];
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
     
-    <title>API 3.0 da Cielo e PHP</title>
+    <title>Checkout Cordoba</title>
     
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -63,51 +65,171 @@ $estado = $dados[0]['estado'];
       </div>
 
     </div>
-
+    
     <div class="row">
       <div class="col-md-4 order-md-2 mb-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-muted">Seu carrinho</span>
-          <span class="badge badge-secondary badge-pill">3</span>
+         
         </h4>
         <ul class="list-group mb-3">
           <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-              <h6 class="my-0">Nome do Produto</h6>
-              <small class="text-muted">Descrição breve</small>
-            </div>
-            <span class="text-muted">R$</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-              <h6 class="my-0">Segundo produto</h6>
-              <small class="text-muted">Descrição breve</small>
-            </div>
-            <span class="text-muted">R$</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div class="col-lg-4 col-md-6">
+                        <div class="checkout__order">
+                            <h4>Sua Compra</h4>
+                            <div class="checkout__order__products">Produtos <span>Total</span></div>
+                            <ul>
 
-          <li class="list-group-item d-flex justify-content-between bg-light">
-            <div class="text-success">
-              <h6 class="my-0">Código promocional</h6>
-              <small>CÓDIGO DE EXEMPLO</small>
-            </div>
-            <span class="text-success">-R$</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total</span>
-            <strong>R$</strong>
+                                <?php
+                                $res = $pdo->query("SELECT * from carrinho where id_usuario = '$id_usuario' and id_venda = 0 order by id asc");
+                                $dados = $res->fetchAll(PDO::FETCH_ASSOC);
+                                $linhas = count($dados);
+
+                                if ($linhas == 0) {
+                                    $linhas = 0;
+                                    $total = 0;
+                                }
+
+                                $total;
+                                $total_peso;
+
+                                for ($i = 0; $i < count($dados); $i++) {
+                                    foreach ($dados[$i] as $key => $value) {
+                                    }
+
+                                    $id_produto = $dados[$i]['id_produto'];
+                                    $quantidade = $dados[$i]['quantidade'];
+                                    $id_carrinho = $dados[$i]['id'];
+                                    $combo = $dados[$i]['combo'];
+
+                                    if ($combo == 'Sim') {
+                                        $res_p = $pdo->query("SELECT * from combos where id = '$id_produto' ");
+                                    } else {
+                                        $res_p = $pdo->query("SELECT * from produtos where id = '$id_produto' ");
+                                    }
+
+                                    $dados_p = $res_p->fetchAll(PDO::FETCH_ASSOC);
+                                    $nome_produto = $dados_p[0]['nome'];
+                                    $tipo_envio = $dados_p[0]['tipo_envio'];
+                                    $valor_frete = $dados_p[0]['valor_frete'];
+
+                                    $querye = $pdo->query("SELECT * FROM tipo_envios where id = '$tipo_envio' ");
+                                    $rese = $querye->fetchAll(PDO::FETCH_ASSOC);
+                                    $envio = $rese[0]['nome'];
+
+                                    if ($envio == 'Correios') {
+                                        $frete_correios = 'Sim';
+                                        $peso = $dados_p[0]['peso'];
+                                        @$total_peso = @$total_peso + $peso;
+                                        @$existe_frete = 'Sim';
+                                    }
+
+
+
+
+
+                                    if ($combo == 'Sim') {
+                                        $promocao = "";
+                                        $pasta = "combos";
+                                    } else {
+                                        $promocao = $dados_p[0]['promocao'];
+                                        $pasta = "produtos";
+                                    }
+
+
+                                    if ($promocao == 'Sim') {
+                                        $queryp = $pdo->query("SELECT * FROM promocoes where id_produto = '$id_produto' ");
+                                        $resp = $queryp->fetchAll(PDO::FETCH_ASSOC);
+                                        $valor = $resp[0]['valor'];
+                                    } else {
+                                        $valor = $dados_p[0]['valor'];
+                                    }
+
+
+                                    $imagem = $dados_p[0]['imagem'];
+
+
+                                    $total_item = $valor * $quantidade;
+                                    @$total = @$total + $total_item;
+
+                                    if ($valor_frete > 0) {
+
+                                        @$total = @$total + @$valor_frete;
+                                    }
+
+
+                                    $valor = number_format($valor, 2, ',', '.');
+                                    //$total = number_format( $total , 2, ',', '.');
+                                    $total_item = number_format($total_item, 2, ',', '.');
+
+
+                                ?>
+                                    <li><?php echo $nome_produto ?> <span>R$<?php echo $total_item ?></span></li>
+
+                                    <?php if ($valor_frete > 0) { ?>
+                                        <p align="right" class="text-danger"><small>Frete Fixo : <?php echo $valor_frete ?></small></p>
+                                    <?php } ?>
+
+                                <?php }
+                                @$total = number_format(@$total, 2, ',', '.');
+                                ?>
+                            </ul>
+                            <div class="checkout__order__subtotal">Subtotal <span>R$ <?php echo $total ?></span></div>
+
+                            <?php if (@$frete_correios == 'Sim') { ?>
+
+                                <div class="checkout__order__total">Calcular Frete<br>
+                                    <div class="checkout__input py-2">
+
+                                        <form id="frm" method="post">
+                                            <div class="row">
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-7">
+                                                    <input type="hidden" value="<?php echo @$total_peso ?>" name="total_peso" id="total_peso">
+
+                                                    <div class="checkout__input">
+                                                        <input type="text" name="cep2" id="cep2" placeholder="CEP">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="checkout__input">
+                                                        <select name="codigo_servico" id="codigo_servico">
+                                                            <option value="0">Escolher</option>
+                                                            <option value="40010">Sedex</option>
+
+                                                            <option value="41106">PAC</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+
+                                        <div id="listar-frete"></div>
+                                    </div>
+
+
+
+                                </div>
+
+                            <?php } ?>
+
+                            <div class="checkout__order__total">Total <span id="total_final"></span></div>
+
+
+                            <input type="hidden" value="0" id="vlr_frete" name="vlr_frete">
+                            <input type="hidden" value="<?php echo @$existe_frete ?>" id="existe_frete" name="existe_frete">
+                            <input type="hidden" value="<?php echo @$total ?>" id="total_compra" name="total_compra">
+                            <input type="hidden" value="<?php echo @$cpf_usuario ?>" id="antigo" name="antigo">
+
+                           
+
           </li>
         </ul>
 
-        <form class="card p-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Cupom de desconto">
-            <div class="input-group-append">
-              <button type="submit" class="btn btn-secondary">Enviar</button>
-            </div>
-          </div>
-        </form>
+        
       </div>
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Endereço (Entrega)</h4>

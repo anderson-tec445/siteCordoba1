@@ -373,6 +373,85 @@ $estado = $dados[0]['estado'];
 </section>
 <!-- Checkout Section End -->
 
+<br>
+
+
+
+<h4 class="mb-3">Pagamento</h4>
+
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <label for="cc-flag">Bandeira</label>
+    <input type="text" class="form-control" name="cc-flag" id="cc-flag" placeholder="" required>
+    <div class="invalid-feedback">
+      É necessário a bandeira do cartão.
+    </div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <label for="cc-number">Numero do Cartão</label>
+    <input type="text" class="form-control" name="cc-number" id="cc-number" placeholder="" required>
+    <div class="invalid-feedback">
+      Preencha o número do cartão.
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3 mb-3">
+    <label for="cc-expiration">Data Validade</label>
+    <input type="text" class="form-control" name="cc-expiration" id="cc-expiration" placeholder="" required>
+    <div class="invalid-feedback">
+      Preencha a validade do cartão.
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <label for="cc-cvv">CVV</label>
+    <input type="text" class="form-control" name="cc-cvv" id="cc-cvv" placeholder="" required>
+    <div class="invalid-feedback">
+      Preencha o código de segurança do cartão.
+    </div>
+  </div>
+</div>
+<hr class="mb-4">
+<button class="btn-forms " type="submit">Finalizar Compra</button>
+</form>
+</div>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+window.jQuery || document.write('<script src="../js/jquery-slim.min.js"><\/script>')
+</script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/holder.min.js"></script>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+'use strict';
+
+window.addEventListener('load', function() {
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+var forms = document.getElementsByClassName('needs-validation');
+
+// Loop over them and prevent submission
+var validation = Array.prototype.filter.call(forms, function(form) {
+form.addEventListener('submit', function(event) {
+  if (form.checkValidity() === false) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  form.classList.add('was-validated');
+}, false);
+});
+}, false);
+})();
+</script>
+
 
 
 <!-- Modal -->
@@ -398,7 +477,7 @@ $estado = $dados[0]['estado'];
 <br>
 
 <?php
-require_once("rodape.php");
+//require_once("rodape.php");
 ?>
 
 
@@ -560,6 +639,3 @@ require_once("rodape.php");
 </script>
 
 
-<?php
-require_once("efetuar-pagamento.php");
-?>

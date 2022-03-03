@@ -40,7 +40,7 @@
 
           <div align="right" class="col-md-6 mb-4">
              <a type="button" id="btn-comprar" class="bg-secondary text-light primary-btn btn-sm" data-dismiss="modal">Comprar +</a>
-             <a href="checkout.php" type="submit" name="btn-finalizar" id="btn-finalizar" class="primary-btn bg-info btn-sm">Finalizar</a>
+             <a href="./cielo/efetuar-pagamento.php" type="submit" name="btn-finalizar" id="btn-finalizar" class="primary-btn bg-info btn-sm">Finalizar</a>
           </div>
 
         </div>
