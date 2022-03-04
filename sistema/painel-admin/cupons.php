@@ -179,8 +179,8 @@ $res = $query->fetchAll(PDO::FETCH_ASSOC);
                 <input value="<?php echo @$_GET['id'] ?>" type="hidden" name="txtid2" id="txtid2">
                 <input value="<?php echo @$codigo2 ?>" type="hidden" name="antigo" id="antigo">
 
-                    <button type="button" id="btn-fechar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" name="btn-salvar" id="btn-salvar" class="btn btn-primary">Salvar</button>
+                    <button type="button" id="btn-fechar" class="btn-forms" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" name="btn-salvar" id="btn-salvar" class="btn-forms">Salvar</button>
                 </div>
             </form>
         </div>
@@ -211,12 +211,12 @@ $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-excluir">Cancelar</button>
+                <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-excluir">Cancelar</button>
                 <form method="post">
 
                     <input type="hidden" id="id"  name="id" value="<?php echo @$_GET['id'] ?>" required>
 
-                    <button type="button" id="btn-deletar" name="btn-deletar" class="btn btn-danger">Excluir</button>
+                    <button type="button" id="btn-deletar" name="btn-deletar" class="btn-forms">Excluir</button>
                 </form>
             </div>
         </div>

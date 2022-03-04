@@ -142,12 +142,12 @@ for ($i = 0; $i < count($dados); $i++) {
 
 
 <!-- The JS SDK Login Button -->
-
+<!-- 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
 <div id="status">
-</div>
+</div> -->
 
 <!-- Load the JS SDK asynchronously -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>

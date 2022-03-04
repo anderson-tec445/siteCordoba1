@@ -126,8 +126,8 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                 <input value="<?php echo @$_GET['id'] ?>" type="hidden" name="txtid2" id="txtid2">
                 <input value="<?php echo @$nome2 ?>" type="hidden" name="antigo" id="antigo">
 
-                    <button type="button" id="btn-fechar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" name="btn-salvar" id="btn-salvar" class="btn btn-primary">Salvar</button>
+                    <button type="button" id="btn-fechar" class="btn-forms" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" name="btn-salvar" id="btn-salvar" class="btn-forms">Salvar</button>
                 </div>
             </form>
         </div>

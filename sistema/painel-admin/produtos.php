@@ -421,8 +421,8 @@ $agora = date('Y-m-d');
   <input value="<?php echo @$_GET['id'] ?>" type="hidden" name="txtid2" id="txtid2">
   <input value="<?php echo @$nome2 ?>" type="hidden" name="antigo" id="antigo">
 
-  <button type="button" id="btn-fechar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-  <button type="submit" name="btn-salvar" id="btn-salvar" class="btn btn-primary">Salvar</button>
+  <button type="button" id="btn-fechar" class="btn-forms" data-dismiss="modal">Cancelar</button>
+  <button type="submit" name="btn-salvar" id="btn-salvar" class="btn-forms">Salvar</button>
 </div>
 </form>
 </div>
@@ -453,12 +453,12 @@ $agora = date('Y-m-d');
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-excluir">Cancelar</button>
+        <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-excluir">Cancelar</button>
         <form method="post">
 
           <input type="hidden" id="id"  name="id" value="<?php echo @$_GET['id'] ?>" required>
 
-          <button type="button" id="btn-deletar" name="btn-deletar" class="btn btn-danger">Excluir</button>
+          <button type="button" id="btn-deletar" name="btn-deletar" class="btn-forms">Excluir</button>
         </form>
       </div>
     </div>
@@ -505,11 +505,11 @@ $agora = date('Y-m-d');
           </div>
 
           <div class="col-md-12" align="right">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-fotos">Cancelar</button>
+            <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-fotos">Cancelar</button>
 
             <input type="hidden" id="id"  name="id" value="<?php echo @$_GET['id'] ?>">
 
-            <button type="submit" id="btn-fotos" name="btn-fotos" class="btn btn-info">Salvar</button>
+            <button type="submit" id="btn-fotos" name="btn-fotos" class="btn-forms">Salvar</button>
 
           </div>
 
@@ -551,10 +551,10 @@ $agora = date('Y-m-d');
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-img">Cancelar</button>
+        <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-img">Cancelar</button>
         <form method="post">
           <input type="hidden" name="id_foto" id="id_foto">                  
-          <button type="button" id="btn-deletar-img" name="btn-deletar-img" class="btn btn-danger">Excluir</button>
+          <button type="button" id="btn-deletar-img" name="btn-deletar-img" class="btn-forms">Excluir</button>
         </form>
       </div>
     </div>
@@ -619,13 +619,13 @@ $agora = date('Y-m-d');
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-carac">Cancelar</button>
+        <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-carac">Cancelar</button>
 
 
         <input type="hidden" id="txtid"  name="txtid" value="<?php echo @$_GET['id'] ?>">
 
 
-        <button type="button" id="btn-add-carac" name="btn-add-carac" class="btn btn-info">Adicionar</button>
+        <button type="button" id="btn-add-carac" name="btn-add-carac" class="btn-forms">Adicionar</button>
       </form>
     </div>
   </div>
@@ -655,10 +655,10 @@ $agora = date('Y-m-d');
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-carac-deletar">Cancelar</button>
+        <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-carac-deletar">Cancelar</button>
         <form method="post">
           <input type="hidden" name="id_carac" id="id_carac">                  
-          <button type="button" id="btn-deletar-carac" name="btn-deletar-carac" class="btn btn-danger">Excluir</button>
+          <button type="button" id="btn-deletar-carac" name="btn-deletar-carac" class="btn-forms">Excluir</button>
         </form>
       </div>
     </div>
@@ -718,10 +718,10 @@ $agora = date('Y-m-d');
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-item">Cancelar</button>
+          <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-item">Cancelar</button>
 
           <input type="hidden" name="id_carac_item" id="id_carac_item">                  
-          <button type="button" id="btn-item" name="btn-item" class="btn btn-info">Adcionar</button>
+          <button type="button" id="btn-item" name="btn-item" class="btn-forms">Adcionar</button>
         </form>
       </div>
     </div>
@@ -751,10 +751,10 @@ $agora = date('Y-m-d');
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-item-deletar">Cancelar</button>
+        <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-item-deletar">Cancelar</button>
         <form method="post">
           <input type="hidden" name="id_item_carac" id="id_item_carac">                  
-          <button type="button" id="btn-deletar-item" name="btn-deletar-item" class="btn btn-danger">Excluir</button>
+          <button type="button" id="btn-deletar-item" name="btn-deletar-item" class="btn-forms">Excluir</button>
         </form>
       </div>
     </div>
@@ -862,10 +862,10 @@ $agora = date('Y-m-d');
 
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-promocao">Cancelar</button>
+  <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-promocao">Cancelar</button>
 
   <input type="hidden" name="id-promocao" id="id-promocao" value="<?php echo @$_GET['id'] ?>">                  
-  <button type="button" id="btn-promocao" name="btn-promocao" class="btn btn-info">Salvar</button>
+  <button type="button" id="btn-promocao" name="btn-promocao" class="btn-forms">Salvar</button>
 </form>
 </div>
 </div>

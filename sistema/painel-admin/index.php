@@ -257,8 +257,8 @@ $pdo->query("UPDATE produtos SET promocao = 'Sim' where id = $id_pro");
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="ml-3 py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="index.php?pag=<?php echo $menu4 ?>">Combos</a>
-                        <a class="collapse-item" href="index.php?pag=<?php echo $menu5 ?>">Promoções</a>
+                        <!-- <a class="collapse-item" href="index.php?pag=<?php echo $menu4 ?>">Combos</a> -->
+                        <!-- <a class="collapse-item" href="index.php?pag=<?php echo $menu5 ?>">Promoções</a> -->
                         <a class="collapse-item" href="index.php?pag=<?php echo $menu11 ?>">Alertas</a>
                         <a class="collapse-item" href="index.php?pag=<?php echo $menu12 ?>">Cupons</a>
 

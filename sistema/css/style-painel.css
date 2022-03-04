@@ -28,10 +28,7 @@ a{
     color: var(--dark-red);
     text-decoration: none;
 }
-a:hover{
-   color: var(--dark-red);
-   text-decoration: none;
-}
+
 
 .link_normal:hover{
    color: var(--dark-red);
@@ -39,6 +36,7 @@ a:hover{
 
 .btn-forms:hover{
    color: var(--white);
+   text-decoration: none;
 }
 .btn-normal:hover{
    color: var(--dark-red);
@@ -519,6 +517,10 @@ body {
 }
 .titulo .botao-add{
    font-size: 32px;
+}
+
+.titulo .botao-add:hover{
+   color: var(--dark-red);
 }
 
 /* DashBoard */

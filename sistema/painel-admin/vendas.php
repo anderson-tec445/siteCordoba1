@@ -175,7 +175,7 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                          
 
                    
-                    <button type="submit" id="btn-mensagem" name="btn-mensagem" class="btn btn-info mt-2">Enviar</button>
+                    <button type="submit" id="btn-mensagem" name="btn-mensagem" class="btn-forms mt-2">Enviar</button>
                 </form>
                 </div>
                  <div class="col-md-6 mb-2">
@@ -238,12 +238,12 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-excluir">Cancelar</button>
+                <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-excluir">Cancelar</button>
                 <form method="post">
 
                     <input type="hidden" id="id"  name="id" value="<?php echo @$_GET['id'] ?>" required>
 
-                    <button type="button" id="btn-deletar" name="btn-deletar" class="btn btn-danger">Excluir</button>
+                    <button type="button" id="btn-deletar" name="btn-deletar" class="btn-forms">Excluir</button>
                 </form>
             </div>
         </div>
@@ -275,12 +275,12 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-aprovar">Cancelar</button>
+                <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-aprovar">Cancelar</button>
                 <form method="post">
 
                     <input type="hidden" id="id"  name="id" value="<?php echo @$_GET['id'] ?>" required>
 
-                    <button type="submit" id="btn-aprovar" name="btn-aprovar" class="btn btn-success">Aprovar</button>
+                    <button type="submit" id="btn-aprovar" name="btn-aprovar" class="btn-forms">Aprovar</button>
                 </form>
             </div>
         </div>
@@ -357,8 +357,8 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                 <input value="<?php echo @$_GET['id'] ?>" type="hidden" name="txtid2" id="txtid2">
                
 
-                    <button type="button" id="btn-cancelar-editar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" name="btn-editar" id="btn-editar" class="btn btn-primary">Salvar</button>
+                    <button type="button" id="btn-cancelar-editar" class="btn-forms" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" name="btn-editar" id="btn-editar" class="btn-forms">Salvar</button>
                 </div>
             </form>
         </div>

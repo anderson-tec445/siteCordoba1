@@ -354,8 +354,8 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
   <input value="<?php echo @$_GET['id'] ?>" type="hidden" name="txtid2" id="txtid2">
   <input value="<?php echo @$nome2 ?>" type="hidden" name="antigo" id="antigo">
 
-  <button type="button" id="btn-fechar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-  <button type="submit" name="btn-salvar" id="btn-salvar" class="btn btn-primary">Salvar</button>
+  <button type="button" id="btn-fechar" class="btn-forms" data-dismiss="modal">Cancelar</button>
+  <button type="submit" name="btn-salvar" id="btn-salvar" class="btn-forms">Salvar</button>
 </div>
 </form>
 </div>
@@ -386,12 +386,12 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-excluir">Cancelar</button>
+        <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-excluir">Cancelar</button>
         <form method="post">
 
           <input type="hidden" id="id"  name="id" value="<?php echo @$_GET['id'] ?>" required>
 
-          <button type="button" id="btn-deletar" name="btn-deletar" class="btn btn-danger">Excluir</button>
+          <button type="button" id="btn-deletar" name="btn-deletar" class="btn-forms">Excluir</button>
         </form>
       </div>
     </div>
@@ -533,8 +533,8 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
         <form method="post">
           <input type="hidden" name="id_produto" id="id_produto">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-excluir-produto">Cancelar</button>                  
-          <button type="button" id="btn-deletar-produto" name="btn-deletar-produto" class="btn btn-danger">Excluir</button>
+          <button type="button" class="btn-forms" data-dismiss="modal" id="btn-cancelar-excluir-produto">Cancelar</button>                  
+          <button type="button" id="btn-deletar-produto" name="btn-deletar-produto" class="btn-forms">Excluir</button>
         </form>
       </div>
     </div>

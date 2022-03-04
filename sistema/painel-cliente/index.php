@@ -201,8 +201,8 @@ $cpf_usu = @$dados[0]['cpf'];
                                     <input value="<?php echo $_SESSION['id_usuario'] ?>" type="hidden" name="txtid" id="txtid">
                                     <input value="<?php echo $_SESSION['cpf_usuario'] ?>" type="hidden" name="antigo" id="antigo">
 
-                                    <button type="button" id="btn-fechar-perfil" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" name="btn-salvar-perfil" id="btn-salvar-perfil" class="btn btn-primary">Salvar</button>
+                                    <button type="button" id="btn-fechar-perfil" class="btn-forms" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" name="btn-salvar-perfil" id="btn-salvar-perfil" class="btn-forms">Salvar</button>
                                 </div>
                             </form>
 
