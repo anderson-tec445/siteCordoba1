@@ -70,6 +70,12 @@ input:focus {
     outline: 2px solid var(--dark-red);
   }
 
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
 /* Slides */
 .swiper.bannerprincipal {
     width: 100%;
@@ -921,7 +927,8 @@ footer .footer-text p{
 
 #modal_login .modal-card .modal-registro .modal-form input,
 #modal_news .modal-card .modal-news-registro .modal-form input,
-#modal_login .modal-card .modal-login .modal-form input{
+#modal_login .modal-card .modal-login .modal-form input,
+.inputs{
     width: 100%;
     height: 30px;
     border-radius: 30px;

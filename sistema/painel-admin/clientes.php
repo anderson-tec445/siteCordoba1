@@ -25,7 +25,6 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                         <th>CPF</th>
                         <th>Telefone</th>
                         <th>Email</th>
-                        <th>Cartões</th>
                     </tr>
                 </thead>
 
@@ -44,27 +43,23 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                   $cpf = $res[$i]['cpf'];
                   $telefone = $res[$i]['telefone'];
                   $email = $res[$i]['email'];
-                  $cartoes = $res[$i]['cartoes'];
+                //   $cartoes = $res[$i]['cartoes'];
 
 
                   $id = $res[$i]['id'];
 
-                  if($cartoes == ""){
-                    $cartoes = 0;
-                  }
+                //   if($cartoes == ""){
+                //     $cartoes = 0;
+                //   }
 
                   ?>
 
 
-                  <tr>
+                <tr>
                     <td><?php echo $nome ?></td>
                     <td><?php echo $cpf ?></td>
                     <td><?php echo $telefone ?></td>
                     <td><?php echo $email ?></td>
-                    <td><?php echo $cartoes ?></td>
-
-
-
                 </tr>
             <?php } ?>
 

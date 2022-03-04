@@ -69,7 +69,7 @@ $cpf_usu = @$dados[0]['cpf'];
 
 <div class="main">
         <div class="topbar">
-            <div><img src="../img-sistema/cordoba-logo-painel.png" alt=""></div>
+            <div><a href="../../index.php"><img src="../img-sistema/cordoba-logo-painel.png" alt=""></a></div>
            <div class="time">
                <?php
                echo date_format($date,'H:i:s') . '<br>'; ?>
